@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+
+    <named-config name="ibmc3p0">
+
+        <!-- 指定连接数据源的基本属性 -->
+        <property name="user">root</property>
+        <property name="password">root</property>
+        <property name="driverClass">com.mysql.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql:///jluibm?useSSL=false</property>
+
+        <!-- 数据库连接池连接数少于最小数时，每次申请的连接数 -->
+        <property name="acquireIncrement">5</property>
+        <!-- 初始化数据库连接池时连接的数目 -->
+        <property name="initialPoolSize">5</property>
+        <!-- 数据库连接池中最小的连接数 -->
+        <property name="minPoolSize">5</property>
+        <!-- 数据库连接池中最大的连接数 -->
+        <property name="maxPoolSize">10</property>
+
+        <!-- 数据库连接池可以维护的最大Statement数目 -->
+        <property name="maxStatements">20</property>
+        <!-- 每个连接同时可以使用的最大Statement数目 -->
+        <property name="maxStatementsPerConnection">5</property>
+
+    </named-config>
+</c3p0-config>
