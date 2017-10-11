@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <c3p0-config>
 
-    <named-config name="ibmc3p0">
+    <named-config name="dsmc3p0">
 
         <!-- 指定连接数据源的基本属性 -->
         <property name="user">root</property>
         <property name="password">root</property>
-        <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql:///jluibm?useSSL=false</property>
+        <property name="driverClass">oracle.jdbc.driver.OracleDriver</property>
+        <property name="jdbcUrl">jdbc:oracle://localhost:5500/DrugStoreManagement</property>
 
         <!-- 数据库连接池连接数少于最小数时，每次申请的连接数 -->
         <property name="acquireIncrement">5</property>

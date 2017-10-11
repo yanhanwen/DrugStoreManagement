@@ -1,5 +1,6 @@
 package com.dsm.model.utils;
 
-public class SQLTools {
-
+public class SQLTools 
+{
+	
 }
