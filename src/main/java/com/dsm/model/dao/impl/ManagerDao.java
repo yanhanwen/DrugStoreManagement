@@ -25,6 +25,7 @@ public class ManagerDao extends BaseDao<Salesman>
 	}
 	public void addObject(Object obj) {
 		// TODO Auto-generated
+		jdjfdsalfk;
 	}
 
 	public void deleteObjectByKey(Object key) {
