@@ -1,5 +1,6 @@
 package com.dsm.model.dao.impl;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import com.dsm.model.utils.JDBCTools;
 
 public class WarehouseManagerDao extends BaseDao<Salesman>
 {
-	public int getOutNum()
+	public BigDecimal getOutNum()
 	{
 		Connection connection;
 		try {
@@ -18,9 +19,9 @@ public class WarehouseManagerDao extends BaseDao<Salesman>
 			String sql = "select sum(Salary) from WarehouseManager";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
-			return rs.getInt(1);
+			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
-			return -1;
+			return new BigDecimal(-1);
 		}
 	}
 	public void addObject(Object obj) {

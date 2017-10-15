@@ -2,6 +2,7 @@ package com.dsm.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,9 +43,9 @@ public class FinaServlet extends HttpServlet
 		StoreDao s = new StoreDao();
 		SalesmanDao sm = new SalesmanDao();
 		StoreManagerDao smg = new StoreManagerDao();
-		int whoutnum = wh.getOutNum();
-		int soutnum = s.getOutNum();
-		int smoutnum = sm.getOutNum();
-		int smgoutnum = smg.getOutNum();
+		BigDecimal whoutnum = wh.getOutNum();
+		BigDecimal soutnum = s.getOutNum();
+		BigDecimal smoutnum = sm.getOutNum();
+		BigDecimal smgoutnum = smg.getOutNum();
 	}
 }
