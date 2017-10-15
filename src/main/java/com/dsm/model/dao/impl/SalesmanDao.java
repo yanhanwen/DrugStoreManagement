@@ -24,14 +24,19 @@ public class SalesmanDao extends BaseDao<Salesman>
 			return new BigDecimal(-1);
 		}
 	}
-	public void addObject(Object obj) {
-		// TODO Auto-generated method stub
-		
+	public void addObject(Object obj)
+	{
+		Salesman Salesman = (Salesman) obj;
+		String sql = "insert into Salesman(SalesmanNo,SalesmanName,Sex,Birthday,Age,Telephone,HireDate,StoreNo,Salary,Passwd,OnDuty,Icon) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+		update(sql,Salesman.getSalesmanNo(),Salesman.getSalesmanName(),Salesman.getSex(),Salesman.getBirthday(),
+				Salesman.getAge(),Salesman.getTelephone(),Salesman.getHireDate(),Salesman.getStoreNo(),Salesman.getSalary(),
+				Salesman.getPasswd(),Salesman.getOnDuty(),Salesman.getIcon());
 	}
-
-	public void deleteObjectByKey(Object key) {
-		// TODO Auto-generated method stub
-		
+	public void deleteObjectByKey(Object key)
+	{
+		String SalesmanNo = (String)key;
+		String sql = "delete from Salesman where SalesmanNo=?";
+		update(sql, SalesmanNo);
 	}
 
 }

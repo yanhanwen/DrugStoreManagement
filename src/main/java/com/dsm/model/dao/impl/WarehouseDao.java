@@ -26,10 +26,15 @@ public class WarehouseDao extends BaseDao<Warehouse>
 	}
 	public void addObject(Object obj)
 	{
-		
+		Warehouse Warehouse = (Warehouse) obj;
+		String sql = "insert into Warehouse(WarehouseNo,WarehouseName,Province,City,District,Street,AddrDetail,MonthlyCost) values(?,?,?,?,?,?,?,?)";
+		update(sql,Warehouse.getWarehouseNo(),Warehouse.getWarehouseName(),Warehouse.getProvince(),Warehouse.getCity(),
+				Warehouse.getDistrici(),Warehouse.getStreet(),Warehouse.getAddrDetail(),Warehouse.getMonthlyCost());
 	}
 	public void deleteObjectByKey(Object key)
 	{
-		
+		String WarehouseNo = (String)key;
+		String sql = "delete from Warehouse where WarehouseNo=?";
+		update(sql, WarehouseNo);
 	}
 }

@@ -24,14 +24,17 @@ public class StoreDao extends BaseDao<Store>
 			return new BigDecimal(-1);
 		}
 	}
-	public void addObject(Object obj) {
-		// TODO Auto-generated method stub
-		
+	public void addObject(Object obj)
+	{
+		Store Store = (Store) obj;
+		String sql = "insert into Store(StoreNo,StoreName,Province,City,District,Street,AddrDetail,Telephone,OpenDate,MonthlyCost,isOpen) values(?,?,?,?,?,?,?,?,?,?,?)";
+		update(sql,Store.getStoreNo(),Store.getStoreName(),Store.getProvince(),Store.getCity(),Store.getDistrict(),
+				Store.getStreet(),Store.getAddrDetail(),Store.getTelephone(),Store.getOpenDate(),Store.getMonthlyCost(),Store.getIsOpen());
 	}
-
-	public void deleteObjectByKey(Object key) {
-		// TODO Auto-generated method stub
-		
+	public void deleteObjectByKey(Object key)
+	{
+		String StoreNo = (String)key;
+		String sql = "delete from Store where StoreNo=?";
+		update(sql, StoreNo);
 	}
-	
 }

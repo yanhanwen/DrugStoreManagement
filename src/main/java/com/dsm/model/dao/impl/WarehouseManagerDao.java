@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.dsm.model.entity.Salesman;
+import com.dsm.model.entity.WarehouseManager;
 import com.dsm.model.utils.JDBCTools;
 
 public class WarehouseManagerDao extends BaseDao<Salesman>
@@ -24,14 +25,21 @@ public class WarehouseManagerDao extends BaseDao<Salesman>
 			return new BigDecimal(-1);
 		}
 	}
-	public void addObject(Object obj) {
-		// TODO Auto-generated method stub
-		
+	public void addObject(Object obj)
+	{
+		WarehouseManager WarehouseManager = (WarehouseManager) obj;
+		String sql = "insert into WarehouseManager(WareManNo,WareManName,Sex,Birthday,Age,Telephone,HireDate,WarehouseNo,Salary,Passwd,ManagerNo,OnDuty,Icon) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		update(sql, WarehouseManager.getWarehouseNo(),WarehouseManager.getWareManName(),WarehouseManager.getSex(),
+				WarehouseManager.getBirthday(),WarehouseManager.getAge(),WarehouseManager.getTelephone(),WarehouseManager.getHireDate(),
+				WarehouseManager.getWarehouseNo(),WarehouseManager.getSalary(),WarehouseManager.getPasswd(),WarehouseManager.getManagerNo(),
+				WarehouseManager.getOnDuty(),WarehouseManager.getIcon());
 	}
 
-	public void deleteObjectByKey(Object key) {
-		// TODO Auto-generated method stub
-		
+	public void deleteObjectByKey(Object key)
+	{
+		String WarehouseNo = (String)key;
+		String sql = "delete from Warehouse where WarehouseNo=?";
+		update(sql, WarehouseNo);
 	}
 
 }

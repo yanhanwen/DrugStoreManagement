@@ -24,14 +24,18 @@ public class StoreManagerDao extends BaseDao<StoreManager>
 			return new BigDecimal(-1);
 		}
 	}
-	public void addObject(Object obj) {
-		// TODO Auto-generated method stub
-		
+	public void addObject(Object obj)
+	{
+		StoreManager StoreManager = (StoreManager) obj;
+		String sql = "insert into StoreManager(StoreManNo,StoreManName,Sex,Birthday,Age,Telephone,HireDate,StoreNo,Salary,Passwd,ManagerNo,OnDuty,Icon) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		update(sql,StoreManager.getManagerNo(),StoreManager.getStoreManName(),StoreManager.getSex(),StoreManager.getBirthday(),
+				StoreManager.getAge(),StoreManager.getTelephone(),StoreManager.getHireDate(),StoreManager.getStoreNo(),StoreManager.getSalary(),
+				StoreManager.getPasswd(),StoreManager.getManagerNo(),StoreManager.getOnDuty(),StoreManager.getIcon());
 	}
-
-	public void deleteObjectByKey(Object key) {
-		// TODO Auto-generated method stub
-		
+	public void deleteObjectByKey(Object key)
+	{
+		String StoreManagerNo = (String)key;
+		String sql = "delete from StoreManager where StoreManagerNo=?";
+		update(sql, StoreManagerNo);
 	}
-
 }

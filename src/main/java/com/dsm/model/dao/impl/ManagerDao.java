@@ -7,10 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.dsm.model.entity.Manager;
-import com.dsm.model.entity.Salesman;
 import com.dsm.model.utils.JDBCTools;
 
-public class ManagerDao extends BaseDao<Salesman>
+public class ManagerDao extends BaseDao<Manager>
 {
 	public BigDecimal getOutNum()
 	{
@@ -27,15 +26,16 @@ public class ManagerDao extends BaseDao<Salesman>
 	}
 	public void addObject(Object obj) 
 	{
-		Manager activitySignin = (Manager) obj;
-		String sql = "insert into Manager values(?,?,?)";
-		update(sql, activitySignin.getUserId(), activitySignin.getActivityId(), 
-				activitySignin.getSigninTime());
+		Manager Manager = (Manager) obj;
+		String sql = "insert into Manager(ManagerNo,ManagerName,Sex,Birthday,Age,Telephone,HireDate,Salary,Passwd,OnDuty,Icon) values(?,?,?,?,?,?,?,?,?,?,?)";
+		update(sql,Manager.getManagerNo(),Manager.getManagerName(),Manager.getSex(),Manager.getBirthday(),Manager.getAge(),
+				Manager.getTelephone(),Manager.getHireDate(),Manager.getSalary(),Manager.getPasswd(),Manager.getOnDuty(),Manager.getIcon());
 	}
 
 	public void deleteObjectByKey(Object key) 
 	{
-		
+		String ManagerNo = (String)key;
+		String sql = "delete from Manager where ManagerNo=?";
+		update(sql, ManagerNo);
 	}
-
 }
