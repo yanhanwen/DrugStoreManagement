@@ -24,8 +24,7 @@ public class ManagerDao extends BaseDao<Salesman>
 		}
 	}
 	public void addObject(Object obj) {
-		// TODO Auto-generated method stub
-		Stgrugyojk,guhjfuck you
+		// TODO Auto-generated
 	}
 
 	public void deleteObjectByKey(Object key) {
