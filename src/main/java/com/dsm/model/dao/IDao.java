@@ -11,7 +11,7 @@ public interface IDao<T>
 	 * @param args
 	 * @return 主键值
 	 */
-	public int update(String sql, Object... args);
+	public String update(String sql, Object... args);
 
 	/**
 	 * 返回查到的一个对象

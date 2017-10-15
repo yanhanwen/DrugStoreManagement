@@ -13,14 +13,13 @@ import com.dsm.model.utils.ReflectionTools;
 public abstract class BaseDao<T> implements IDao<T> 
 {
 	protected Class<T> clazz;
-
-	public int update(String sql, Object... args)
+	public String update(String sql, Object... args)
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		int primaryKey = -1;
+		String primaryKey = "noneof";
 		
 		try
 		{
@@ -36,7 +35,7 @@ public abstract class BaseDao<T> implements IDao<T>
 			
 			resultSet = preparedStatement.getGeneratedKeys();
 			if (resultSet.next())
-				primaryKey = resultSet.getInt(1);
+				primaryKey = resultSet.getString(1);
 		} catch (Exception e)
 		{
 			e.printStackTrace();
