@@ -5,17 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.dsm.model.entity.Warehouse;
+import com.dsm.model.entity.Salesman;
 import com.dsm.model.utils.JDBCTools;
 
-public class WarehouseDao extends BaseDao<Warehouse>
+public class WarehouseManagerDao extends BaseDao<Salesman>
 {
 	public int getOutNum()
 	{
 		Connection connection;
 		try {
 			connection = JDBCTools.getConnection();
-			String sql = "select sum(MonthlyCost) from Warehouse";
+			String sql = "select sum(Salary) from WarehouseManager";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			return rs.getInt(1);
@@ -23,12 +23,14 @@ public class WarehouseDao extends BaseDao<Warehouse>
 			return -1;
 		}
 	}
-	public void addObject(Object obj)
-	{
+	public void addObject(Object obj) {
+		// TODO Auto-generated method stub
 		
 	}
-	public void deleteObjectByKey(Object key)
-	{
+
+	public void deleteObjectByKey(Object key) {
+		// TODO Auto-generated method stub
 		
 	}
+
 }

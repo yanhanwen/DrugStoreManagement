@@ -11,6 +11,9 @@ import javax.servlet.http.HttpSession;
 
 import com.dsm.model.entity.User;
 import com.dsm.model.entity.Warehouse;
+import com.dsm.model.dao.impl.SalesmanDao;
+import com.dsm.model.dao.impl.StoreDao;
+import com.dsm.model.dao.impl.StoreManagerDao;
 import com.dsm.model.dao.impl.WarehouseDao;
 
 public class FinaServlet extends HttpServlet
@@ -36,7 +39,12 @@ public class FinaServlet extends HttpServlet
 			return;
 		}
 		WarehouseDao wh = new WarehouseDao();
-		String sql = "select MonthlyCost from Warehouse";
-		
+		StoreDao s = new StoreDao();
+		SalesmanDao sm = new SalesmanDao();
+		StoreManagerDao smg = new StoreManagerDao();
+		int whoutnum = wh.getOutNum();
+		int soutnum = s.getOutNum();
+		int smoutnum = sm.getOutNum();
+		int smgoutnum = smg.getOutNum();
 	}
 }
