@@ -14,7 +14,6 @@ public class Salesman
     private String salesmanName;            //鍞揣鍛樺鍚�
     private String sex;                     //鎬у埆
     private java.sql.Date birthday;         //鍑虹敓鏃ユ湡
-    private int age;                        //骞撮緞
     private String telephone;               //鑱旂郴鐢佃瘽
     private Date hireDate;                  //灏辫亴鏃ユ湡
     private String storeNo;                 //灏辫亴搴楅潰缂栧彿锛屽閿�
@@ -22,145 +21,113 @@ public class Salesman
     private String passwd;                  //鐧诲綍瀵嗙爜
     private int onDuty;                     //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
     private Blob icon;                      //澶村儚
-
-    public String getSalesmanNo()
-    {
-        return salesmanNo;
-    }
-
-    public void setSalesmanNo(String salesmanNo)
-    {
-        this.salesmanNo = salesmanNo;
-    }
-
-    public String getSalesmanName()
-    {
-        return salesmanName;
-    }
-
-    public void setSalesmanName(String salesmanName)
-    {
-        this.salesmanName = salesmanName;
-    }
-
-    public String getSex()
-    {
-        return sex;
-    }
-
-    public void setSex(String sex)
-    {
-        this.sex = sex;
-    }
-
-    public Date getBirthday()
-    {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday)
-    {
-        this.birthday = birthday;
-    }
-
-    public int getAge()
-    {
-        return age;
-    }
-
-    public void setAge(int age)
-    {
-        this.age = age;
-    }
-
-    public String getTelephone()
-    {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone)
-    {
-        this.telephone = telephone;
-    }
-
-    public Date getHireDate()
-    {
-        return hireDate;
-    }
-
-    public void setHireDate(Date hireDate)
-    {
-        this.hireDate = hireDate;
-    }
-
-    public String getStoreNo()
-    {
-        return storeNo;
-    }
-
-    public void setStoreNo(String storeNo)
-    {
-        this.storeNo = storeNo;
-    }
-
-    public BigDecimal getSalary()
-    {
-        return salary;
-    }
-
-    public void setSalary(BigDecimal salary)
-    {
-        this.salary = salary;
-    }
-
-    public String getPasswd()
-    {
-        return passwd;
-    }
-
-    public void setPasswd(String passwd)
-    {
-        this.passwd = passwd;
-    }
-
-    public int getOnDuty()
-    {
-        return onDuty;
-    }
-
-    public void setOnDuty(int onDuty)
-    {
-        this.onDuty = onDuty;
-    }
-
-    public Blob getIcon()
-    {
-        return icon;
-    }
-
-    public void setIcon(Blob icon)
-    {
-        this.icon = icon;
-    }
-
-    public Salesman(String salesmanNo, String salesmanName, String sex, Date birthday, int age, String telephone, Date hireDate, String storeNo, BigDecimal salary, String passwd, int onDuty, Blob icon)
-    {
-
-        this.salesmanNo = salesmanNo;
-        this.salesmanName = salesmanName;
-        this.sex = sex;
-        this.birthday = birthday;
-        this.age = age;
-        this.telephone = telephone;
-        this.hireDate = hireDate;
-        this.storeNo = storeNo;
-        this.salary = salary;
-        this.passwd = passwd;
-        this.onDuty = onDuty;
-        this.icon = icon;
-    }
-    public Salesman()
-    {
-    	
-    }
+	public String getSalesmanNo()
+	{
+		return salesmanNo;
+	}
+	public void setSalesmanNo(String salesmanNo)
+	{
+		this.salesmanNo = salesmanNo;
+	}
+	public String getSalesmanName()
+	{
+		return salesmanName;
+	}
+	public void setSalesmanName(String salesmanName)
+	{
+		this.salesmanName = salesmanName;
+	}
+	public String getSex()
+	{
+		return sex;
+	}
+	public void setSex(String sex)
+	{
+		this.sex = sex;
+	}
+	public java.sql.Date getBirthday()
+	{
+		return birthday;
+	}
+	public void setBirthday(java.sql.Date birthday)
+	{
+		this.birthday = birthday;
+	}
+	public String getTelephone()
+	{
+		return telephone;
+	}
+	public void setTelephone(String telephone)
+	{
+		this.telephone = telephone;
+	}
+	public Date getHireDate()
+	{
+		return hireDate;
+	}
+	public void setHireDate(Date hireDate)
+	{
+		this.hireDate = hireDate;
+	}
+	public String getStoreNo()
+	{
+		return storeNo;
+	}
+	public void setStoreNo(String storeNo)
+	{
+		this.storeNo = storeNo;
+	}
+	public BigDecimal getSalary()
+	{
+		return salary;
+	}
+	public void setSalary(BigDecimal salary)
+	{
+		this.salary = salary;
+	}
+	public String getPasswd()
+	{
+		return passwd;
+	}
+	public void setPasswd(String passwd)
+	{
+		this.passwd = passwd;
+	}
+	public int getOnDuty()
+	{
+		return onDuty;
+	}
+	public void setOnDuty(int onDuty)
+	{
+		this.onDuty = onDuty;
+	}
+	public Blob getIcon()
+	{
+		return icon;
+	}
+	public void setIcon(Blob icon)
+	{
+		this.icon = icon;
+	}
+	public Salesman(String salesmanNo, String salesmanName, String sex, Date birthday, String telephone, Date hireDate,
+			String storeNo, BigDecimal salary, String passwd, int onDuty, Blob icon)
+	{
+		super();
+		this.salesmanNo = salesmanNo;
+		this.salesmanName = salesmanName;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.telephone = telephone;
+		this.hireDate = hireDate;
+		this.storeNo = storeNo;
+		this.salary = salary;
+		this.passwd = passwd;
+		this.onDuty = onDuty;
+		this.icon = icon;
+	}
+	public Salesman()
+	{
+		super();
+	}
+    
 }
