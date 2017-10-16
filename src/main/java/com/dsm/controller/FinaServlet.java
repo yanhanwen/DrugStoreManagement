@@ -49,6 +49,7 @@ public class FinaServlet extends HttpServlet
 		WarehouseManagerDao whm = new WarehouseManagerDao();
 		ManagerDao m = new ManagerDao();
 		OnSaleDao os = new OnSaleDao();
+		
 		BigDecimal whoutnum = wh.getOutNum();
 		BigDecimal soutnum = s.getOutNum();
 		BigDecimal smoutnum = sm.getOutNum();

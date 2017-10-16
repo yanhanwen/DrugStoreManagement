@@ -16,7 +16,7 @@ public class StoreManagerDao extends BaseDao<StoreManager>
 		Connection connection;
 		try {
 			connection = JDBCTools.getConnection();
-			String sql = "select sum(Salary) from StoreManager";
+			String sql = "select sum(Salary) from StoreManager where OnDuty = 1";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			return rs.getBigDecimal(1);
