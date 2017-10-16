@@ -8,9 +8,17 @@
     <servlet-name>FinaServlet</servlet-name>
     <servlet-class>com.dsm.controller.FinaServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PersonnelServlet</servlet-name>
+  	<servlet-class>com.dsm.controller.PersonnelServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>FinaServlet</servlet-name>
     <url-pattern>/FinaServlet/admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PersonnelServlet</servlet-name>
+  	<url-pattern>/PersonnelServlet/admin</url-pattern>
   </servlet-mapping>
 </web-app>

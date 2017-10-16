@@ -5,24 +5,24 @@ import java.sql.Blob;
 import java.sql.Date;
 
 /*
-仓库管理员信息，用于记录仓库管理员的基本信息
+浠撳簱绠＄悊鍛樹俊鎭紝鐢ㄤ簬璁板綍浠撳簱绠＄悊鍛樼殑鍩烘湰淇℃伅
 */
 
 public class WarehouseManager
 {
-    private String wareManNo;           //仓库管理员编号，主键
-    private String wareManName;         //仓库管理员姓名
-    private String sex;                 //性别
-    private Date birthday;              //出生日期
-    private int age;                    //年龄
-    private String telephone;           //联系电话
-    private Date hireDate;              //就职日期
-    private String warehouseNo;         //管理仓库编号，外键
-    private BigDecimal salary;          //月薪
-    private String passwd;              //登录密码
-    private String managerNo;           //总经理编号
-    private int onDuty;                 //是否在职，1：在职，0：离职
-    private Blob icon;                  //头像
+    private String wareManNo;           //浠撳簱绠＄悊鍛樼紪鍙凤紝涓婚敭
+    private String wareManName;         //浠撳簱绠＄悊鍛樺鍚�
+    private String sex;                 //鎬у埆
+    private Date birthday;              //鍑虹敓鏃ユ湡
+    private int age;                    //骞撮緞
+    private String telephone;           //鑱旂郴鐢佃瘽
+    private Date hireDate;              //灏辫亴鏃ユ湡
+    private String warehouseNo;         //绠＄悊浠撳簱缂栧彿锛屽閿�
+    private BigDecimal salary;          //鏈堣柂
+    private String passwd;              //鐧诲綍瀵嗙爜
+    private String managerNo;           //鎬荤粡鐞嗙紪鍙�
+    private int onDuty;                 //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
+    private Blob icon;                  //澶村儚
 
     public String getWareManNo()
     {
@@ -170,5 +170,9 @@ public class WarehouseManager
         this.managerNo = managerNo;
         this.onDuty = onDuty;
         this.icon = icon;
+    }
+    public WarehouseManager()
+    {
+    	
     }
 }

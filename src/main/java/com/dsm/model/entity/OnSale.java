@@ -9,14 +9,21 @@ import java.sql.Date;
 
 public class OnSale
 {
-    private String medicineNo;      //药品编号，外键，主键
-    private String storeNo;         //店面编号，外键，主键
+	private String OnSaleNo;		//在售编号
+	private String medicineNo;      //药品编号，外键
+    private String storeNo;         //店面编号，外键
     private int count;              //在售数量
     private BigDecimal price;       //售价
     private BigDecimal cost;        //进价
-    private Date validPeriod;       //有效期，主键
+    private Date validPeriod;       //有效期
     private int frameNo;            //售架号
-
+    
+    public String getOnSaleNo() {
+		return OnSaleNo;
+	}
+	public void setOnSaleNo(String onSaleNo) {
+		OnSaleNo = onSaleNo;
+	}
     public String getMedicineNo()
     {
         return medicineNo;
