@@ -2,6 +2,8 @@ package com.dsm.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -49,20 +51,34 @@ public class FinaServlet extends HttpServlet
 		WarehouseManagerDao whm = new WarehouseManagerDao();
 		ManagerDao m = new ManagerDao();
 		OnSaleDao os = new OnSaleDao();
-		
+		String time = null;
+		String message = null;
 		BigDecimal whoutnum = wh.getOutNum();
 		BigDecimal soutnum = s.getOutNum();
 		BigDecimal smoutnum = sm.getOutNum();
 		BigDecimal smgoutnum = smg.getOutNum();
 		BigDecimal whmoutnum = whm.getOutNum();
 		BigDecimal moutnum = m.getOutNum();
-		String sql = "select * from OnSale";
+		time = request.getParameter("time");
+		Date adate = null;
+		try {
+		    SimpleDateFormat format=new SimpleDateFormat("yyyy-MM");
+		    format.setLenient(false);  
+		    adate=format.parse(time);
+		} catch (Exception ex){
+			message = "日期不合法";
+			request.setAttribute("message",message);
+			request.getRequestDispatcher("/WEB-INF/finance/FinaInJsp.jsp");
+			return;
+		}
+		String sql = "select * from OnSale natural join sale using(MedicineNo) where SaleTime like"+adate.toString()+"%";
 		List<OnSale> los = os.getForList(sql,null);
 		BigDecimal in = new BigDecimal(0);
 		for(int i=0;i<los.size();i++)
 			in = in.add((los.get(i).getPrice().subtract(los.get(i).getCost())).multiply(new BigDecimal(los.get(i).getCount())));
 		BigDecimal out = whoutnum.add(soutnum).add(smoutnum).add(smgoutnum).add(whmoutnum).add(moutnum);
 		BigDecimal allin = in.subtract(out);
+		request.setAttribute("time",time);
 		request.setAttribute("out",out);
 		request.setAttribute("in",in);
 		request.setAttribute("allin",allin);

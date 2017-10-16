@@ -14,10 +14,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>财务</title>
 </head>
 	<body>
-	${time}总收入：${in}
-	<br>
-	${time}总支出：${out}
-	<br>
-	${time}净收入：${allin}
+		${message}
+		<form method="post" action="FinaServlet/admin">
+			选择年月：<input type="date" name="time">
+		</form>
 	</body>
 </html>

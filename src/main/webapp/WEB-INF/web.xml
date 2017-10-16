@@ -12,6 +12,11 @@
   	<servlet-name>PersonnelServlet</servlet-name>
   	<servlet-class>com.dsm.controller.PersonnelServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.dsm.controller.LoginServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>FinaServlet</servlet-name>
@@ -20,5 +25,9 @@
   <servlet-mapping>
   	<servlet-name>PersonnelServlet</servlet-name>
   	<url-pattern>/PersonnelServlet/admin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
 </web-app>
