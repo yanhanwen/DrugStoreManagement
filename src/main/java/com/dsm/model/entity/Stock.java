@@ -4,19 +4,19 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 /*
-库存信息，用于保存药品的库存信息
+搴撳瓨淇℃伅锛岀敤浜庝繚瀛樿嵂鍝佺殑搴撳瓨淇℃伅
 */
 
 public class Stock
 {
-    private String stockNo;         //库存编号，主键，默认与入库编号相同
-    private String medicineNo;      //药品编号，外键
-    private String warehouseNo;     //仓库编号，外键
-    private String shelfNo;         //货架号
-    private int count;              //数量
-    private BigDecimal cost;        //单个进价
-    private Date productDate;       //生产日期
-    private Date validPeriod;       //有效期
+    private String stockNo;         //搴撳瓨缂栧彿锛屼富閿紝榛樿涓庡叆搴撶紪鍙风浉鍚�
+    private String medicineNo;      //鑽搧缂栧彿锛屽閿�
+    private String warehouseNo;     //浠撳簱缂栧彿锛屽閿�
+    private String shelfNo;         //璐ф灦鍙�
+    private int count;              //鏁伴噺
+    private BigDecimal cost;        //鍗曚釜杩涗环
+    private Date productDate;       //鐢熶骇鏃ユ湡
+    private Date validPeriod;       //鏈夋晥鏈�
 
     public String getStockNo()
     {
@@ -109,5 +109,9 @@ public class Stock
         this.cost = cost;
         this.productDate = productDate;
         this.validPeriod = validPeriod;
+    }
+    public Stock()
+    {
+    	
     }
 }

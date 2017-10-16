@@ -3,24 +3,24 @@ package com.dsm.model.entity;
 import java.sql.Date;
 
 /*
-供应商信息，用于记录各个供应商所有的信息
+渚涘簲鍟嗕俊鎭紝鐢ㄤ簬璁板綍鍚勪釜渚涘簲鍟嗘墍鏈夌殑淇℃伅
 */
 
 public class Supplier
 {
-    private String supplierNo;          //供应商编号，主键
-    private String supplierName;        //供应商名称
-    private String contactName;         //联系人姓名
-    private String telephone;           //联系电话
-    private String province;            //省
-    private String city;                //市
-    private String district;            //区
-    private String street;              //街道
-    private String addrDetail;          //地址详情
-    private float rate;                 //评级，0~5，一位小数
-    private java.sql.Date addDate;      //添加日期
-    private String remark;              //备注
-    private int onDuty;                 //是否可选，1：可选，0：不可选
+    private String supplierNo;          //渚涘簲鍟嗙紪鍙凤紝涓婚敭
+    private String supplierName;        //渚涘簲鍟嗗悕绉�
+    private String contactName;         //鑱旂郴浜哄鍚�
+    private String telephone;           //鑱旂郴鐢佃瘽
+    private String province;            //鐪�
+    private String city;                //甯�
+    private String district;            //鍖�
+    private String street;              //琛楅亾
+    private String addrDetail;          //鍦板潃璇︽儏
+    private float rate;                 //璇勭骇锛�0~5锛屼竴浣嶅皬鏁�
+    private java.sql.Date addDate;      //娣诲姞鏃ユ湡
+    private String remark;              //澶囨敞
+    private int onDuty;                 //鏄惁鍙�夛紝1锛氬彲閫夛紝0锛氫笉鍙��
 
     public String getSupplierNo()
     {
@@ -168,5 +168,9 @@ public class Supplier
         this.addDate = addDate;
         this.remark = remark;
         this.onDuty = onDuty;
+    }
+    public Supplier()
+    {
+    	
     }
 }

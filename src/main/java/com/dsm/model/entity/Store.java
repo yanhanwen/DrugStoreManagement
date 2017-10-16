@@ -4,22 +4,22 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 /*
-店面信息，用于记录各个店面所有的基本信息
+搴楅潰淇℃伅锛岀敤浜庤褰曞悇涓簵闈㈡墍鏈夌殑鍩烘湰淇℃伅
 */
 
 public class Store
 {
-    private String storeNo;             //店面编号，主键
-    private String storeName;           //店面名称
-    private String province;            //省
-    private String city;                //市
-    private String district;            //区
-    private String street;              //街道
-    private String addrDetail;          //详细地址
-    private String telephone;           //联系电话，非空
-    private java.sql.Date openDate;     //开业日期
-    private BigDecimal monthlyCost;     //月固定开销（房租，水电费等），非空
-    private int isOpen;                 //是否营业，1：营业，0：已关闭
+    private String storeNo;             //搴楅潰缂栧彿锛屼富閿�
+    private String storeName;           //搴楅潰鍚嶇О
+    private String province;            //鐪�
+    private String city;                //甯�
+    private String district;            //鍖�
+    private String street;              //琛楅亾
+    private String addrDetail;          //璇︾粏鍦板潃
+    private String telephone;           //鑱旂郴鐢佃瘽锛岄潪绌�
+    private java.sql.Date openDate;     //寮�涓氭棩鏈�
+    private BigDecimal monthlyCost;     //鏈堝浐瀹氬紑閿�锛堟埧绉燂紝姘寸數璐圭瓑锛夛紝闈炵┖
+    private int isOpen;                 //鏄惁钀ヤ笟锛�1锛氳惀涓氾紝0锛氬凡鍏抽棴
 
     public String getStoreNo()
     {
@@ -145,5 +145,9 @@ public class Store
         this.openDate = openDate;
         this.monthlyCost = monthlyCost;
         this.isOpen = isOpen;
+    }
+    public Store()
+    {
+    	
     }
 }

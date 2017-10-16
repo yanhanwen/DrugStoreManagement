@@ -3,17 +3,17 @@ package com.dsm.model.entity;
 import java.sql.Date;
 
 /*
-药品信息，用于保存所有药品的基本信息
+鑽搧淇℃伅锛岀敤浜庝繚瀛樻墍鏈夎嵂鍝佺殑鍩烘湰淇℃伅
 */
 public class Medicine
 {
-    private String medicineNo;          //药品编号，主键，非空
-    private String medicineName;        //药品名称，非空
-    private String category;            //药品类别，非空
-    private String factory;             //生产厂商
-    private String indication;          //适应症
-    private String storageCond;         //储存条件
-    private java.sql.Date lifeTime;     //保质期，非空
+    private String medicineNo;          //鑽搧缂栧彿锛屼富閿紝闈炵┖
+    private String medicineName;        //鑽搧鍚嶇О锛岄潪绌�
+    private String category;            //鑽搧绫诲埆锛岄潪绌�
+    private String factory;             //鐢熶骇鍘傚晢
+    private String indication;          //閫傚簲鐥�
+    private String storageCond;         //鍌ㄥ瓨鏉′欢
+    private java.sql.Date lifeTime;     //淇濊川鏈燂紝闈炵┖
 
     public String getMedicineNo()
     {
@@ -95,5 +95,9 @@ public class Medicine
         this.indication = indication;
         this.storageCond = storageCond;
         this.lifeTime = lifeTime;
+    }
+    public Medicine()
+    {
+    	
     }
 }

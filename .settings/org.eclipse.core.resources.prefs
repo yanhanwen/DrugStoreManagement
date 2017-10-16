@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java/com/dsm/model/entity/EnterWare.java=UTF-8
+encoding//src/main/java/com/dsm/model/entity/Manager.java=UTF-8
+encoding//src/main/java/com/dsm/model/entity/StoreManager.java=UTF-8
+encoding//src/main/java/com/dsm/model/entity/Supplier.java=UTF-8
+encoding//src/main/java/com/dsm/model/entity/Warehouse.java=UTF-8
 encoding//src/main/java/com/dsm/model/entity/WarehouseEnvir.java=UTF-8
 encoding//src/main/java/com/dsm/model/entity/WarehouseManager.java=UTF-8

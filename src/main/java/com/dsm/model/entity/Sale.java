@@ -4,17 +4,17 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /*
-销售信息，用于保存药品的销售记录信息
+閿�鍞俊鎭紝鐢ㄤ簬淇濆瓨鑽搧鐨勯攢鍞褰曚俊鎭�
 */
 
 public class Sale
 {
-    private String serialNo;        //流水号，主键
-    private String medicineNo;      //药品编号，外键
-    private String salesmanNo;      //售货员编号，外键
-    private int count;              //数量
-    private BigDecimal total;       //总价
-    private Timestamp saleTime;     //销售时间
+    private String serialNo;        //娴佹按鍙凤紝涓婚敭
+    private String medicineNo;      //鑽搧缂栧彿锛屽閿�
+    private String salesmanNo;      //鍞揣鍛樼紪鍙凤紝澶栭敭
+    private int count;              //鏁伴噺
+    private BigDecimal total;       //鎬讳环
+    private Timestamp saleTime;     //閿�鍞椂闂�
 
     public String getSerialNo()
     {
@@ -85,5 +85,9 @@ public class Sale
         this.count = count;
         this.total = total;
         this.saleTime = saleTime;
+    }
+    public Sale()
+    {
+    	
     }
 }

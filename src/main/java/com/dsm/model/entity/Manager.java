@@ -5,22 +5,22 @@ import java.sql.Blob;
 import java.sql.Date;
 
 /*
-总经理信息，用于记录总经理的基本信息
+鎬荤粡鐞嗕俊鎭紝鐢ㄤ簬璁板綍鎬荤粡鐞嗙殑鍩烘湰淇℃伅
 */
 
 public class Manager
 {
-    private String managerNo;       //总经理编号，主键
-    private String managerName;     //总经理姓名
-    private String sex;             //性别
-    private Date birthday;          //出生日期
-    private int age;                //年龄
-    private String telephone;       //联系电话
-    private Date hireDate;          //就职日期
-    private BigDecimal salary;      //月薪
-    private String passwd;          //登录密码
-    private int onDuty;             //是否在职，1：在职，0：离职
-    private Blob icon;              //头像
+    private String managerNo;       //鎬荤粡鐞嗙紪鍙凤紝涓婚敭
+    private String managerName;     //鎬荤粡鐞嗗鍚�
+    private String sex;             //鎬у埆
+    private Date birthday;          //鍑虹敓鏃ユ湡
+    private int age;                //骞撮緞
+    private String telephone;       //鑱旂郴鐢佃瘽
+    private Date hireDate;          //灏辫亴鏃ユ湡
+    private BigDecimal salary;      //鏈堣柂
+    private String passwd;          //鐧诲綍瀵嗙爜
+    private int onDuty;             //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
+    private Blob icon;              //澶村儚
 
     public String getManagerNo()
     {
@@ -146,5 +146,9 @@ public class Manager
         this.passwd = passwd;
         this.onDuty = onDuty;
         this.icon = icon;
+    }
+    public Manager()
+    {
+    	
     }
 }

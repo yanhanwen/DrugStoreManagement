@@ -5,24 +5,24 @@ import java.sql.Blob;
 import java.sql.Date;
 
 /*
-分店经理，用于记录分店经理的基本信息
+鍒嗗簵缁忕悊锛岀敤浜庤褰曞垎搴楃粡鐞嗙殑鍩烘湰淇℃伅
 */
 
 public class StoreManager
 {
-    private String storeManNo;      //分店经理编号，主键
-    private String storeManName;    //分店经理姓名
-    private String sex;             //性别
-    private Date birthday;          //出生日期
-    private int age;                //年龄
-    private String telephone;       //联系电话
-    private Date hireDate;          //就职时间
-    private String storeNo;         //就职店面编号
-    private BigDecimal salary;      //月薪
-    private String passwd;          //登录密码
-    private String managerNo;       //总经理编号
-    private int onDuty;             //是否在职，1：在职，0：离职
-    private Blob icon;              //头像
+    private String storeManNo;      //鍒嗗簵缁忕悊缂栧彿锛屼富閿�
+    private String storeManName;    //鍒嗗簵缁忕悊濮撳悕
+    private String sex;             //鎬у埆
+    private Date birthday;          //鍑虹敓鏃ユ湡
+    private int age;                //骞撮緞
+    private String telephone;       //鑱旂郴鐢佃瘽
+    private Date hireDate;          //灏辫亴鏃堕棿
+    private String storeNo;         //灏辫亴搴楅潰缂栧彿
+    private BigDecimal salary;      //鏈堣柂
+    private String passwd;          //鐧诲綍瀵嗙爜
+    private String managerNo;       //鎬荤粡鐞嗙紪鍙�
+    private int onDuty;             //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
+    private Blob icon;              //澶村儚
 
     public String getStoreManNo()
     {
@@ -170,5 +170,9 @@ public class StoreManager
         this.managerNo = managerNo;
         this.onDuty = onDuty;
         this.icon = icon;
+    }
+    public StoreManager()
+    {
+    	
     }
 }

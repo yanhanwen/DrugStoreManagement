@@ -4,19 +4,19 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /*
-药品出库信息，用于记录每条出库信息
+鑽搧鍑哄簱淇℃伅锛岀敤浜庤褰曟瘡鏉″嚭搴撲俊鎭�
 */
 public class LeaveWare
 {
-    private String leaveNo;                 //出库号，主键
-    private String medicineNo;              //药品编号，外键
-    private String warehouseNo;             //仓库编号，外键
-    private String storeNo;                 //店面编号，外键
-    private BigDecimal cost;                //单个进价
-    private String enterNo;                 //入库编号
-    private int leaveCount;                 //出库数量
-    private java.sql.Timestamp leaveTime;   //出库时间
-    private String wareManNo;               //执行操作的仓库管理员编号
+    private String leaveNo;                 //鍑哄簱鍙凤紝涓婚敭
+    private String medicineNo;              //鑽搧缂栧彿锛屽閿�
+    private String warehouseNo;             //浠撳簱缂栧彿锛屽閿�
+    private String storeNo;                 //搴楅潰缂栧彿锛屽閿�
+    private BigDecimal cost;                //鍗曚釜杩涗环
+    private String enterNo;                 //鍏ュ簱缂栧彿
+    private int leaveCount;                 //鍑哄簱鏁伴噺
+    private java.sql.Timestamp leaveTime;   //鍑哄簱鏃堕棿
+    private String wareManNo;               //鎵ц鎿嶄綔鐨勪粨搴撶鐞嗗憳缂栧彿
 
     public String getLeaveNo()
     {
@@ -120,5 +120,8 @@ public class LeaveWare
         this.leaveCount = leaveCount;
         this.leaveTime = leaveTime;
         this.wareManNo = wareManNo;
+    }
+    public LeaveWare()
+    {
     }
 }

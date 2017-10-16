@@ -4,19 +4,19 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 /*
-在售信息，用于保存在售架上的药品的信息
+鍦ㄥ敭淇℃伅锛岀敤浜庝繚瀛樺湪鍞灦涓婄殑鑽搧鐨勪俊鎭�
 */
 
 public class OnSale
 {
-	private String OnSaleNo;		//在售编号
-	private String medicineNo;      //药品编号，外键
-    private String storeNo;         //店面编号，外键
-    private int count;              //在售数量
-    private BigDecimal price;       //售价
-    private BigDecimal cost;        //进价
-    private Date validPeriod;       //有效期
-    private int frameNo;            //售架号
+	private String OnSaleNo;		//鍦ㄥ敭缂栧彿
+	private String medicineNo;      //鑽搧缂栧彿锛屽閿�
+    private String storeNo;         //搴楅潰缂栧彿锛屽閿�
+    private int count;              //鍦ㄥ敭鏁伴噺
+    private BigDecimal price;       //鍞环
+    private BigDecimal cost;        //杩涗环
+    private Date validPeriod;       //鏈夋晥鏈�
+    private int frameNo;            //鍞灦鍙�
     
     public String getOnSaleNo() {
 		return OnSaleNo;
@@ -104,5 +104,9 @@ public class OnSale
         this.cost = cost;
         this.validPeriod = validPeriod;
         this.frameNo = frameNo;
+    }
+    public OnSale()
+    {
+    	
     }
 }

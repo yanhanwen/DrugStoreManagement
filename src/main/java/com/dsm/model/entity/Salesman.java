@@ -5,23 +5,23 @@ import java.sql.Blob;
 import java.sql.Date;
 
 /*
-店员信息，用于记录售货员的基本信息
+搴楀憳淇℃伅锛岀敤浜庤褰曞敭璐у憳鐨勫熀鏈俊鎭�
 */
 
 public class Salesman
 {
-    private String salesmanNo;              //售货员编号，主键
-    private String salesmanName;            //售货员姓名
-    private String sex;                     //性别
-    private java.sql.Date birthday;         //出生日期
-    private int age;                        //年龄
-    private String telephone;               //联系电话
-    private Date hireDate;                  //就职日期
-    private String storeNo;                 //就职店面编号，外键
-    private BigDecimal salary;              //月薪
-    private String passwd;                  //登录密码
-    private int onDuty;                     //是否在职，1：在职，0：离职
-    private Blob icon;                      //头像
+    private String salesmanNo;              //鍞揣鍛樼紪鍙凤紝涓婚敭
+    private String salesmanName;            //鍞揣鍛樺鍚�
+    private String sex;                     //鎬у埆
+    private java.sql.Date birthday;         //鍑虹敓鏃ユ湡
+    private int age;                        //骞撮緞
+    private String telephone;               //鑱旂郴鐢佃瘽
+    private Date hireDate;                  //灏辫亴鏃ユ湡
+    private String storeNo;                 //灏辫亴搴楅潰缂栧彿锛屽閿�
+    private BigDecimal salary;              //鏈堣柂
+    private String passwd;                  //鐧诲綍瀵嗙爜
+    private int onDuty;                     //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
+    private Blob icon;                      //澶村儚
 
     public String getSalesmanNo()
     {
@@ -158,5 +158,9 @@ public class Salesman
         this.passwd = passwd;
         this.onDuty = onDuty;
         this.icon = icon;
+    }
+    public Salesman()
+    {
+    	
     }
 }
