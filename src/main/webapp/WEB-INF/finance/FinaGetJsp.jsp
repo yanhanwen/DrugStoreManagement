@@ -11,24 +11,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta charset="UTF-8">
-<title>财务</title>
+<title>当月财务</title>
 </head>
 	<body>
-		<%
-	    List a = (ArrayList)request.getAttribute("a");
-	    for(int i=0;i<a.size();i++)
-	    {
-	    	
-	    %>
-	    <table border="1">
-	    	<%for(){%>
-				<tr>
-				<td><%= %>月,收入:<%= %>,支出:<%= %></td>
-				</tr>
-	    	<%}%>
-		</table>
-	    <%
-	    }
-		%>
+	当月总收入：${in}
+	<p>
+	当月总支出：${out}
+	<p>
+	当月净收入：${allin}
 	</body>
 </html>

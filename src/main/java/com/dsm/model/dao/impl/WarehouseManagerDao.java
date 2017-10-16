@@ -10,7 +10,7 @@ import com.dsm.model.entity.Salesman;
 import com.dsm.model.entity.WarehouseManager;
 import com.dsm.model.utils.JDBCTools;
 
-public class WarehouseManagerDao extends BaseDao<Salesman>
+public class WarehouseManagerDao extends BaseDao<WarehouseManager>
 {
 	public BigDecimal getOutNum()
 	{

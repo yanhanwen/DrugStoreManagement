@@ -11,7 +11,7 @@ import com.dsm.model.utils.ReflectionTools;
 
 public abstract class BaseDao<T> implements IDao<T> 
 {
-	protected Class<T> clazz;
+	protected Class<T> c;
 	public String update(String sql, Object... args)
 	{
 		Connection connection = null;
@@ -86,7 +86,7 @@ public abstract class BaseDao<T> implements IDao<T>
 			{
 				try
 				{
-					entity = clazz.newInstance();
+					entity = c.newInstance();
 					for (int k = 0; k < columnCount; k++)
 					{
 						Object value = resultSet.getObject(k + 1);

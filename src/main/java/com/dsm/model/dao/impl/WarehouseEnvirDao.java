@@ -3,7 +3,7 @@ package com.dsm.model.dao.impl;
 import com.dsm.model.entity.Warehouse;
 import com.dsm.model.entity.WarehouseEnvir;
 
-public class WarehouseEnvirDao extends BaseDao<Warehouse>
+public class WarehouseEnvirDao extends BaseDao<WarehouseEnvir>
 {
 	public void addObject(Object obj)
 	{
