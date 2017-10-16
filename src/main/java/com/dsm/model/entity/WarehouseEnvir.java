@@ -1,14 +1,14 @@
 package com.dsm.model.entity;
 
 /*
-仓库环境，用于保存各仓库可以提供的所有药品储存条件
+浠撳簱鐜锛岀敤浜庝繚瀛樺悇浠撳簱鍙互鎻愪緵鐨勬墍鏈夎嵂鍝佸偍瀛樻潯浠�
 */
 public class WarehouseEnvir
 {
-	private String envirNo;			//环境编号
-    private String warehouseNo;     //仓库编号，主键，外键，非空
-    private String condition;       //储存环境，主键，非空
-    private String area;            //储存区域
+	private String envirNo;			//鐜缂栧彿
+    private String warehouseNo;     //浠撳簱缂栧彿锛屼富閿紝澶栭敭锛岄潪绌�
+    private String condition;       //鍌ㄥ瓨鐜锛屼富閿紝闈炵┖
+    private String area;            //鍌ㄥ瓨鍖哄煙
 	public String getEnvirNo() {
 		return envirNo;
 	}
@@ -40,5 +40,8 @@ public class WarehouseEnvir
 		this.condition = condition;
 		this.area = area;
 	}
-	
+	public WarehouseEnvir()
+	{
+		
+	}
 }

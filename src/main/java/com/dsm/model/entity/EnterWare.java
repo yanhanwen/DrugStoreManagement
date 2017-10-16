@@ -5,19 +5,19 @@ import java.sql.Timestamp;
 import java.sql.Date;
 
 /*
-药品入库信息，用于记录每条入库信息
+鑽搧鍏ュ簱淇℃伅锛岀敤浜庤褰曟瘡鏉″叆搴撲俊鎭�
 */
 public class EnterWare
 {
-    private String enterNo;                     //入库编号，主键
-    private String medicineNo;                  //药品编号，外键
-    private String warehouseNo;                 //仓库编号，外键
-    private String supplierNo;                  //供应商编号，外键
-    private int enterCount;                     //入库数量，大于0
-    private java.sql.Timestamp enterTime;       //入库时间
-    private java.sql.Date productDate;          //生产日期
-    private BigDecimal cost;                    //单个进价
-    private String wareManNo;                   //执行操作的仓库管理员编号，外键
+    private String enterNo;                     //鍏ュ簱缂栧彿锛屼富閿�
+    private String medicineNo;                  //鑽搧缂栧彿锛屽閿�
+    private String warehouseNo;                 //浠撳簱缂栧彿锛屽閿�
+    private String supplierNo;                  //渚涘簲鍟嗙紪鍙凤紝澶栭敭
+    private int enterCount;                     //鍏ュ簱鏁伴噺锛屽ぇ浜�0
+    private java.sql.Timestamp enterTime;       //鍏ュ簱鏃堕棿
+    private java.sql.Date productDate;          //鐢熶骇鏃ユ湡
+    private BigDecimal cost;                    //鍗曚釜杩涗环
+    private String wareManNo;                   //鎵ц鎿嶄綔鐨勪粨搴撶鐞嗗憳缂栧彿锛屽閿�
 
     public String getEnterNo()
     {
@@ -121,5 +121,9 @@ public class EnterWare
         this.productDate = productDate;
         this.cost = cost;
         this.wareManNo = wareManNo;
+    }
+    public EnterWare()
+    {
+    	
     }
 }
