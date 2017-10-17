@@ -27,10 +27,10 @@ public class SalesmanDao extends BaseDao<Salesman>
 	public void addObject(Object obj)
 	{
 		Salesman Salesman = (Salesman) obj;
-		String sql = "insert into Salesman(SalesmanNo,SalesmanName,Sex,Birthday,Telephone,HireDate,StoreNo,Salary,Passwd,OnDuty,Icon) values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into Salesman(SalesmanNo,SalesmanName,Sex,Birthday,Telephone,HireDate,StoreNo,Salary,Passwd,OnDuty) values(?,?,?,?,?,?,?,?,?,?)";
 		update(sql,Salesman.getSalesmanNo(),Salesman.getSalesmanName(),Salesman.getSex(),Salesman.getBirthday(),
 				Salesman.getTelephone(),Salesman.getHireDate(),Salesman.getStoreNo(),Salesman.getSalary(),
-				Salesman.getPasswd(),Salesman.getOnDuty(),Salesman.getIcon());
+				Salesman.getPasswd(),Salesman.getOnDuty());
 	}
 	public void deleteObjectByKey(Object key)
 	{

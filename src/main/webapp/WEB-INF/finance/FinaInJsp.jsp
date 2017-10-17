@@ -15,8 +15,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 	<body>
 		${message}
-		<form method="post" action="FinaServlet/admin">
+		<form method="post" action="FinaServlet">
 			选择年月：<input type="date" name="time">
+			<br>
+			<input type="submit" value="提交">
 		</form>
 	</body>
 </html>

@@ -20,7 +20,7 @@
 
   <servlet-mapping>
     <servlet-name>FinaServlet</servlet-name>
-    <url-pattern>/FinaServlet/admin</url-pattern>
+    <url-pattern>/FinaServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>PersonnelServlet</servlet-name>
