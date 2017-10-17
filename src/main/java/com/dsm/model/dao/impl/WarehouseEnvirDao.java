@@ -1,6 +1,5 @@
 package com.dsm.model.dao.impl;
 
-import com.dsm.model.entity.Warehouse;
 import com.dsm.model.entity.WarehouseEnvir;
 
 public class WarehouseEnvirDao extends BaseDao<WarehouseEnvir>

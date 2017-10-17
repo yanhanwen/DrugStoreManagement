@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.dsm.model.entity.Salesman;
 import com.dsm.model.entity.WarehouseManager;
 import com.dsm.model.utils.JDBCTools;
 
