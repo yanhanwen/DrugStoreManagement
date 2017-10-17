@@ -4,6 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>UserFilter</filter-name>
+  	<display-name>UserFilter</display-name>
+  	<description></description>
+  	<filter-class>com.dsm.filter.UserFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>UserFilter</filter-name>
+  	<url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>FinaServlet</servlet-name>
     <servlet-class>com.dsm.controller.FinaServlet</servlet-class>

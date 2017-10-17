@@ -11,9 +11,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta charset="UTF-8">
-<title>财务</title>
+<title>错误</title>
 </head>
 	<body>
-		<form method="post" action="LoginServlet">
+		无权限！
 	</body>
 </html>

@@ -36,13 +36,10 @@ public class FinaServlet extends HttpServlet
 	{
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-		String ID = (String) session.getAttribute("XXXID");
-		if(user == null && !ID.startsWith("XXX")) 
+		HttpSession sess = request.getSession();
+		if(!sess.getAttribute("user_id").toString().startsWith("0"))
 		{
-			String url = request.getHeader("Referer");
-			request.getRequestDispatcher("url").forward(request,response);
+			response.sendRedirect("/WEB-INF/ErrorJsp.jsp");
 			return;
 		}
 		WarehouseDao wh = new WarehouseDao();
