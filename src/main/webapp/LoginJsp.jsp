@@ -17,7 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		${message}
 		<form method="post" action="LoginServlet">
 			ID:<input type="text" name="user_id">
-			密码:<input type="text" name="password">
-			<input type="submit">
+			密码:<input type="password" name="password">
+			<input type="submit" value="提交">
+		</form>
 	</body>
 </html>

@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet
 {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		request.getRequestDispatcher("/WEB-INF/user/LoginJsp.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/LoginJsp.jsp").forward(request, response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -39,14 +39,14 @@ public class LoginServlet extends HttpServlet
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/WEB-INF/manager/FunctionJsp.jsp");
+				response.sendRedirect("/manager/FunctionJsp.jsp");
 				return;
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("/WEB-INF/user/LoginJsp.jsp");
+				response.sendRedirect("LoginJsp.jsp");
 				return;
 			}
 		}
@@ -58,14 +58,14 @@ public class LoginServlet extends HttpServlet
 			if(wm.getPasswd()!=null&&wm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/WEB-INF/warehousemanager/FunctionJsp.jsp");
+				response.sendRedirect("/warehousemanager/FunctionJsp.jsp");
 				return;
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("/WEB-INF/user/LoginJsp.jsp");
+				response.sendRedirect("LoginJsp.jsp");
 				return;
 			}
 		}
@@ -77,13 +77,13 @@ public class LoginServlet extends HttpServlet
 			if(sm.getPasswd()!=null&&sm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/WEB-INF/storemanager/FunctionJsp.jsp");
+				response.sendRedirect("/storemanager/FunctionJsp.jsp");
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("/WEB-INF/user/LoginJsp.jsp");
+				response.sendRedirect("LoginJsp.jsp");
 				return;
 			}
 		}
@@ -95,14 +95,14 @@ public class LoginServlet extends HttpServlet
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/WEB-INF/salesman/FunctionJsp.jsp");
+				response.sendRedirect("/salesman/FunctionJsp.jsp");
 				return;
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("/WEB-INF/user/LoginJsp.jsp");
+				response.sendRedirect("LoginJsp.jsp");
 				return;
 			}
 		}

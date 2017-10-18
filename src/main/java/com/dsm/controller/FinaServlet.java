@@ -30,7 +30,7 @@ public class FinaServlet extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 //		doPost(request, response);
-		request.getRequestDispatcher("/WEB-INF/finance/FinaInJsp.jsp").forward(request, response);
+		request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request, response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -39,7 +39,7 @@ public class FinaServlet extends HttpServlet
 		HttpSession sess = request.getSession();
 		if(!sess.getAttribute("user_id").toString().startsWith("0"))
 		{
-			response.sendRedirect("/WEB-INF/ErrorJsp.jsp");
+			response.sendRedirect("ErrorJsp.jsp");
 			return;
 		}
 		WarehouseDao wh = new WarehouseDao();
@@ -66,7 +66,7 @@ public class FinaServlet extends HttpServlet
 		} catch (Exception ex){
 			message = "日期不合法";
 			request.setAttribute("message",message);
-			request.getRequestDispatcher("/WEB-INF/finance/FinaInJsp.jsp");
+			request.getRequestDispatcher("/finance/FinaInJsp.jsp");
 			return;
 		}
 		String sql = "select * from OnSale natural join sale using(MedicineNo) where SaleTime like"+adate.toString()+"%";
@@ -80,6 +80,6 @@ public class FinaServlet extends HttpServlet
 		request.setAttribute("out",out);
 		request.setAttribute("in",in);
 		request.setAttribute("allin",allin);
-		request.getRequestDispatcher("/WEB-INF/finance/FinaGetJsp.jsp").forward(request,response);
+		request.getRequestDispatcher("/finance/FinaGetJsp.jsp").forward(request,response);
 	}
 }

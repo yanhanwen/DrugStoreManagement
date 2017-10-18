@@ -21,6 +21,8 @@ public class UserFilter implements Filter
 		HttpServletResponse res = (HttpServletResponse)response;
 		HttpSession sess = req.getSession();
 		ServletContext application=sess.getServletContext();
+		String path = req.getServletPath();	
+		if("index.jsp".equals(path)){return;}
 		if(sess.getAttribute("user_id")==null)
 		{
 			res.sendRedirect("/WEB-INF/ErrorJsp.jsp");
