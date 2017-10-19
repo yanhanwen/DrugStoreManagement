@@ -101,7 +101,7 @@ public class Manager
 		this.icon = icon;
 	}
 	public Manager(String managerNo, String managerName, String sex, Date birthday, String telephone, Date hireDate,
-			BigDecimal salary, String passwd, int onDuty, Blob icon)
+			BigDecimal salary, String passwd, int onDuty)
 	{
 		super();
 		this.managerNo = managerNo;
@@ -113,7 +113,6 @@ public class Manager
 		this.salary = salary;
 		this.passwd = passwd;
 		this.onDuty = onDuty;
-		this.icon = icon;
 	}
 	public Manager()
 	{

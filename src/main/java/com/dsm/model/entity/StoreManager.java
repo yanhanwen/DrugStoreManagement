@@ -119,7 +119,7 @@ public class StoreManager
 		this.icon = icon;
 	}
 	public StoreManager(String storeManNo, String storeManName, String sex, Date birthday, String telephone,
-			Date hireDate, String storeNo, BigDecimal salary, String passwd, String managerNo, int onDuty, Blob icon)
+			Date hireDate, String storeNo, BigDecimal salary, String passwd, String managerNo, int onDuty)
 	{
 		super();
 		this.storeManNo = storeManNo;
@@ -133,7 +133,6 @@ public class StoreManager
 		this.passwd = passwd;
 		this.managerNo = managerNo;
 		this.onDuty = onDuty;
-		this.icon = icon;
 	}
 	public StoreManager()
 	{

@@ -119,8 +119,7 @@ public class WarehouseManager
 		this.icon = icon;
 	}
 	public WarehouseManager(String wareManNo, String wareManName, String sex, Date birthday, String telephone,
-			Date hireDate, String warehouseNo, BigDecimal salary, String passwd, String managerNo, int onDuty,
-			Blob icon)
+			Date hireDate, String warehouseNo, BigDecimal salary, String passwd, String managerNo, int onDuty)
 	{
 		super();
 		this.wareManNo = wareManNo;
@@ -134,7 +133,6 @@ public class WarehouseManager
 		this.passwd = passwd;
 		this.managerNo = managerNo;
 		this.onDuty = onDuty;
-		this.icon = icon;
 	}
 	public WarehouseManager()
 	{

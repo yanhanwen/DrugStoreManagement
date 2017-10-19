@@ -15,7 +15,7 @@ public class Salesman
     private String sex;                     //鎬у埆
     private java.sql.Date birthday;         //鍑虹敓鏃ユ湡
     private String telephone;               //鑱旂郴鐢佃瘽
-    private Date hireDate;                  //灏辫亴鏃ユ湡
+    private java.sql.Date hireDate;                  //灏辫亴鏃ユ湡
     private String storeNo;                 //灏辫亴搴楅潰缂栧彿锛屽閿�
     private BigDecimal salary;              //鏈堣柂
     private String passwd;                  //鐧诲綍瀵嗙爜
@@ -110,7 +110,7 @@ public class Salesman
 		this.icon = icon;
 	}
 	public Salesman(String salesmanNo, String salesmanName, String sex, Date birthday, String telephone, Date hireDate,
-			String storeNo, BigDecimal salary, String passwd, int onDuty, Blob icon)
+			String storeNo, BigDecimal salary, String passwd, int onDuty)
 	{
 		super();
 		this.salesmanNo = salesmanNo;
@@ -123,7 +123,6 @@ public class Salesman
 		this.salary = salary;
 		this.passwd = passwd;
 		this.onDuty = onDuty;
-		this.icon = icon;
 	}
 	public Salesman()
 	{
