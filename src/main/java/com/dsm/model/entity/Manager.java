@@ -118,5 +118,18 @@ public class Manager
 	{
 		super();
 	}
-    
+    public String[] getColumns()
+    {
+    	String cols[] = null;
+    	cols = new String[8];
+    	cols[0] = "编号";
+    	cols[1] = "姓名";
+    	cols[2] = "性别";
+    	cols[3] = "出生日期";
+    	cols[4] = "联系电话";
+    	cols[5] = "就职日期";
+    	cols[6] = "月薪";
+    	cols[7] = "登录密码";
+    	return cols;
+    }
 }
