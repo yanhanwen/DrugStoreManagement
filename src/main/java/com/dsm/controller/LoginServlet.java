@@ -26,10 +26,15 @@ public class LoginServlet extends HttpServlet
 	{
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
+		String message = null;
 		String user_id = request.getParameter("user_id");
 		String password = request.getParameter("password");
+		if(user_id==null||password==null||user_id.equals("")||password.equals(""))
+		{
+			message = "不能为空";
+			response.sendRedirect("/manager/LoginJsp.jsp");
+		}
 		char identity = user_id.charAt(0);
-		String message = null;
 		HttpSession session = request.getSession();
 		if(identity=='0')
 		{

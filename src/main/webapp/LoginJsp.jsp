@@ -10,14 +10,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="css/table.css" />
 <meta charset="UTF-8">
 <title>登陆</title>
 </head>
-	<body>
+	<body>			
+	
 		${message}
 		<form method="post" action="LoginServlet">
-			ID:<input type="text" name="user_id">
-			密码:<input type="password" name="password">
+
+			<table class="gridtable" border="1">
+				<tr>
+					<th>ID:</th>
+					<th><input type="text" name="user_id"></th>
+				</tr>
+				<tr>
+					<th>密码:</th>
+					<th><input type="password" name="password"></th>
+				</tr>
+			</table>
+			<p>
 			<input type="submit" value="提交">
 		</form>
 	</body>
