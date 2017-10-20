@@ -4,7 +4,14 @@ import com.dsm.model.entity.OnSale;
 
 public class OnSaleDao extends BaseDao<OnSale>
 {
-	public void updateObjectByKey(Object onSaleNo, Object saleNum)
+	public void addOnSaleNum(Object onSaleNo, Object saleNum)
+	{
+		String OnSaleNo = (String)onSaleNo;
+		String OnSaleNum = (String)saleNum;
+		String sql = "update OnSale set count=count+? where OnSaleNo=?";
+		update(sql,OnSaleNum, OnSaleNo);
+	}
+	public void reduceOnSaleNum(Object onSaleNo, Object saleNum)
 	{
 		String OnSaleNo = (String)onSaleNo;
 		String OnSaleNum = (String)saleNum;

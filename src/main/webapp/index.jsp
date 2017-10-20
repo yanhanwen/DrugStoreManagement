@@ -12,16 +12,8 @@
 		word-spacing: 19.4pt;
 		line-height: 2.5;
 	}
-	font
-	{
-		font-family: verdana, sans-serif;
-		font-size: 44px;
-		font-weight: bold;
-		letter-spacing: 1.8pt;
-		word-spacing: 6.6pt;
-		line-height: 1.5;	
-	}
 </style>
+<link rel="stylesheet" type="text/css" href="css/font.css" />
 </head>
 <body>
 	<marquee style="WIDTH: 588px; HEIGHT: 200px" scrollamount="" direction="left" >
@@ -31,7 +23,7 @@
 	<div align="left" ><br />
 	</div >
 	<center >
-	<p ><font>欢迎使用药店管理系统</font ></p >
+	<p ><font id="font">欢迎使用药店管理系统</font ></p >
 	<br />
 	</p >
 	</marquee >

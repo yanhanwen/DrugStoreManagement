@@ -11,6 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/button.css" />
+<link rel="stylesheet" type="text/css" href="css/font.css" />
 <meta charset="UTF-8">
 <title>登陆</title>
 </head>
@@ -30,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</tr>
 			</table>
 			<p>
-			<input type="submit" value="提交">
+			<input class="login" id="font1" type="submit" value="提交">
 		</form>
 	</body>
 </html>

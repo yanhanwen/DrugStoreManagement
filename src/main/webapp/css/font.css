@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+#font
+{
+	font-family: verdana, sans-serif;
+	font-size: 44px;
+	font-weight: bold;
+	letter-spacing: 1.8pt;
+	word-spacing: 6.6pt;
+	line-height: 1.5;	
+}
+#font1
+{
+	font-family: verdana, sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 1.8pt;
+	word-spacing: 6.6pt;
+	line-height: 1.5;	
+}
