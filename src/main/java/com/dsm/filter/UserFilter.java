@@ -13,19 +13,35 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 public class UserFilter implements Filter
 {
-    public UserFilter() {}
-	public void destroy() {}
+	private FilterConfig config;  
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException 
 	{
 		HttpServletRequest req = (HttpServletRequest)request;
 		HttpServletResponse res = (HttpServletResponse)response;
 		HttpSession sess = req.getSession();
-		ServletContext application=sess.getServletContext();
+		String noLoginPaths = config.getInitParameter("noLoginPaths");  
 		String path = req.getServletPath();	
-		if("index.jsp".equals(path)){return;}
+		String charset = config.getInitParameter("charset");  
+        if(charset==null){  
+            charset = "UTF-8";  
+        }  
+        request.setCharacterEncoding(charset);  
+        if(noLoginPaths!=null)
+        {  
+            String[] strArray = noLoginPaths.split(";");  
+            for (int i = 0; i < strArray.length; i++)
+            {  
+                if(strArray[i]==null || "".equals(strArray[i]))
+                	continue;  
+                if(req.getRequestURI().indexOf(strArray[i])!=-1 ){  
+                    chain.doFilter(request, response);  
+                    return;  
+                }  
+            }  
+        }  
 		if(sess.getAttribute("user_id")==null)
 		{
-			res.sendRedirect("/WEB-INF/ErrorJsp.jsp");
+			req.getRequestDispatcher("ErrorJsp.jsp").forward(req, res);
 			return;
 		}
 		else
@@ -33,6 +49,9 @@ public class UserFilter implements Filter
 			chain.doFilter(request, response);
 		}
 	}
-	public void init(FilterConfig fConfig) throws ServletException 
-	{}
+	public void init(FilterConfig arg0) throws ServletException
+	{  
+        config = arg0;  
+    }
+	public void destroy() {}  
 }
