@@ -69,9 +69,8 @@ public class PersonnelServlet extends HttpServlet
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("user");
 		String ID = (String)session.getAttribute("ID");
-		if(user == null || !ID.startsWith("X"))
+		if(!ID.startsWith("0") || !ID.startsWith("2"))
 		{
 			return;
 		}
@@ -101,13 +100,13 @@ public class PersonnelServlet extends HttpServlet
 				storeManager(request, response, 0);
 		}
 		/*查询在职和离职经理*/
-		else if(method.equals("manager")||method.equals("managerLeaved"))
+		/*else if(method.equals("manager")||method.equals("managerLeaved"))
 		{
 			if(method.equals("manager"))
 				manager(request, response, 1);
 			else
 				manager(request, response, 0);
-		}
+		}*/
 		/*雇佣店员*/
 		else if(method.equals("addSalesman"))
 		{
@@ -121,17 +120,29 @@ public class PersonnelServlet extends HttpServlet
 		{
 			addStoreManager(request, response);
 		}
-		else if(method.equals("addManager"))
+		/*else if(method.equals("addManager"))
 		{
 			addManager(request, response);
-		}
-		else if(method.startsWith("add") && method.endsWith("Icon"))
+		}*/
+		/*else if(method.startsWith("add") && method.endsWith("Icon"))
 		{
 			String temp = method.substring(3);
 			StringBuilder sb = new StringBuilder(temp);
 			temp = sb.reverse().toString();
 			String role = new StringBuilder(temp.substring(4)).reverse().toString();
 			addIcon(request, response, role);
+		}*/
+		else if(method.equals("deleteSalesman"))
+		{
+			deleteSalesman(request, response);
+		}
+		else if(method.equals("deleteWarehouseManager"))
+		{
+			deleteWarehouseManager(request, response);
+		}
+		else if(method.equals("deleteStoreManager"))
+		{
+			deleteStoreManager(request, response);
 		}
 	}
     
@@ -159,14 +170,14 @@ public class PersonnelServlet extends HttpServlet
     	List<StoreManager> storeMans = storeManager.getForList(sql, null);
     	request.setAttribute("storeManager-list", storeMans);
     }
-    private void manager(HttpServletRequest request, HttpServletResponse response, int OnDuty)
+    /*private void manager(HttpServletRequest request, HttpServletResponse response, int OnDuty)
     {
     	ManagerDao manager = new ManagerDao();
     	String sql = "select ManagerNo, ManagerName, Sex, Birthday, Age, Telephone, Hiredate "
     			+ "from Manager where OnDuty = " + OnDuty;
     	List<Manager> managers = manager.getForList(sql, null);
     	request.setAttribute("mamager-list", managers);
-    }
+    }*/
     private void addSalesman(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
     	java.util.Date utilDate = new java.util.Date();					//获取当前时间
@@ -183,10 +194,11 @@ public class PersonnelServlet extends HttpServlet
     	}
     	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	SalesmanDao salesman = new SalesmanDao();
-    	Salesman newSalesman = new Salesman(request.getParameter("No"), request.getParameter("Name"), 
+    	Salesman newSalesman = new Salesman(request.getParameter("no"), request.getParameter("name"), 
     			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
     			sqlDate, request.getParameter("storeNo"), new java.math.BigDecimal(request.getParameter("salary")), 
     			request.getParameter("passwd"), 1);
+    	addIcon(request, response, "salesman", "salesman");
     	salesman.addObject(newSalesman);
     }
     private void addWarehouseManager(HttpServletRequest request, HttpServletResponse response) throws IOException
@@ -205,10 +217,11 @@ public class PersonnelServlet extends HttpServlet
     	}
     	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
-    	WarehouseManager newWarehouseManager = new WarehouseManager(request.getParameter("No"), request.getParameter("Name"), 
+    	WarehouseManager newWarehouseManager = new WarehouseManager(request.getParameter("no"), request.getParameter("name"), 
     			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
     			sqlDate, request.getParameter("warehouseNo"), new java.math.BigDecimal(request.getParameter("salary")), 
     			request.getParameter("passwd"), request.getParameter("managerNo"), 1);
+    	addIcon(request, response, "warehouseManager", "wareMan");
     	warehouseManager.addObject(newWarehouseManager);
     }
     private void addStoreManager(HttpServletRequest request, HttpServletResponse response) throws IOException
@@ -227,13 +240,14 @@ public class PersonnelServlet extends HttpServlet
     	}
     	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	StoreManagerDao storeManager = new StoreManagerDao();
-    	StoreManager newStoreManager = new StoreManager(request.getParameter("No"), request.getParameter("Name"), 
+    	StoreManager newStoreManager = new StoreManager(request.getParameter("no"), request.getParameter("name"), 
     			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
     			sqlDate, request.getParameter("storeNo"), new java.math.BigDecimal(request.getParameter("salary")), 
     			request.getParameter("passwd"), request.getParameter("managerNo"), 1);
+    	addIcon(request, response, "storeManager", "storeMan");
     	storeManager.addObject(newStoreManager);
     }
-    private void addManager(HttpServletRequest request, HttpServletResponse response) throws IOException
+    /*private void addManager(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
     	java.util.Date utilDate = new java.util.Date();					//获取当前时间
     	java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());	//将当前时间转为java.sql.Date类型
@@ -253,9 +267,10 @@ public class PersonnelServlet extends HttpServlet
     			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
     			sqlDate, new java.math.BigDecimal(request.getParameter("salary")), 
     			request.getParameter("passwd"), 1);
+    	addIcon(request, response, "manager", "manager");
     	manager.addObject(newManager);
-    }
-    private void addIcon(HttpServletRequest request, HttpServletResponse response, String role)
+    }*/
+    private void addIcon(HttpServletRequest request, HttpServletResponse response, String role, String roleNo)
     {
     	//得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
     	String savePath = this.getServletContext().getRealPath("/WEB-INF/upload");
@@ -317,7 +332,7 @@ public class PersonnelServlet extends HttpServlet
                     //else
                     	//throw new Exception();
                     Connection con = JDBCTools.getConnection();
-                    String sql = "update " + role + "set Icon = ? where " + role + "No = ?";
+                    String sql = "update " + role + "set Icon = ? where " + roleNo + "No = ?";
                     PreparedStatement pstmt = con.prepareStatement(sql);
                     pstmt.setBinaryStream(1, in, (int)file.length());
                     pstmt.setString(2, request.getParameter("No"));
@@ -353,5 +368,68 @@ public class PersonnelServlet extends HttpServlet
             message= "头像上传失败！";
             e.printStackTrace();
         }
+    }
+    private void deleteSalesman(HttpServletRequest request, HttpServletResponse response)
+    {
+    	SalesmanDao salesman = new SalesmanDao();
+    	String sql = "select SalesmanNo from Salesman where OnDuty = 1";
+    	List<Salesman> salesmen = salesman.getForList(sql, null);
+    	int count = 0;
+    	for(Salesman iter : salesmen)
+    	{
+    		if("on".equals(request.getParameter(iter.getSalesmanNo())))
+    		{
+    			sql = "update Salesman set OnDuty = 0 where SalesmanNo = ?";
+    			String pk = salesman.update(sql, iter.getSalesmanNo());
+    			if(pk != null)
+    				count++;
+    		}
+    	}
+    	request.setAttribute("message", "" + count);
+    }
+    private void deleteWarehouseManager(HttpServletRequest request, HttpServletResponse response)
+    {
+    	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
+    	String sql = "select WareManNo from WarehouseManager where OnDuty = 1";
+    	List<WarehouseManager> warehouseManagers = warehouseManager.getForList(sql, null);
+    	int count = 0;
+    	for(WarehouseManager iter : warehouseManagers)
+    	{
+    		if("on".equals(request.getParameter(iter.getWareManNo())))
+    		{
+    			sql = "update WarehouseManager set OnDuty = 0 where WareManNo = ?";
+    			String pk = warehouseManager.update(sql, iter.getWareManNo());
+    			if(pk != null)
+    				count++;
+    		}
+    	}
+    	request.setAttribute("message", "" + count);
+    }
+    private void deleteStoreManager(HttpServletRequest request, HttpServletResponse response)
+    {
+    	StoreManagerDao storeManager = new StoreManagerDao();
+    	String sql = "select WareManNo from WarehouseManager where OnDuty = 1";
+    	List<StoreManager> storeManagers = storeManager.getForList(sql, null);
+    	int count = 0;
+    	for(StoreManager iter : storeManagers)
+    	{
+    		if("on".equals(request.getParameter(iter.getStoreManNo())))
+    		{
+    			sql = "update StoreManager set OnDuty = 0 where StoreManNo = ?";
+    			String pk = storeManager.update(sql, iter.getStoreManNo());
+    			if(pk != null)
+    				count++;
+    		}
+    	}
+    	request.setAttribute("message", "" + count);
+    }
+    private void moditySalesman(HttpServletRequest request, HttpServletResponse response)
+    {
+    	SalesmanDao salesman = new SalesmanDao();
+    	String sql = "update StoreManager set StoreManName=?, Birthday=to_date(?), telephone=?, storeNo=?, "
+				+ "salary=? where StoreManNo = ?";
+    	salesman.update(sql, request.getParameter("storeManName"), request.getParameter("birthday"), 
+				request.getParameter("telephone"), request.getParameter("storeNo"), 
+				request.getParameter("salary"), request.getParameter("no"));
     }
 }
