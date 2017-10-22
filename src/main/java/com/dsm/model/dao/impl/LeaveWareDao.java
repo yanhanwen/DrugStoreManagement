@@ -7,9 +7,9 @@ public class LeaveWareDao extends BaseDao<LeaveWare>
 	public void addObject(Object obj)
 	{
 		LeaveWare LeaveWare = (LeaveWare)obj;
-		String sql = "insert into LeaveWare(LeaveNo,MedicineNo,WarehouseNo,StoreNo,Cost,EnterNo,LeaveCount,LeaveTime,WareManNo) values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into LeaveWare(LeaveNo,MedicineNo,WarehouseNo,StoreNo,Cost,LeaveCount,LeaveTime,WareManNo) values(?,?,?,?,?,?,?,?)";
 		update(sql,LeaveWare.getLeaveNo(),LeaveWare.getMedicineNo(),LeaveWare.getWarehouseNo(),LeaveWare.getStoreNo(),
-				LeaveWare.getCost(),LeaveWare.getEnterNo(),LeaveWare.getLeaveCount(),LeaveWare.getLeaveTime(),LeaveWare.getWareManNo());
+				LeaveWare.getCost(),LeaveWare.getLeaveCount(),LeaveWare.getLeaveTime(),LeaveWare.getWareManNo());
 	}
 	public void deleteObjectByKey(Object key)
 	{

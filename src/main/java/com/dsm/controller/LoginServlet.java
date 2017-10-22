@@ -41,17 +41,24 @@ public class LoginServlet extends HttpServlet
 			String sql = "select passwd from Manager where ManagerNo = ?";
 			ManagerDao mdao = new ManagerDao();
 			Manager m = mdao.getSingleObject(sql,user_id);
+			if(m==null)
+			{
+				message = "无此用户名";
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				return;
+			}
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/manager/FunctionJsp.jsp");
+				request.getRequestDispatcher("/manager/FunctionJsp.jsp").forward(request, response);
 				return;
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("LoginJsp.jsp");
+				request.setAttribute("user_id", user_id);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 		}
@@ -60,17 +67,24 @@ public class LoginServlet extends HttpServlet
 			String sql = "select passwd from WarehouseManager where WarehouseManagerNo = ?";
 			WarehouseManagerDao wmdao = new WarehouseManagerDao();
 			WarehouseManager wm = wmdao.getSingleObject(sql,user_id);
+			if(wm==null)
+			{
+				message = "无此用户名";
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				return;
+			}
 			if(wm.getPasswd()!=null&&wm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/warehousemanager/FunctionJsp.jsp");
+				request.getRequestDispatcher("/warehousemanager/FunctionJsp.jsp").forward(request, response);
 				return;
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("LoginJsp.jsp");
+				request.setAttribute("user_id", user_id);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 		}
@@ -79,16 +93,24 @@ public class LoginServlet extends HttpServlet
 			String sql = "select passwd from StoreManager where StoreManagerNo = ?";
 			StoreManagerDao smdao = new StoreManagerDao();
 			StoreManager sm = smdao.getSingleObject(sql,user_id);
+			if(sm==null)
+			{
+				message = "无此用户名";
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				return;
+			}
 			if(sm.getPasswd()!=null&&sm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/storemanager/FunctionJsp.jsp");
+				request.getRequestDispatcher("/storemanager/FunctionJsp.jsp").forward(request, response);
+				return;
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("LoginJsp.jsp");
+				request.setAttribute("user_id", user_id);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 		}
@@ -97,17 +119,24 @@ public class LoginServlet extends HttpServlet
 			String sql = "select passwd from Salesman where SalesmanNo = ?";
 			SalesmanDao mdao = new SalesmanDao();
 			Salesman m = mdao.getSingleObject(sql,user_id);
+			if(m==null)
+			{
+				message = "无此用户名";
+				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				return;
+			}
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				response.sendRedirect("/salesman/FunctionJsp.jsp");
+				request.getRequestDispatcher("/salesman/FunctionJsp.jsp").forward(request, response);
 				return;
 			}
 			else
 			{
 				message = "密码错误！";
 				request.setAttribute("message",message);
-				response.sendRedirect("LoginJsp.jsp");
+				request.setAttribute("user_id", user_id);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 		}
