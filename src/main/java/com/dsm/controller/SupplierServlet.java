@@ -69,6 +69,7 @@ public class SupplierServlet extends HttpServlet {
 		} else if (method.equals("modifySupplier")) {
 			modifySupplier(request, response);
 		}
+		request.getRequestDispatcher("Supplier.jsp").forward(request,response);
 	}
 
 	private void deleteSupplier(HttpServletRequest request, HttpServletResponse response) {
@@ -122,7 +123,7 @@ public class SupplierServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		// String sql="insert into Supplier"
 		SupplierDao supplierDao = new SupplierDao();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		/*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		sdf.setLenient(false); // 是否是严格的匹配
 		String addDate = request.getParameter("AddDate");
 		java.util.Date utilDate = null;
@@ -131,14 +132,29 @@ public class SupplierServlet extends HttpServlet {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}*/
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String s = sdf.format(new java.util.Date());
+		java.util.Date date=null;
+		try {
+			date = sdf.parse(s);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+
+		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 		Supplier supplier = new Supplier(request.getParameter("SupplierNo"), request.getParameter("SupplierName"),
 				request.getParameter("ContactName"), request.getParameter("Telephone"),
 				request.getParameter("Province"), request.getParameter("city"), request.getParameter("District"),
 				request.getParameter("Street"), request.getParameter("AddrDeatil"),
 				Float.parseFloat(request.getParameter("Rate")), sqlDate, request.getParameter("Remark"), 1);
 		supplierDao.addObject(supplier);
+		if(supplierDao.getKey().equals("noneof")) {
+			request.setAttribute("message","添加失败");
+		}else {
+			request.setAttribute("message","添加成功");
+		}
 	}
 
 	private void supplier(HttpServletRequest request, HttpServletResponse response, int onduty) {
