@@ -4,10 +4,10 @@
     <named-config name="dsmc3p0">
 
         <!-- 指定连接数据源的基本属性 -->
-        <property name="user">root</property>
-        <property name="password">root</property>
+        <property name="user">system</property>
+        <property name="password">password</property>
         <property name="driverClass">oracle.jdbc.driver.OracleDriver</property>
-        <property name="jdbcUrl">jdbc:oracle://localhost:5500/DrugStoreManagement</property>
+        <property name="jdbcUrl">jdbc:oracle:thin:@localhost:1521:DSM</property>
 
         <!-- 数据库连接池连接数少于最小数时，每次申请的连接数 -->
         <property name="acquireIncrement">5</property>

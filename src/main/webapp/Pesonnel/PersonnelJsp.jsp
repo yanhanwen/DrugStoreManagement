@@ -12,6 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <html>
 <head>
+<script src="../js/jquery-3.2.1.min.js"></script>
 <script language='javascript'>
 	function autoQuery()
 	{
@@ -19,11 +20,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		window.open("url" + "PersonnelAutoServlet?method=autoQuery");
 	}
 </script>
+<script language='javascript'>
+	function getChecked(tableName)
+	{
+		var tbodyObj = document.getElementById(tableName);
+        var arr=new Array();
+        $("table :checkbox").each(function(key,value)
+        {
+            if($(value).prop('checked'))
+            {
+            	for(var i=1; i<9; i++)
+            		arr.push(tbodyObj.rows[key+1].cells[i].innerHTML);
+            	break;
+            }
+        })
+        return arr;
+	}
+</script>
+<script>
+	function storeManagerDefult(arr)
+	{
+		document.getElementById("storeManagerDefualtNo").value=arr[0];
+		document.getElementById("storeManagerDefualtName").value=arr[1];
+		if(arr[2]=="男")
+			document.getElementById("storeManagerDefualtMale").checked="checked";
+		else if(arr[2]=="女")
+			document.getElementById("storeManagerDefualtFemale").checked="checked";
+		document.getElementById("storeManagerDefualtBirthday").value=arr[3];
+		document.getElementById("storeManagerDefualtTelephone").value=arr[4];
+		document.getElementById("storeManagerDefualtStoreNo").value=arr[7];
+		document.getElementById("storeManagerDefualtSalary").value=arr[8];
+	}
+</script>
+
+<style> 
+	.black_overlay
+	{
+		display: none;
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		z-index:1001;
+		-moz-opacity: 0.8;
+		opacity:.80;
+		filter: alpha(opacity=88);
+	}
+	.white_content
+	{
+		display: none;
+		position: absolute;
+		top: 25%;
+		left: 20%;
+		width: 55%;
+		height: 55%;
+		padding: 20px;
+		border: 10px solid orange;
+		background-color: white;
+		z-index:1002;
+		overflow: auto;
+	}
+</style> 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>人事管理</title>
 </head>
 <body onLoad=autoQuery()>
+	<form method="post" action="PersonnelServlet">
 	<%
 		HttpSession session = request.getSession();
 		String ID = (String)session.getAttribute("ID");
@@ -31,9 +96,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		{
 			List<StoreManager> list1 = (List<StoreManager>)request.getAttribute("storeManager-list");
 	%>
-	<form method="post" action="PersonnelServlet">
 		<input type="hidden" name="method" value="" id="method">
-		<table>
+		<table id="StoreManagerTable">
 			<tr>
 				<th></th>
 			<%
@@ -42,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					if(s.equals(list1.get(0).getColumns()[8]))
 						continue;
 			%>
-				<th><%=s %>></th>
+				<th><%=s %></th>
 			<%
 				}
 			%>
@@ -66,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			%>
 		</table>
-		<input type="hidden" name="method" value="modifyStoreMananger">
+
 		<button onClick="document.getElementById("light").style.display='block'; 
 						document.getElementById("fade").style.display='block'">添加
 		</button>
@@ -90,8 +154,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</button>
 		</div>
 		<div id="fade" class="black_overlay"></div>
-		<input type="button" value="修改" onClick="document.getElementById("method").value='modifyStoreManager'; 
-							this.form.submit(); ">
+
+		<button onClick="document.getElementById("light-1").style.display='block'; 
+						document.getElementById("fade-1").style.display='block';
+						var arr=getChecked("StoreManagerTable");
+						storeManagerDefault(arr);">修改
+		</button>
+		<div id="light-1" class="white_content">
+			编号：<input type="text" name="no" id="storeManagerDefualtNo" value="" readonly="readonly">
+			姓名：<input type="text" name="name" id="storeManagerDefualtName" value="">
+			性别：<input type="radio" name="sex" id="storeManagerDefualtMale" checked="">男	
+			<input type="radio" name="sex" id="storeManagerDefualtFemale" checked="">女
+			出生日期：<input type="date" name="birthday" id="storeManagerDefualtBirthday" value="">
+			联系电话：<input type="text" name="telephone" id="storeManagerDefualtTelephone" value="">
+			分店编号：<input type="text" name="storeNo" id="storeManagerDefualtStoreNo" value="">
+			月薪：<input type="text" name="salary" id="storeManagerDefualtSalary" value="">
+			<input type="hidden" name="passwd" value="password">
+			头像：<input type="file" name="icon">
+			<input type="button" value="确定" onClick="document.getElementById("method").value='addStoreManager'; 
+							this.form.submit();
+							document.getElementById("light").style.display='none'; 
+							document.getElementById("fade").style.display='none'">
+			<button onClick="document.getElementById("light").style.display='none'; 
+							document.getElementById("fade").style.display='none'">取消
+			</button>
+		</div>
+		<div id="fade-1" class="black_overlay"></div>
+		
 		<input type="button" value="删除" onClick="document.getElementById("method").value='deleteStoreManager'; 
 							this.form.submit(); ">
 		<input type="button" value="查看已离职分店经理" onClick="document.getElementById("method").value='storeManagerLeaved'; 
