@@ -40,7 +40,7 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>PersonnelServlet</servlet-name>
-  	<url-pattern>/PersonnelServlet/admin</url-pattern>
+  	<url-pattern>/PersonnelServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
