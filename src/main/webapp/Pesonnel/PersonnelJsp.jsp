@@ -87,16 +87,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			document.getElementById("PersonnelServletForm").submit();
 		</script>
 	<%
-		HttpSession session = request.getSession();
-		String ID = (String)session.getAttribute("ID");
+		//String ID = (String)request.getAttribute("ID");
+		String ID = "00000001";
 		if(ID.startsWith("0"))
 		{
 			List<StoreManager> list1 = (List<StoreManager>)request.getAttribute("storeManager-list");
+			if(list1 == null)
+			{
 	%>
+			<p>null</p>
+			<%} %>
 		<table id="StoreManagerTable">
 			<tr>
 				<th></th>
-			<%
+			<% 
 				for(String s : list1.get(0).getColumns())
 				{
 					if(s.equals(list1.get(0).getColumns()[8]))
@@ -204,14 +208,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			{
 		%>
 		<tr>
-			<td><input type="checkbox" name="<%=iter.getWarehouseManNo() %>" /></td>
-			<td><%=iter.getWarehouseManNo() %></td>
-			<td><%=iter.getWarehouseManName() %></td>
+			<td><input type="checkbox" name="<%=iter.getWareManNo() %>" /></td>
+			<td><%=iter.getWareManNo() %></td>
+			<td><%=iter.getWareManName() %></td>
 			<td><%=iter.getSex() %></td>
 			<td><%=iter.getBirthday().toString() %></td>
 			<td><%=iter.getTelephone() %></td>
 			<td><%=iter.getHireDate().toString() %></td>
-			<td><%=iter.getStoreNo() %></td>
+			<td><%=iter.getWarehouseNo() %></td>
 			<td><%=iter.getSalary() %></td>
 		</tr>
 		<%

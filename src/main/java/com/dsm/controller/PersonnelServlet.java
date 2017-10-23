@@ -70,6 +70,7 @@ public class PersonnelServlet extends HttpServlet
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String ID = (String)session.getAttribute("user_id");
+		request.setAttribute("ID", ID);
 		String message = "";
 		if(!ID.startsWith("0") || !ID.startsWith("2"))
 		{
@@ -82,7 +83,7 @@ public class PersonnelServlet extends HttpServlet
 			if(ID.startsWith("0"))
 			{
 				StoreManagerDao storeManager = new StoreManagerDao();
-		    	String sql = "select StoreManNo, StoreManName, Sex, Birthday, Age, Telephone, Hiredate, StoreNo, StoreName "
+		    	String sql = "select StoreManNo, StoreManName, Sex, Birthday, Age, Telephone, Hiredate, StoreManager.StoreNo, StoreName "
 		    			+ "from StoreManager left join Store where OnDuty = 1";
 		    	List<StoreManager> storeMans = storeManager.getForList(sql, null);
 		    	request.setAttribute("storeManager-list", storeMans);

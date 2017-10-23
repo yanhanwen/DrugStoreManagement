@@ -82,6 +82,7 @@
 			}
 		%>
 	</table>
+	<a href="SupplierAdd.jsp">添加供应商</a>
 	<%
 	String message=(String)request.getAttribute("message");
 	if(!message.equals("autoQuery")){
