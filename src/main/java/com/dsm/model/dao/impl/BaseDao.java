@@ -38,7 +38,8 @@ public abstract class BaseDao<T> implements IDao<T>
 		} catch (Exception e)
 		{
 			e.printStackTrace();
-		} finally
+		}
+		finally
 		{
 			JDBCTools.releaseConnection(connection,preparedStatement,resultSet);
 		}

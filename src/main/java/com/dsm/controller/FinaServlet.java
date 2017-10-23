@@ -2,8 +2,6 @@ package com.dsm.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dsm.model.entity.OnSale;
-import com.dsm.model.entity.User;
 import com.dsm.model.dao.impl.ManagerDao;
 import com.dsm.model.dao.impl.OnSaleDao;
 import com.dsm.model.dao.impl.SalesmanDao;
@@ -49,7 +46,6 @@ public class FinaServlet extends HttpServlet
 		WarehouseManagerDao whm = new WarehouseManagerDao();
 		ManagerDao m = new ManagerDao();
 		OnSaleDao os = new OnSaleDao();
-		String time = null;
 		String message = null;
 		BigDecimal whoutnum = wh.getOutNum();
 		BigDecimal soutnum = s.getOutNum();
@@ -57,19 +53,10 @@ public class FinaServlet extends HttpServlet
 		BigDecimal smgoutnum = smg.getOutNum();
 		BigDecimal whmoutnum = whm.getOutNum();
 		BigDecimal moutnum = m.getOutNum();
-		time = request.getParameter("time");
-		Date adate = null;
-		try {
-		    SimpleDateFormat format=new SimpleDateFormat("yyyy-MM");
-		    format.setLenient(false);  
-		    adate=format.parse(time);
-		} catch (Exception ex){
-			message = "日期不合法";
-			request.setAttribute("message",message);
-			request.getRequestDispatcher("/finance/FinaInJsp.jsp");
-			return;
-		}
-		String sql = "select * from OnSale natural join sale using(MedicineNo) where SaleTime like"+adate.toString()+"%";
+		String year = request.getParameter("year");
+		String month = request.getParameter("month");
+		String time = year+"-"+month;
+		String sql = "select * from OnSale natural join sale using(MedicineNo) where SaleTime like"+time+"%";
 		List<OnSale> los = os.getForList(sql,null);
 		BigDecimal in = new BigDecimal(0);
 		for(int i=0;i<los.size();i++)

@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<form  name="CCCC" method="post" action="FinaServlet">
 					<input type="hidden" id="indate" value="" name="year"/>
 					<input type="hidden" id="outdate" value="" name="month"/>
-					<input type="button" value="提交" onclick="demo()"/>
+					<input type="button" class="button blue round" value="提交" onclick="demo()"/>
 			</div>
 		</form>
 		</div>
