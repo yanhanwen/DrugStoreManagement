@@ -24,12 +24,13 @@ public abstract class BaseDao<T> implements IDao<T>
 		{
 			connection = JDBCTools.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
-
-			for (int i = 0; i < args.length; i++)
+			if(args!=null)
 			{
-				preparedStatement.setObject(i + 1, args[i]);
+				for (int i = 0; i < args.length; i++)
+				{
+					preparedStatement.setObject(i + 1, args[i]);
+				}
 			}
-
 			preparedStatement.executeUpdate();
 			
 			resultSet = preparedStatement.getGeneratedKeys();
@@ -66,9 +67,12 @@ public abstract class BaseDao<T> implements IDao<T>
 			connection = JDBCTools.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
 
-			for (int i = 0; i < args.length; i++)
+			if(args!=null)
 			{
-				preparedStatement.setObject(i + 1, args[i]);
+				for (int i = 0; i < args.length; i++)
+				{
+					preparedStatement.setObject(i + 1, args[i]);
+				}
 			}
 
 			resultSet = preparedStatement.executeQuery();
@@ -122,9 +126,12 @@ public abstract class BaseDao<T> implements IDao<T>
 			connection = JDBCTools.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
 
-			for (int i = 0; i < args.length; i++)
+			if(args!=null)
 			{
-				preparedStatement.setObject(i + 1, args[i]);
+				for (int i = 0; i < args.length; i++)
+				{
+					preparedStatement.setObject(i + 1, args[i]);
+				}
 			}
 
 			resultSet = preparedStatement.executeQuery();

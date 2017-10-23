@@ -22,10 +22,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <meta name="author" content="Codrops" />
 
-        <link rel="shortcut icon" href="../favicon.ico"> 
-
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/scroller.css" />
+        <link rel="stylesheet" type="text/css" href="../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../css/scroller.css" />
+		<link rel="stylesheet" type="text/css" href="../css/button.css" />
     </head>
 
     <body>
