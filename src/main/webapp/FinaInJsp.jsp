@@ -11,7 +11,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <html>
 <script type="text/javascript">
-
+function demo()
+{
+	document.getElenmentById("indate").value="";
+	document.getElenmentById("outdate").value="";
+	document.CCCC.submit();
+}
 </script>
     <head>
 
@@ -25,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link rel="shortcut icon" href="../favicon.ico"> 
 
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/scroller.css" />
+		<link rel="stylesheet" type="text/css" href="css/scroller.css" />
     </head>
 
     <body>
@@ -42,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<span>年</span>
 
-						<ul class="dropdown scroll" style="height:200px;overflow-y:scroll;" id="v1">
+						<ul class="dropdown scroll-1" style="height:200px;overflow-y:scroll;" id="v1">
 							
 							<%for(int year=2010;year<=2040;year++){%>
 								<li><a href="#"><i class="icon-envelope icon-large"></i><%=year%></a></li>
@@ -65,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<span>月</span>
 
-						<ul class="dropdown scroll" style="height:200px;overflow-y:scroll;" id="v2">
+						<ul class="dropdown scroll-1" style="height:200px;overflow-y:scroll;" id="v2">
 							<%for(int month=1;month<=12;month++){%>
 							<li><a href="#"><i class="icon-envelope icon-large"></i><%=month%></a></li>
 							<%}%>
@@ -77,28 +82,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			</section>
 			</div>
-			<script>
-			function demo()
-			{
+		</div>
+		<script type="text/javascript">
+		function demo()
+		{
 			document.getElenmentById("indate").value=document.getElenmentById("v1").value;
 			document.getElenmentById("outdate").value=document.getElenmentById("v2").value;
 			document.CCCC.submit();
-			}
-			</script>
-				<div style="position:relative;left:200px;top:400px;width:400px;height:50px">
-					<form  name="CCCC" method="post" action="FinaServlet">
-					<input type="hidden" id="indate" value="" name="year"/>
-					<input type="hidden" id="outdate" value="" name="month"/>
-					<input type="button" value="提交" onclick="demo()"/>
-			</div>
-		</form>
-		</div>
-		</div>
-
+		}
+		</script>
 
 		<!-- jQuery if needed --><script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
 
 		<script type="text/javascript">
+
 			
 
 			function DropDown(el) {

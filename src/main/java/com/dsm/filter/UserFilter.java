@@ -28,12 +28,12 @@ public class UserFilter implements Filter
         request.setCharacterEncoding(charset);  
         if(noLoginPaths!=null)
         {  
-            String[] strArray = noLoginPaths.split(";");  
+            String[] strArray = noLoginPaths.split(";");
             for (int i = 0; i < strArray.length; i++)
             {  
                 if(strArray[i]==null || "".equals(strArray[i]))
                 	continue;  
-                if(req.getRequestURI().indexOf(strArray[i])!=-1 ){  
+                if(req.getRequestURI().indexOf(strArray[i])!=-1){  
                     chain.doFilter(request, response);  
                     return;  
                 }  
