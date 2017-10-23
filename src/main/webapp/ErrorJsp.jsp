@@ -22,9 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <script src="js/jquery-1.12.0.min.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+
 
   <!-- typekit
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -34,8 +32,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 
 <div class="center-div">
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="top-section">
   <div class="container" id="intro-section">
     <div class="row">

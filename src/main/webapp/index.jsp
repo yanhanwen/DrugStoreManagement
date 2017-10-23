@@ -1,9 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/button.css" />
 <meta charset="UTF-8">
-	<title>canvas</title>
+	<title>hello</title>
 	<style>
 		body
 		{
