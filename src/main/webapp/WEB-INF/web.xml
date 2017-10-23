@@ -34,6 +34,18 @@
   	<description></description>
   	<servlet-class>com.dsm.controller.PersonnelAutoServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SupplierAutoServlet</servlet-name>
+  	<display-name>SupplierAutoServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.dsm.controller.SupplierAutoServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SupplierServlet</servlet-name>
+  	<display-name>SupplierServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.dsm.controller.SupplierServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -51,6 +63,14 @@
   <servlet-mapping>
   	<servlet-name>PersonnelAutoServlet</servlet-name>
   	<url-pattern>/PersonnelAutoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SupplierAutoServlet</servlet-name>
+  	<url-pattern>/SupplierAutoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SupplierServlet</servlet-name>
+  	<url-pattern>/SupplierServlet</url-pattern>
   </servlet-mapping>
   <error-page>
 	<error-code>404</error-code>
