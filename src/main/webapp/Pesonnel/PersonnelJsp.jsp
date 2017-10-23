@@ -14,13 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script language='javascript'>
-	function autoQuery()
-	{
-		var url = window.location.href;
-		window.open("url" + "PersonnelAutoServlet?method=autoQuery");
-	}
-</script>
-<script language='javascript'>
 	function getChecked(tableName)
 	{
 		var tbodyObj = document.getElementById(tableName);
@@ -87,8 +80,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>人事管理</title>
 </head>
-<body onLoad=autoQuery()>
-	<form method="post" action="PersonnelServlet">
+<body>
+	<form method="post" action="PersonnelServlet" id="PersonnelServletForm">
+		<input type="hidden" name="method" value="autoQuery" id="method">
+		<script>
+			document.getElementById("PersonnelServletForm").submit();
+		</script>
 	<%
 		HttpSession session = request.getSession();
 		String ID = (String)session.getAttribute("ID");
@@ -96,7 +93,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		{
 			List<StoreManager> list1 = (List<StoreManager>)request.getAttribute("storeManager-list");
 	%>
-		<input type="hidden" name="method" value="" id="method">
 		<table id="StoreManagerTable">
 			<tr>
 				<th></th>
