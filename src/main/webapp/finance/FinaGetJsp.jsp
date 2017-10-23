@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>财务</title>
 </head>
 	<body>
-		<table>
+		<table class="bordered">
 			<tr>
 				<td>${time}总收入：${in}</td>
 			</tr>
