@@ -69,14 +69,40 @@ public class PersonnelServlet extends HttpServlet
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String ID = (String)session.getAttribute("ID");
+		String ID = (String)session.getAttribute("user_id");
+		String message = "";
 		if(!ID.startsWith("0") || !ID.startsWith("2"))
 		{
+			message = "您没有人事管理权限。";
 			return;
 		}
 		String method = request.getParameter("method");
+		if(method.equals("autoQuery"))
+		{
+			if(ID.startsWith("0"))
+			{
+				StoreManagerDao storeManager = new StoreManagerDao();
+		    	String sql = "select StoreManNo, StoreManName, Sex, Birthday, Age, Telephone, Hiredate, StoreNo, StoreName "
+		    			+ "from StoreManager left join Store where OnDuty = 1";
+		    	List<StoreManager> storeMans = storeManager.getForList(sql, null);
+		    	request.setAttribute("storeManager-list", storeMans);
+		    	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
+		    	sql = "select WareManNo, WareManName, Sex, Birthday, Age, Telephone, HireDate, WarehouseNo, WarehouseName "
+		    			+ "from WarehouseManager left join Warehouse where OnDuty = 1";
+		    	List<WarehouseManager> wareMans = warehouseManager.getForList(sql, null);
+		    	request.setAttribute("warehouseManager-list", wareMans);
+			}
+			else if(ID.startsWith("2"))
+			{
+				SalesmanDao salesman = new SalesmanDao();
+		    	String sql = "select SalesmanNo, SalesmanName, Sex, Birthday, Age, Telephone, HireDate, StoreNo, StoreName "
+		    			+ "from Salesman left join Store where OnDuty = 1";
+		    	List<Salesman> salesmen = salesman.getForList(sql, null);
+		    	request.setAttribute("salesman-list", salesmen);
+			}
+		}
 		/*查询在职和离职店员，1在职，0离职*/
-		if(method.equals("salesman")||method.equals("salesmanLeaved"))
+		else if(method.equals("salesman")||method.equals("salesmanLeaved"))
 		{
 			if(method.equals("salesman"))
 				salesman(request, response, 1);
@@ -198,7 +224,7 @@ public class PersonnelServlet extends HttpServlet
     	java.util.Date utilBirthday = null;
     	try
     	{
-    		utilBirthday = sdf.parse(request.getParameter("birthday"));	//将string转为java.util.Date格式
+    		utilBirthday = sdf.parse(request.getParameter("addSalesmanBirthday"));	//将string转为java.util.Date格式
     	}
     	catch(Exception e)
     	{
@@ -206,10 +232,10 @@ public class PersonnelServlet extends HttpServlet
     	}
     	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	SalesmanDao salesman = new SalesmanDao();
-    	Salesman newSalesman = new Salesman(request.getParameter("no"), request.getParameter("name"), 
-    			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
-    			sqlDate, request.getParameter("storeNo"), new java.math.BigDecimal(request.getParameter("salary")), 
-    			request.getParameter("passwd"), 1);
+    	Salesman newSalesman = new Salesman(request.getParameter("addSalesmanNo"), request.getParameter("addSalesmanName"), 
+    			request.getParameter("addSalesmanSex"), sqlBirthday, request.getParameter("addSalesmanTelephone"), 
+    			sqlDate, request.getParameter("addSalesmanStoreNo"), new java.math.BigDecimal(request.getParameter("addSalesmanSalary")), 
+    			request.getParameter("addSalesmanPasswd"), 1);
     	addIcon(request, response, "salesman", "salesman");
     	salesman.addObject(newSalesman);
     }
@@ -221,7 +247,7 @@ public class PersonnelServlet extends HttpServlet
     	java.util.Date utilBirthday = null;
     	try
     	{
-    		utilBirthday = sdf.parse(request.getParameter("birthday"));	//将string转为java.util.Date格式
+    		utilBirthday = sdf.parse(request.getParameter("addWarehouseManBirthday"));	//将string转为java.util.Date格式
     	}
     	catch(Exception e)
     	{
@@ -229,10 +255,10 @@ public class PersonnelServlet extends HttpServlet
     	}
     	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
-    	WarehouseManager newWarehouseManager = new WarehouseManager(request.getParameter("no"), request.getParameter("name"), 
-    			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
-    			sqlDate, request.getParameter("warehouseNo"), new java.math.BigDecimal(request.getParameter("salary")), 
-    			request.getParameter("passwd"), request.getParameter("managerNo"), 1);
+    	WarehouseManager newWarehouseManager = new WarehouseManager(request.getParameter("addWarehouseManNo"), request.getParameter("addWarehouseManName"), 
+    			request.getParameter("addWarehouseManSex"), sqlBirthday, request.getParameter("addWarehouseManTelephone"), 
+    			sqlDate, request.getParameter("addWarehouseManWarehouseNo"), new java.math.BigDecimal(request.getParameter("addWarehouseManSalary")), 
+    			request.getParameter("addWarehouseManPasswd"), request.getParameter("addWarehouseManManagerNo"), 1);
     	addIcon(request, response, "warehouseManager", "wareMan");
     	warehouseManager.addObject(newWarehouseManager);
     }
@@ -244,7 +270,7 @@ public class PersonnelServlet extends HttpServlet
     	java.util.Date utilBirthday = null;
     	try
     	{
-    		utilBirthday = sdf.parse(request.getParameter("birthday"));	//将string转为java.util.Date格式
+    		utilBirthday = sdf.parse(request.getParameter("addWarehouseManBirthday"));	//将string转为java.util.Date格式
     	}
     	catch(Exception e)
     	{
@@ -252,10 +278,10 @@ public class PersonnelServlet extends HttpServlet
     	}
     	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	StoreManagerDao storeManager = new StoreManagerDao();
-    	StoreManager newStoreManager = new StoreManager(request.getParameter("no"), request.getParameter("name"), 
-    			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
-    			sqlDate, request.getParameter("storeNo"), new java.math.BigDecimal(request.getParameter("salary")), 
-    			request.getParameter("passwd"), request.getParameter("managerNo"), 1);
+    	StoreManager newStoreManager = new StoreManager(request.getParameter("addStoreManNo"), request.getParameter("addStoreManName"), 
+    			request.getParameter("addStoreManSex"), sqlBirthday, request.getParameter("addStoreManTelephone"), 
+    			sqlDate, request.getParameter("addStoreManStoreNo"), new java.math.BigDecimal(request.getParameter("addStoreManSalary")), 
+    			request.getParameter("addStoreManPasswd"), request.getParameter("addStoreManManagerNo"), 1);
     	addIcon(request, response, "storeManager", "storeMan");
     	storeManager.addObject(newStoreManager);
     }

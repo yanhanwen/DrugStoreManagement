@@ -131,16 +131,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						document.getElementById("fade").style.display='block'">添加
 		</button>
 		<div id="light" class="white_content">
-			编号：<input type="text" name="no">
-			姓名：<input type="text" name="name">
-			性别：<input type="radio" name="sex">男	
-			<input type="radio" name="sex">女
-			出生日期：<input type="date" name="birthday">
-			联系电话：<input type="text" name="telephone">
-			分店编号：<input type="text" name="storeNo">
-			月薪：<input type="text" name="salary">
-			<input type="hidden" name="passwd" value="password">
-			头像：<input type="file" name="icon">
+			编号：<input type="text" name="addStoreManNo">
+			姓名：<input type="text" name="addStoreManName">
+			性别：<input type="radio" name="addStoreManSex">男	
+			<input type="radio" name="addStoreManSex">女
+			出生日期：<input type="date" name="addStoreManBirthday">
+			联系电话：<input type="text" name="addStoreManTelephone">
+			分店编号：<input type="text" name="addStoreNo">
+			月薪：<input type="text" name="addStoreManSalary">
+			<input type="hidden" name="addStoreManPasswd" value="password">
+			头像：<input type="file" name="addIcon">
 			<input type="button" value="确定" onClick="document.getElementById("method").value='addStoreManager'; 
 							this.form.submit();
 							document.getElementById("light").style.display='none'; 
