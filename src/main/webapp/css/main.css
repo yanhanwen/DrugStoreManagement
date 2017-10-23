@@ -1,0 +1,602 @@
+/* main styles
+–––––––––––––––––––––––––––––––––––––––––––––––––�? */
+body {
+    background-color: #ffffff;
+}
+.inner-container{
+    margin: 0 auto;
+    max-width:85%;
+    overflow:hidden; /* to solve float issues */
+    position: relative;
+}
+#header {
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid #EFEFEF;
+    margin-bottom: 0px;
+}
+#intro-section{
+    padding-top:20px;
+}
+.portfolio-list{
+    padding-top: 60px;
+}
+.portfolio-list .row {
+    padding-bottom: 0.3%;
+}
+.portfolio-list a{
+  display: block;
+  width: 100%;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  list-style:none;
+  outline:0;
+  border:0;
+  text-decoration:none;
+  margin:0;
+  padding:0;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.portfolio-list p{
+  display: none;
+}
+.portfolio-list a:hover p{
+  display: table;
+  background-color:#fff;
+  opacity: 0.8;
+  font-size: 22px;
+  font-weight: 300;
+  color: #002F4D;
+  position: absolute;
+  width: 100.3%;
+  min-height: 100%;
+  text-align: center;
+  top: 0;
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 22px;
+}
+.portfolio-list p strong{
+  font-weight: 300;
+  display: block;
+  text-align: center;
+}
+.portfolio-list p span{
+  display: table-cell;
+  vertical-align: middle;
+}
+.portfolio-list a {
+  margin-bottom: 3%;
+}
+
+.next {
+    text-align: center;
+    padding:20px 0;
+}
+.projectimages{
+    text-align: center;
+}
+.projectimages img{
+    padding-bottom:0px;
+}
+.projectcasestudy img{
+    margin-bottom:-8px;
+    padding:0px;
+}
+.projectcasestudy{
+    padding-bottom:20px;
+}
+#o2-text-1{
+    color: #fff;
+
+}
+.project{
+    text-align:center;
+}
+
+
+
+/* Logo
+-------------------------------------------------------------- */
+#logo { 
+    float: left; 
+}
+#logo img { 
+    width:50px; 
+    padding-top:1.2em;
+}
+
+/* Navigation
+-------------------------------------------------------------- */
+#navigation { 
+    float: right; 
+    margin-top: 0.5em; 
+    font: 20px/24px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 400; 
+} 
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+  }
+
+  li {
+      float: left;
+  }
+
+  li a {
+      display: block;
+      color: #FF8B8B;
+      text-align: center;
+      padding: 14px 8px;
+      text-decoration: none;
+      cursor:pointer;
+  }
+
+  li a:hover {
+        color: #FF8B8B;
+  }
+
+  li a:hover:.active {
+        color: #FF8B8B;
+  }
+  .active {
+      color: #37484E;
+  }
+
+/* Typography
+-------------------------------------------------------------- */
+body{
+    font: 18px/24px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+h1{
+    font: 40px/40px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #37484E;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+}
+h2{
+    font: 30px/30px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #37484E;
+    margin-bottom:10px;
+}
+h3 {
+    font: 26px/32px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    color: #37484E;
+}
+h4 {
+    font: 22px/22px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #37484E;
+}
+.intro {
+    font: 20px/28px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #37484E;
+}
+p {
+    font: 18px/24px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+.leadpara {
+    font: 20px/28px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #37484E;
+}
+.year {
+    font: 16px/22px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #37484E;
+    display: block;
+    margin-bottom: 20px;
+}
+.biglink {
+    font: 20px/28px "futura-pt", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #FF8B8B;
+}
+/* Links
+-------------------------------------------------------------- */
+a {
+    color: #FF8B8B;
+    text-decoration: none;
+    cursor:pointer;
+}
+a:hover{
+    color: #FF8B8B;
+    text-decoration: underline;
+}
+
+
+/* Images
+-------------------------------------------------------------- */
+.indyimg {
+    display: block;
+    margin: 0 auto;
+    padding-top:20px;
+    height:200px;
+}
+video.scale-with-grid, img.scale-with-grid {
+    outline: 0;
+    max-width: 100%;
+    height: auto;
+}
+video {
+    padding-bottom: 20px;
+}
+#gaming {
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom: 40px;
+}
+
+/* Footer
+-------------------------------------------------------------- */
+.top-section{
+    background:#ffffff;
+    position:relative;
+    z-index: 1000;
+    margin-bottom:362px;
+    padding-bottom: 20px;
+}
+.footer {
+    height:362px;
+    background-color: #FF8B8B;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    z-index: 0;
+    color:#ffffff;
+}
+.footer .inner-container{
+    padding-top: 20px;
+}
+.indyfooter{
+    width:100px;
+    padding-bottom: 20px;
+}
+.footerinfo{
+    text-align: center;
+    padding-top: 50px;  
+    padding-bottom: 50px;
+}
+.footer h3{
+    color:#ffffff;
+}
+.footerinfo a{
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+.footerinfo a:hover{
+    color:#B85A62;
+    transition: 0.2s;
+    -moz-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s; 
+}
+.footer span{
+    color:#B85A62;
+}
+
+/* Social links in footer
+-------------------------------------------------------------- */
+.sociallinks {
+  margin:20px auto;
+  width:240px;
+  text-align:center;
+}
+.icon {
+    position:relative;
+    text-align:center;
+    width:0px;
+    height:0px;
+    padding:20px;
+   
+    color:#FFFFFF;
+}
+.icon i {
+    font-size:20px;
+    position:absolute;
+    left:9px;
+    top:10px;
+}
+.icon.social {
+    float:left;
+    margin:0 5px 0 0;
+    cursor:pointer;
+    color:#fff;
+    transition: 0.2s;
+    -moz-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;    
+}
+.icon.social:hover {
+    color:#B85A62;
+    transition: 0.2s;
+    -moz-transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;    
+}
+.icon.social.be i {
+    left:13px;
+    top:10px;
+}
+.icon.social.tw i {
+    left:11px;
+}
+.icon.social.in i {
+    left:11px;
+}
+.icon.social.dr i {
+    left:11px;
+}
+.icon.social.ig i {
+    left:11px;
+}
+
+/* Animation
+-------------------------------------------------------------- */
+.animatesecond {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-delay: 0.5s;
+}
+.animatethird {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 1s;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-delay: 1s;
+}
+.animatefourth {
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-delay: 1.5s;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-delay: 1.5s;
+}
+.animatefifth {
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+}
+
+/* Media Queries: Above 550px width 
+–––––––––––––––––––––––––––––––––––––––––––––––––�? */
+@media (min-width: 550px){
+    #header {
+        margin-bottom: 40px;
+    }   
+    .inner-container{
+        max-width:90%;
+    }
+    #intro-section{
+        padding-top:0px;
+    }
+    .indyimg {
+        height:360px;
+    }
+    h1{
+        font-size: 60px;
+        line-height: 60px;
+    }
+    h2{
+        font-size: 40px;
+        line-height: 40px;
+    }
+    h3 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .intro{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .portfolio-list a {
+        margin-left:1%;
+        margin-bottom: 1%;
+        width:49.5% !important;
+    }
+    .portfolio-list a:nth-child(2n+1) {
+      margin: 0;
+    }
+    .projectimages{
+        padding-top:20px;
+    }
+    .projectcasestudy{
+        padding-top:20px;
+        padding-bottom:40px;
+    }
+    .top-section{
+        margin-bottom:370px;
+    }
+    .footer {
+        height:370px;
+    }
+    .footerinfo{
+        padding-top: 50px;  
+        padding-bottom: 50px;
+    }
+}
+
+/* Media Queries: Above 768px width and 600px height 
+–––––––––––––––––––––––––––––––––––––––––––––––––�? */
+@media (min-width: 768px) and (min-height:600px) {
+    #intro-section{
+        padding-top:30px;
+    }
+    .indyimg {
+        height:350px;
+    }
+    h1{
+        font-size: 70px;
+        line-height: 70px;
+    }
+    .biglink{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .projectimages img{
+        padding-bottom:20px;
+    }
+}
+
+/* Media Queries: Above 950px width and 700px height 
+–––––––––––––––––––––––––––––––––––––––––––––––––�? */
+@media (min-width: 950px) and (min-height: 700px) {
+    #intro-section{
+        padding-top:50px;
+    }
+    h1{
+        font-size: 100px;
+        line-height: 100px;
+    }
+    h2{
+        font-size: 50px;
+        line-height: 50px;
+    }
+    h3{
+        font-size: 40px;
+        line-height: 48px;
+    }
+    h4{
+        font-size: 32px;
+        line-height: 32px;
+    }
+    .leadpara{
+        font-size:24px;
+        line-height:32px;
+    }
+    .intro {
+        font-size: 30px;
+        line-height: 36px;
+    }
+    .year {
+        font-size:18px;
+        line-height:24px;
+    }
+    .indyimg {
+        height:380px;
+    } 
+    #copyright{
+        float:left;
+        display:inline;
+    }
+    #sociallinks{
+        float:right;
+        display:inline;
+    }
+    .biglink{
+        font-size: 30px;
+        line-height: 38px;
+    }
+    #gaming {
+        width:491px;
+    }
+    .projectcasestudy{
+        padding-bottom:60px;
+    }
+    .top-section{
+        margin-bottom:398px;
+    }
+    .footer {
+        height:398px;
+    }
+    .footerinfo{
+        padding-top: 60px;  
+        padding-bottom: 60px;
+    }
+}
+
+/* Media Queries: Above 1445px width and 900px height 
+–––––––––––––––––––––––––––––––––––––––––––––––––�? */
+@media (min-width: 1445px) and (min-height:1100px) {
+    
+    #header {
+        margin-bottom: 60px;
+    } 
+    #intro-section{
+        padding-top:60px;
+    }
+    h1{
+        font-size: 130px;
+        line-height: 130px;
+    }
+    h2{
+        font-size:60px;
+        line-height:60px;
+    }
+    h3{
+        font-size:50px;
+        line-height:58px;
+    }
+    h4{
+        font-size:36px;
+        line-height:36px;
+        letter-spacing: -0.2px;
+        padding-bottom: 20px;
+    }
+    .intro {
+        font size: 34px;
+        line-height: 40px;
+    }
+    .leadpara{
+        font size: 30px;
+        line-height: 38px;
+    }
+    .indyimg {
+        height:450px;
+    }
+    
+    .next {
+        text-align: center;
+        padding:60px 0;
+    }
+    .biglink{
+        font-size: 40px;
+        line-height: 48px;
+    }
+    #gaming {
+        width:607px;
+    }
+    .projectcasestudy{
+        padding-bottom:150px;
+    }
+    .lastcasestudy{
+        padding-bottom:0px;
+    }
+    .extrapadding{
+        padding-bottom:110px;
+    }
+    .top-section{
+        margin-bottom:500px;
+    }
+    .footer {
+        height:500px;
+    }
+    .footerinfo{
+        padding-top: 100px;  
+        padding-bottom: 100px;
+    }
+
+}

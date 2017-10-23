@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+.alert {
+background: #fff6bf url(/jscss/demoimg/200909/alert.png) center no-repeat;
+background-position: 15px 50%;
+text-align: left;
+padding: 5px 20px 5px 45px;
+border-top: 2px solid #ffd324;
+border-bottom: 2px solid #ffd324;
+}
