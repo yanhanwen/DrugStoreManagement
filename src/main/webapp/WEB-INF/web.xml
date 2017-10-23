@@ -34,6 +34,18 @@
   	<description></description>
   	<servlet-class>com.dsm.controller.PersonnelAutoServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SupplierAutoServlet</servlet-name>
+  	<display-name>SupplierAutoServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.dsm.controller.SupplierAutoServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SupplierServlet</servlet-name>
+  	<display-name>SupplierServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.dsm.controller.SupplierServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -42,7 +54,7 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>PersonnelServlet</servlet-name>
-  	<url-pattern>/PersonnelServlet/admin</url-pattern>
+  	<url-pattern>/PersonnelServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
@@ -53,10 +65,19 @@
   	<url-pattern>/PersonnelAutoServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+  	<servlet-name>SupplierAutoServlet</servlet-name>
+  	<url-pattern>/SupplierAutoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SupplierServlet</servlet-name>
+  	<url-pattern>/SupplierServlet</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
+
   <error-page>
 	<error-code>404</error-code>
 	<location>/404.jsp</location>

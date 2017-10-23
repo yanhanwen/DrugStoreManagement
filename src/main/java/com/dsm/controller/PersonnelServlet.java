@@ -144,6 +144,18 @@ public class PersonnelServlet extends HttpServlet
 		{
 			deleteStoreManager(request, response);
 		}
+		else if(method.equals("moditySalesman"))
+		{
+			modifySalesman(request, response);
+		}
+		else if(method.equals("modifyWarehouseManager"))
+		{
+			modifyWarehouseManager(request, response);
+		}
+		else if(method.equals("modifyStoreManager"))
+		{
+			modifyStoreManager(request, response);
+		}
 	}
     
     private void salesman(HttpServletRequest request, HttpServletResponse response, int OnDuty)
@@ -423,12 +435,30 @@ public class PersonnelServlet extends HttpServlet
     	}
     	request.setAttribute("message", "" + count);
     }
-    private void moditySalesman(HttpServletRequest request, HttpServletResponse response)
+    private void modifySalesman(HttpServletRequest request, HttpServletResponse response)
     {
     	SalesmanDao salesman = new SalesmanDao();
+    	String sql = "update salesman set SalesmanName=?, Birthday=to_date(?), telephone=?, storeNo=?, "
+				+ "salary=? where SalesmanNo = ?";
+    	salesman.update(sql, request.getParameter("name"), request.getParameter("birthday"), 
+				request.getParameter("telephone"), request.getParameter("storeNo"), 
+				request.getParameter("salary"), request.getParameter("no"));
+    }
+    private void modifyWarehouseManager(HttpServletRequest request, HttpServletResponse response)
+    {
+    	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
+    	String sql = "update WarehouseManager set WareManName=?, Birthday=to_date(?), telephone=?, warehouseNo=?, "
+				+ "salary=? where WareManNo = ?";
+    	warehouseManager.update(sql, request.getParameter("name"), request.getParameter("birthday"), 
+				request.getParameter("telephone"), request.getParameter("warehouseNo"), 
+				request.getParameter("salary"), request.getParameter("no"));
+    }
+    private void modifyStoreManager(HttpServletRequest request, HttpServletResponse response)
+    {
+    	StoreManagerDao storeManager = new StoreManagerDao();
     	String sql = "update StoreManager set StoreManName=?, Birthday=to_date(?), telephone=?, storeNo=?, "
 				+ "salary=? where StoreManNo = ?";
-    	salesman.update(sql, request.getParameter("storeManName"), request.getParameter("birthday"), 
+    	storeManager.update(sql, request.getParameter("name"), request.getParameter("birthday"), 
 				request.getParameter("telephone"), request.getParameter("storeNo"), 
 				request.getParameter("salary"), request.getParameter("no"));
     }
