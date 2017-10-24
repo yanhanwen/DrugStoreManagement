@@ -1,6 +1,7 @@
 package com.dsm.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -52,7 +53,7 @@ public class SupplierServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
-		String ID = (String) session.getAttribute("user_id");
+		String ID = "0123456";//(String) session.getAttribute("user_id");
 		if ( !ID.startsWith("0")) {
 			return;
 		}
@@ -142,13 +143,14 @@ public class SupplierServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		BigDecimal Rate=new BigDecimal(request.getParameter("Rate"));
 
 		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 		Supplier supplier = new Supplier(request.getParameter("SupplierNo"), request.getParameter("SupplierName"),
 				request.getParameter("ContactName"), request.getParameter("Telephone"),
 				request.getParameter("Province"), request.getParameter("city"), request.getParameter("District"),
 				request.getParameter("Street"), request.getParameter("AddrDeatil"),
-				Float.parseFloat(request.getParameter("Rate")), sqlDate, request.getParameter("Remark"), 1);
+				Rate, sqlDate, request.getParameter("Remark"), 1);
 		supplierDao.addObject(supplier);
 		if(supplierDao.getKey().equals("noneof")) {
 			request.setAttribute("message","添加失败");
