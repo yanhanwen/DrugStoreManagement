@@ -9,30 +9,30 @@
 <body>
 		<div>
 		<form action="SupplierServlet" method="post">
-		    <span>供应商编号:</span><input id="ph" type="text"/>
+		    <span>供应商编号:</span><input name="SupplierNo" type="text"/>
 		    <br>
-			<span>供应商姓名:</span><input id="ph" type="text"/>
+			<span>供应商姓名:</span><input name="SupplierName"type="text"/>
 			<br>
-			<span>联系人:</span><input id="ph" type="text"/>
+			<span>联系人:</span><input name="ContactName" type="text"/>
 			<br>
-			<span>联系人号码:</span><input id="ph" type="text"/>
+			<span>联系人号码:</span><input name="Telephone" type="text"/>
 			<br>
-			<span>省:</span><input id="ph" type="text"/>
+			<span>省:</span><input name="Provnice" type="text"/>
 			<br>
-			<span>市:</span><input id="ph" type="text"/>
+			<span>市:</span><input name="City" type="text"/>
 			<br>
-			<span>区:</span><input id="ph" type="text"/>
+			<span>区:</span><input name="District" type="text"/>
 			<br>
-			<span>街道:</span><input id="ph" type="text"/>
+			<span>街道:</span><input name="Street" type="text"/>
 			<br>
-			<span>详细地址:</span><input id="ph" type="text"/>
+			<span>详细地址:</span><input name="AddrDetail" type="text"/>
 			<br>
-			<span>评级:</span><input id="ph" type="text"/>
+			<span>评级:</span><input name="Rate" type="text"/>
 			<br>
-			<span>备注:</span><input id="ph" type="text"/>
+			<span>备注:</span><input name="Remark" type="text"/>
 			<br>
 			<input type="hidden" name="method" value="addSupplier">
-			<input type="submit" name="method" value="添加"></
+			<input type="submit" name="method" value="添加">
 	</form>
 	</div>
 </body>
