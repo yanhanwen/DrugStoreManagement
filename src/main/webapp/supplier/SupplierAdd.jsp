@@ -8,7 +8,7 @@
 </head>
 <body>
 		<div>
-		<form action="SupplierServlet" method="post">
+		<form action="../SupplierServlet" method="post">
 		    <span>供应商编号:</span><input name="SupplierNo" type="text"/>
 		    <br>
 			<span>供应商姓名:</span><input name="SupplierName"type="text"/>

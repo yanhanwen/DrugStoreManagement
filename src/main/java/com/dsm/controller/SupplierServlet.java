@@ -70,7 +70,7 @@ public class SupplierServlet extends HttpServlet {
 		} else if (method.equals("modifySupplier")) {
 			modifySupplier(request, response);
 		}
-		request.getRequestDispatcher("Supplier.jsp").forward(request,response);
+		request.getRequestDispatcher("/supplier/Supplier.jsp").forward(request,response);
 	}
 
 	private void deleteSupplier(HttpServletRequest request, HttpServletResponse response) {
@@ -144,7 +144,6 @@ public class SupplierServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		BigDecimal Rate=new BigDecimal(request.getParameter("Rate"));
-
 		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 		Supplier supplier = new Supplier(request.getParameter("SupplierNo"), request.getParameter("SupplierName"),
 				request.getParameter("ContactName"), request.getParameter("Telephone"),

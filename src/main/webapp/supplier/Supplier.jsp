@@ -22,8 +22,13 @@
 		alert(message);
 	}
 </script>
+	<link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" type="text/css" href="../css/button.css" />
+    <style type="text/css">
+    input{
+    border:none;}</style>
 </head>
-<body onload="autoQuery">
+<body class="bordered">
 	<h1>供应商管理</h1>
 
 	<table id="mytable" cellspacing="0px" border="3" bordercolor="red">
@@ -43,7 +48,8 @@
 			<th colspan="3">操作</th>
 		</tr>
 		<%  SupplierDao supplierDao=new SupplierDao();
-		    List<Supplier> list =(List<Supplier>)supplierDao.getForList("select * from Supplier");%>
+		    List<Supplier> list =(List<Supplier>)supplierDao.getForList("select * from Supplier");
+		%>
 		<%	for (Supplier s : list) {
 		%>
 		<tr>
