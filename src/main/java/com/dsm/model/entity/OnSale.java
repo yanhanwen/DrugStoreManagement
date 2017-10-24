@@ -18,28 +18,28 @@ public class OnSale
     private Date validPeriod;       //鏈夋晥鏈�
     private int frameNo;            //鍞灦鍙�
     
-    public String getOnSaleNo() {
+    public String getOnsaleno() {
 		return OnSaleNo;
 	}
-	public void setOnSaleNo(String onSaleNo) {
+	public void setOnsaleno(String onSaleNo) {
 		OnSaleNo = onSaleNo;
 	}
-    public String getMedicineNo()
+    public String getMedicineno()
     {
         return medicineNo;
     }
 
-    public void setMedicineNo(String medicineNo)
+    public void setMedicineno(String medicineNo)
     {
         this.medicineNo = medicineNo;
     }
 
-    public String getStoreNo()
+    public String getStoreno()
     {
         return storeNo;
     }
 
-    public void setStoreNo(String storeNo)
+    public void setStoreno(String storeNo)
     {
         this.storeNo = storeNo;
     }
@@ -74,22 +74,22 @@ public class OnSale
         this.cost = cost;
     }
 
-    public Date getValidPeriod()
+    public Date getValidperiod()
     {
         return validPeriod;
     }
 
-    public void setValidPeriod(Date validPeriod)
+    public void setValidperiod(Date validPeriod)
     {
         this.validPeriod = validPeriod;
     }
 
-    public int getFrameNo()
+    public int getFrameno()
     {
         return frameNo;
     }
 
-    public void setFrameNo(int frameNo)
+    public void setFrameno(int frameNo)
     {
         this.frameNo = frameNo;
     }
