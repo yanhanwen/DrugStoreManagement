@@ -22,19 +22,19 @@ public class StoreManager
     private String managerNo;       //鎬荤粡鐞嗙紪鍙�
     private int onDuty;             //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
     private Blob icon;              //澶村儚
-	public String getStoreManNo()
+	public String getStoremanno()
 	{
 		return storeManNo;
 	}
-	public void setStoreManNo(String storeManNo)
+	public void setStoremanno(String storeManNo)
 	{
 		this.storeManNo = storeManNo;
 	}
-	public String getStoreManName()
+	public String getStoremanname()
 	{
 		return storeManName;
 	}
-	public void setStoreManName(String storeManName)
+	public void setStoremanname(String storeManName)
 	{
 		this.storeManName = storeManName;
 	}
@@ -62,19 +62,19 @@ public class StoreManager
 	{
 		this.telephone = telephone;
 	}
-	public Date getHireDate()
+	public Date getHiredate()
 	{
 		return hireDate;
 	}
-	public void setHireDate(Date hireDate)
+	public void setHiredate(Date hireDate)
 	{
 		this.hireDate = hireDate;
 	}
-	public String getStoreNo()
+	public String getStoreno()
 	{
 		return storeNo;
 	}
-	public void setStoreNo(String storeNo)
+	public void setStoreno(String storeNo)
 	{
 		this.storeNo = storeNo;
 	}
@@ -94,19 +94,19 @@ public class StoreManager
 	{
 		this.passwd = passwd;
 	}
-	public String getManagerNo()
+	public String getManagerno()
 	{
 		return managerNo;
 	}
-	public void setManagerNo(String managerNo)
+	public void setManagerno(String managerNo)
 	{
 		this.managerNo = managerNo;
 	}
-	public int getOnDuty()
+	public int getOnduty()
 	{
 		return onDuty;
 	}
-	public void setOnDuty(int onDuty)
+	public void setOnduty(int onDuty)
 	{
 		this.onDuty = onDuty;
 	}
@@ -138,19 +138,4 @@ public class StoreManager
 	{
 		super();
 	}
-	public String[] getColumns()
-    {
-    	String cols[] = null;
-    	cols = new String[9];
-    	cols[0] = "编号";
-    	cols[1] = "姓名";
-    	cols[2] = "性别";
-    	cols[3] = "出生日期";
-    	cols[4] = "联系电话";
-    	cols[5] = "就职日期";
-    	cols[6] = "就职店面编号";
-    	cols[7] = "月薪";
-    	cols[8] = "登录密码";
-    	return cols;
-    }
 }
