@@ -134,7 +134,8 @@ public class LoginServlet extends HttpServlet
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("/salesman/FunctionJsp.jsp").forward(request, response);
+//				request.getRequestDispatcher("/salesman/FunctionJsp.jsp").forward(request, response);
+				System.out.append("333333");
 				return;
 			}
 			else

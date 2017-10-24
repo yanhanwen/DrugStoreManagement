@@ -73,7 +73,6 @@ public abstract class BaseDao<T> implements IDao<T>
 			}
 
 			resultSet = preparedStatement.executeQuery();
-
 			List<String> columnLabel = new ArrayList<String>();
 			ResultSetMetaData rsmd = resultSet.getMetaData();
 			int columnCount = rsmd.getColumnCount();
@@ -83,11 +82,12 @@ public abstract class BaseDao<T> implements IDao<T>
 				attr = attr.toLowerCase();
 				columnLabel.add(attr);
 			}
-
-			clazz = ((Class<T>)(((ParameterizedType)(this.getClass().getGenericSuperclass())).getActualTypeArguments()[0]));
-			T entity = clazz.newInstance();
+			System.out.println(resultSet);
+			
 			while (resultSet.next())
 			{
+				clazz = ((Class<T>)(((ParameterizedType)(this.getClass().getGenericSuperclass())).getActualTypeArguments()[0]));
+				T entity = clazz.newInstance();
 				try
 				{
 					for (int k = 0; k < columnCount; k++)
@@ -108,7 +108,6 @@ public abstract class BaseDao<T> implements IDao<T>
 		{
 			JDBCTools.releaseConnection(connection,preparedStatement,resultSet);
 		}
-
 		return entities;
 	}
 
