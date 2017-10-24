@@ -36,7 +36,7 @@ public class SupplierAutoServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String ID = (String)session.getAttribute("user_id");
+		String ID = "0123456";//(String)session.getAttribute("user_id");
 		String message = "";
 		if( !ID.startsWith("0"))
 		{
@@ -53,8 +53,8 @@ public class SupplierAutoServlet extends HttpServlet {
 		SupplierDao supplier = new SupplierDao();
 		String sql = "select * from Supplier where onduty=1";
 		List<Supplier> suppliers = supplier.getForList(sql, null);
-		request.setAttribute("supplier-list", suppliers);
-		request.setAttribute("message", "autoQuery");
+		request.getSession().setAttribute("supplier-list", suppliers);
+		request.getSession().setAttribute("message", "autoQuery");
 	}
 
 	/**
