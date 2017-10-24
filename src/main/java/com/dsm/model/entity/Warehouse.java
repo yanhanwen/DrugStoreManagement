@@ -11,7 +11,7 @@ public class Warehouse
     private String warehouseName;       //浠撳簱鍚嶇О锛岄潪绌�
     private String province;            //鎵�鍦ㄧ渷浠�
     private String city;                //鍩庡競
-    private String districi;            //鍖�
+    private String district;            //鍖�
     private String street;              //鎺ュ埌
     private String addrDetail;          //璇︾粏鍦板潃
     private BigDecimal monthlyCost;            //鏈堝浐瀹氬紑閿�锛堟按鐢佃垂锛岀淮淇垂绛夛級锛岄潪绌�
@@ -56,12 +56,12 @@ public class Warehouse
         this.city = city;
     }
 
-    public String getDistrici()
+    public String getDistrict()
     {
         return districi;
     }
 
-    public void setDistrici(String districi)
+    public void setDistrict(String districi)
     {
         this.districi = districi;
     }
@@ -102,7 +102,7 @@ public class Warehouse
         this.warehouseName = warehouseName;
         this.province = province;
         this.city = city;
-        this.districi = districi;
+        this.district = district;
         this.street = street;
         this.addrDetail = addrDetail;
         this.monthlyCost = monthlyCost;
