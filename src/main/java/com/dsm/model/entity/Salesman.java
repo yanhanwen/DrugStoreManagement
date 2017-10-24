@@ -21,19 +21,19 @@ public class Salesman
     private String passwd;                  //鐧诲綍瀵嗙爜
     private int onDuty;                     //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
     private Blob icon;                      //澶村儚
-	public String getSalesmanNo()
+	public String getSalesmanno()
 	{
 		return salesmanNo;
 	}
-	public void setSalesmanNo(String salesmanNo)
+	public void setSalesmanno(String salesmanNo)
 	{
 		this.salesmanNo = salesmanNo;
 	}
-	public String getSalesmanName()
+	public String getSalesmanname()
 	{
 		return salesmanName;
 	}
-	public void setSalesmanName(String salesmanName)
+	public void setSalesmanname(String salesmanName)
 	{
 		this.salesmanName = salesmanName;
 	}
@@ -61,19 +61,19 @@ public class Salesman
 	{
 		this.telephone = telephone;
 	}
-	public Date getHireDate()
+	public Date getHiredate()
 	{
 		return hireDate;
 	}
-	public void setHireDate(Date hireDate)
+	public void setHiredate(Date hireDate)
 	{
 		this.hireDate = hireDate;
 	}
-	public String getStoreNo()
+	public String getStoreno()
 	{
 		return storeNo;
 	}
-	public void setStoreNo(String storeNo)
+	public void setStoreno(String storeNo)
 	{
 		this.storeNo = storeNo;
 	}
@@ -93,11 +93,11 @@ public class Salesman
 	{
 		this.passwd = passwd;
 	}
-	public int getOnDuty()
+	public int getOnduty()
 	{
 		return onDuty;
 	}
-	public void setOnDuty(int onDuty)
+	public void setOnduty(int onDuty)
 	{
 		this.onDuty = onDuty;
 	}
