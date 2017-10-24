@@ -16,32 +16,32 @@ public class Sale
     private BigDecimal total;       //鎬讳环
     private Timestamp saleTime;     //閿�鍞椂闂�
 
-    public String getSerialNo()
+    public String getSerialno()
     {
         return serialNo;
     }
 
-    public void setSerialNo(String serialNo)
+    public void setSerialno(String serialNo)
     {
         this.serialNo = serialNo;
     }
 
-    public String getMedicineNo()
+    public String getMedicineno()
     {
         return medicineNo;
     }
 
-    public void setMedicineNo(String medicineNo)
+    public void setMedicineno(String medicineNo)
     {
         this.medicineNo = medicineNo;
     }
 
-    public String getSalesmanNo()
+    public String getSalesmanno()
     {
         return salesmanNo;
     }
 
-    public void setSalesmanNo(String salesmanNo)
+    public void setSalesmanno(String salesmanNo)
     {
         this.salesmanNo = salesmanNo;
     }
@@ -66,12 +66,12 @@ public class Sale
         this.total = total;
     }
 
-    public Timestamp getSaleTime()
+    public Timestamp getSaletime()
     {
         return saleTime;
     }
 
-    public void setSaleTime(Timestamp saleTime)
+    public void setSaletime(Timestamp saleTime)
     {
         this.saleTime = saleTime;
     }
