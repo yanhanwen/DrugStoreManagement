@@ -22,19 +22,19 @@ public class WarehouseManager
     private String managerNo;           //鎬荤粡鐞嗙紪鍙�
     private int onDuty;                 //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
     private Blob icon;                  //澶村儚
-	public String getWareManNo()
+	public String getWaremanno()
 	{
 		return wareManNo;
 	}
-	public void setWareManNo(String wareManNo)
+	public void setWaremanno(String wareManNo)
 	{
 		this.wareManNo = wareManNo;
 	}
-	public String getWareManName()
+	public String getWaremanname()
 	{
 		return wareManName;
 	}
-	public void setWareManName(String wareManName)
+	public void setWaremanname(String wareManName)
 	{
 		this.wareManName = wareManName;
 	}
@@ -62,19 +62,19 @@ public class WarehouseManager
 	{
 		this.telephone = telephone;
 	}
-	public Date getHireDate()
+	public Date getHiredate()
 	{
 		return hireDate;
 	}
-	public void setHireDate(Date hireDate)
+	public void setHiredate(Date hireDate)
 	{
 		this.hireDate = hireDate;
 	}
-	public String getWarehouseNo()
+	public String getWarehouseno()
 	{
 		return warehouseNo;
 	}
-	public void setWarehouseNo(String warehouseNo)
+	public void setWarehouseno(String warehouseNo)
 	{
 		this.warehouseNo = warehouseNo;
 	}
@@ -94,19 +94,19 @@ public class WarehouseManager
 	{
 		this.passwd = passwd;
 	}
-	public String getManagerNo()
+	public String getManagerno()
 	{
 		return managerNo;
 	}
-	public void setManagerNo(String managerNo)
+	public void setManagerno(String managerNo)
 	{
 		this.managerNo = managerNo;
 	}
-	public int getOnDuty()
+	public int getOnduty()
 	{
 		return onDuty;
 	}
-	public void setOnDuty(int onDuty)
+	public void setOnduty(int onDuty)
 	{
 		this.onDuty = onDuty;
 	}
@@ -138,19 +138,5 @@ public class WarehouseManager
 	{
 		super();
 	}
-	public String[] getColumns()
-    {
-    	String cols[] = null;
-    	cols = new String[9];
-    	cols[0] = "编号";
-    	cols[1] = "姓名";
-    	cols[2] = "性别";
-    	cols[3] = "出生日期";
-    	cols[4] = "联系电话";
-    	cols[5] = "就职日期";
-    	cols[6] = "管理仓库编号";
-    	cols[7] = "月薪";
-    	cols[8] = "登录密码";
-    	return cols;
-    }
+	
 }
