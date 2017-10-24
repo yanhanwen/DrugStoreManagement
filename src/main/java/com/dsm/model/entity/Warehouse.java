@@ -16,22 +16,22 @@ public class Warehouse
     private String addrDetail;          //璇︾粏鍦板潃
     private BigDecimal monthlyCost;            //鏈堝浐瀹氬紑閿�锛堟按鐢佃垂锛岀淮淇垂绛夛級锛岄潪绌�
 
-    public String getWarehouseNo()
+    public String getWarehouseno()
     {
         return warehouseNo;
     }
 
-    public void setWarehouseNo(String warehouseNo)
+    public void setWarehouseno(String warehouseNo)
     {
         this.warehouseNo = warehouseNo;
     }
 
-    public String getWarehouseName()
+    public String getWarehousename()
     {
         return warehouseName;
     }
 
-    public void setWarehouseName(String warehouseName)
+    public void setWarehousename(String warehouseName)
     {
         this.warehouseName = warehouseName;
     }
@@ -76,22 +76,22 @@ public class Warehouse
         this.street = street;
     }
 
-    public String getAddrDetail()
+    public String getAddrdetail()
     {
         return addrDetail;
     }
 
-    public void setAddrDetail(String addrDetail)
+    public void setAddrdetail(String addrDetail)
     {
         this.addrDetail = addrDetail;
     }
 
-    public BigDecimal getMonthlyCost()
+    public BigDecimal getMonthlycost()
     {
         return monthlyCost;
     }
 
-    public void setMonthlyCost(BigDecimal monthlyCost)
+    public void setMonthlycost(BigDecimal monthlyCost)
     {
         this.monthlyCost = monthlyCost;
     }
