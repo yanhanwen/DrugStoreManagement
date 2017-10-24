@@ -18,42 +18,42 @@ public class Stock
     private Date productDate;       //鐢熶骇鏃ユ湡
     private Date validPeriod;       //鏈夋晥鏈�
 
-    public String getStockNo()
+    public String getStockno()
     {
         return stockNo;
     }
 
-    public void setStockNo(String stockNo)
+    public void setStockno(String stockNo)
     {
         this.stockNo = stockNo;
     }
 
-    public String getMedicineNo()
+    public String getMedicineno()
     {
         return medicineNo;
     }
 
-    public void setMedicineNo(String medicineNo)
+    public void setMedicineno(String medicineNo)
     {
         this.medicineNo = medicineNo;
     }
 
-    public String getWarehouseNo()
+    public String getWarehouseno()
     {
         return warehouseNo;
     }
 
-    public void setWarehouseNo(String warehouseNo)
+    public void setWarehouseno(String warehouseNo)
     {
         this.warehouseNo = warehouseNo;
     }
 
-    public String getShelfNo()
+    public String getShelfno()
     {
         return shelfNo;
     }
 
-    public void setShelfNo(String shelfNo)
+    public void setShelfno(String shelfNo)
     {
         this.shelfNo = shelfNo;
     }
@@ -78,22 +78,22 @@ public class Stock
         this.cost = cost;
     }
 
-    public Date getProductDate()
+    public Date getProductdate()
     {
         return productDate;
     }
 
-    public void setProductDate(Date productDate)
+    public void setProductdate(Date productDate)
     {
         this.productDate = productDate;
     }
 
-    public Date getValidPeriod()
+    public Date getValidperiod()
     {
         return validPeriod;
     }
 
-    public void setValidPeriod(Date validPeriod)
+    public void setValidperiod(Date validPeriod)
     {
         this.validPeriod = validPeriod;
     }
