@@ -17,42 +17,42 @@ public class LeaveWare
     private java.sql.Timestamp leaveTime;   //鍑哄簱鏃堕棿
     private String wareManNo;               //鎵ц鎿嶄綔鐨勪粨搴撶鐞嗗憳缂栧彿
 
-    public String getLeaveNo()
+    public String getLeaveno()
     {
         return leaveNo;
     }
 
-    public void setLeaveNo(String leaveNo)
+    public void setLeaveno(String leaveNo)
     {
         this.leaveNo = leaveNo;
     }
 
-    public String getMedicineNo()
+    public String getMedicineno()
     {
         return medicineNo;
     }
 
-    public void setMedicineNo(String medicineNo)
+    public void setMedicineno(String medicineNo)
     {
         this.medicineNo = medicineNo;
     }
 
-    public String getWarehouseNo()
+    public String getWarehouseno()
     {
         return warehouseNo;
     }
 
-    public void setWarehouseNo(String warehouseNo)
+    public void setWarehouseno(String warehouseNo)
     {
         this.warehouseNo = warehouseNo;
     }
 
-    public String getStoreNo()
+    public String getStoreno()
     {
         return storeNo;
     }
 
-    public void setStoreNo(String storeNo)
+    public void setStoreno(String storeNo)
     {
         this.storeNo = storeNo;
     }
@@ -67,32 +67,32 @@ public class LeaveWare
         this.cost = cost;
     }
 
-    public int getLeaveCount()
+    public int getLeavecount()
     {
         return leaveCount;
     }
 
-    public void setLeaveCount(int leaveCount)
+    public void setLeavecount(int leaveCount)
     {
         this.leaveCount = leaveCount;
     }
 
-    public Timestamp getLeaveTime()
+    public Timestamp getLeavetime()
     {
         return leaveTime;
     }
 
-    public void setLeaveTime(Timestamp leaveTime)
+    public void setLeavetime(Timestamp leaveTime)
     {
         this.leaveTime = leaveTime;
     }
 
-    public String getWareManNo()
+    public String getWaremanno()
     {
         return wareManNo;
     }
 
-    public void setWareManNo(String wareManNo)
+    public void setWaremanno(String wareManNo)
     {
         this.wareManNo = wareManNo;
     }
