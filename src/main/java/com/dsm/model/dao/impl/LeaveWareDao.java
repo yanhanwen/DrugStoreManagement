@@ -8,8 +8,8 @@ public class LeaveWareDao extends BaseDao<LeaveWare>
 	{
 		LeaveWare LeaveWare = (LeaveWare)obj;
 		String sql = "insert into LeaveWare(LeaveNo,MedicineNo,WarehouseNo,StoreNo,Cost,LeaveCount,LeaveTime,WareManNo) values(?,?,?,?,?,?,?,?)";
-		update(sql,LeaveWare.getLeaveNo(),LeaveWare.getMedicineNo(),LeaveWare.getWarehouseNo(),LeaveWare.getStoreNo(),
-				LeaveWare.getCost(),LeaveWare.getLeaveCount(),LeaveWare.getLeaveTime(),LeaveWare.getWareManNo());
+		update(sql,LeaveWare.getLeaveno(),LeaveWare.getMedicineno(),LeaveWare.getWarehouseno(),LeaveWare.getStoreno(),
+				LeaveWare.getCost(),LeaveWare.getLeavecount(),LeaveWare.getLeavetime(),LeaveWare.getWaremanno());
 	}
 	public void deleteObjectByKey(Object key)
 	{

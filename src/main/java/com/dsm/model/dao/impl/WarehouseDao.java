@@ -28,8 +28,8 @@ public class WarehouseDao extends BaseDao<Warehouse>
 	{
 		Warehouse Warehouse = (Warehouse) obj;
 		String sql = "insert into Warehouse(WarehouseNo,WarehouseName,Province,City,District,Street,AddrDetail,MonthlyCost) values(?,?,?,?,?,?,?,?)";
-		update(sql,Warehouse.getWarehouseNo(),Warehouse.getWarehouseName(),Warehouse.getProvince(),Warehouse.getCity(),
-				Warehouse.getDistrici(),Warehouse.getStreet(),Warehouse.getAddrDetail(),Warehouse.getMonthlyCost());
+		update(sql,Warehouse.getWarehouseno(),Warehouse.getWarehousename(),Warehouse.getProvince(),Warehouse.getCity(),
+				Warehouse.getDistrici(),Warehouse.getStreet(),Warehouse.getAddrdetail(),Warehouse.getMonthlycost());
 	}
 	public void deleteObjectByKey(Object key)
 	{

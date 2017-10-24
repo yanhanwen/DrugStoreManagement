@@ -22,8 +22,8 @@ public class OnSaleDao extends BaseDao<OnSale>
 	{
 		OnSale OnSale= (OnSale) obj;
 		String sql = "insert into OnSale(MedicineNo,StoreNo,Count,Price,Cost,ValidPeriod,FrameNo) values(?,?,?,?,?,?,?)";
-		update(sql,OnSale.getMedicineNo(),OnSale.getStoreNo(),OnSale.getCount(),OnSale.getPrice(),OnSale.getCost(),OnSale.getValidPeriod(),
-				OnSale.getFrameNo());
+		update(sql,OnSale.getMedicineno(),OnSale.getStoreno(),OnSale.getCount(),OnSale.getPrice(),OnSale.getCost(),OnSale.getValidperiod(),
+				OnSale.getFrameno());
 	}
 	public void deleteObjectByKey(Object key)
 	{

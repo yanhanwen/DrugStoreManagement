@@ -28,8 +28,8 @@ public class StoreDao extends BaseDao<Store>
 	{
 		Store Store = (Store) obj;
 		String sql = "insert into Store(StoreNo,StoreName,Province,City,District,Street,AddrDetail,Telephone,OpenDate,MonthlyCost,isOpen) values(?,?,?,?,?,?,?,?,?,?,?)";
-		update(sql,Store.getStoreNo(),Store.getStoreName(),Store.getProvince(),Store.getCity(),Store.getDistrict(),
-				Store.getStreet(),Store.getAddrDetail(),Store.getTelephone(),Store.getOpenDate(),Store.getMonthlyCost(),Store.getIsOpen());
+		update(sql,Store.getStoreno(),Store.getStorename(),Store.getProvince(),Store.getCity(),Store.getDistrict(),
+				Store.getStreet(),Store.getAddrdetail(),Store.getTelephone(),Store.getOpendate(),Store.getMonthlycost(),Store.getIsopen());
 	}
 	public void deleteObjectByKey(Object key)
 	{

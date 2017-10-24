@@ -28,9 +28,9 @@ public class SalesmanDao extends BaseDao<Salesman>
 	{
 		Salesman Salesman = (Salesman) obj;
 		String sql = "insert into Salesman(SalesmanNo,SalesmanName,Sex,Birthday,Telephone,HireDate,StoreNo,Salary,Passwd,OnDuty) values(?,?,?,?,?,?,?,?,?,?)";
-		update(sql,Salesman.getSalesmanNo(),Salesman.getSalesmanName(),Salesman.getSex(),Salesman.getBirthday(),
-				Salesman.getTelephone(),Salesman.getHireDate(),Salesman.getStoreNo(),Salesman.getSalary(),
-				Salesman.getPasswd(),Salesman.getOnDuty());
+		update(sql,Salesman.getSalesmanno(),Salesman.getSalesmanname(),Salesman.getSex(),Salesman.getBirthday(),
+				Salesman.getTelephone(),Salesman.getHiredate(),Salesman.getStoreno(),Salesman.getSalary(),
+				Salesman.getPasswd(),Salesman.getOnduty());
 	}
 	public void deleteObjectByKey(Object key)
 	{

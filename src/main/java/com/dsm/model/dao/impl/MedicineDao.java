@@ -8,8 +8,8 @@ public class MedicineDao extends BaseDao<Medicine>
 	{
 		Medicine Medicine = (Medicine) obj;
 		String sql = "insert into Medicine(MedicineNo,MedicineName,Category,Factory,Indication,StorageCond,LifeTime) values(?,?,?,?,?,?,?)";
-		update(sql,Medicine.getMedicineNo(),Medicine.getMedicineName(),Medicine.getCategory(),Medicine.getFactory(),
-				Medicine.getIndication(),Medicine.getStorageCond(),Medicine.getLifeTime());
+		update(sql,Medicine.getMedicineno(),Medicine.getMedicinename(),Medicine.getCategory(),Medicine.getFactory(),
+				Medicine.getIndication(),Medicine.getStoragecond(),Medicine.getLifetime());
 	}
 	public void deleteObjectByKey(Object key)
 	{

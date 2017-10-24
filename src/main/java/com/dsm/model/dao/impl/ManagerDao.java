@@ -28,8 +28,8 @@ public class ManagerDao extends BaseDao<Manager>
 	{
 		Manager Manager = (Manager) obj;
 		String sql = "insert into Manager(ManagerNo,ManagerName,Sex,Birthday,Telephone,HireDate,Salary,Passwd,OnDuty) values(?,?,?,?,?,?,?,?,?)";
-		update(sql,Manager.getManagerNo(),Manager.getManagerName(),Manager.getSex(),Manager.getBirthday(),
-				Manager.getTelephone(),Manager.getHireDate(),Manager.getSalary(),Manager.getPasswd(),Manager.getOnDuty());
+		update(sql,Manager.getManagerno(),Manager.getManagername(),Manager.getSex(),Manager.getBirthday(),
+				Manager.getTelephone(),Manager.getHiredate(),Manager.getSalary(),Manager.getPasswd(),Manager.getOnduty());
 	}
 
 	public void deleteObjectByKey(Object key) 

@@ -7,8 +7,8 @@ public class EnterWareDao extends BaseDao<EnterWare>
 	{
 		EnterWare EnterWare = (EnterWare) obj;
 		String sql = "insert into EnterWare(EnterNo,MedicineNo,WarehouseNo,SupplierNo,EnterCount,EnterTime,ProductDate,Cost,WareManNo) values(?,?,?,?,?,?,?,?,?)";
-		update(sql,EnterWare.getEnterNo(),EnterWare.getMedicineNo(),EnterWare.getWarehouseNo(),EnterWare.getSupplierNo(),
-				EnterWare.getEnterCount(),EnterWare.getEnterTime(),EnterWare.getProductDate(),EnterWare.getCost(),EnterWare.getWareManNo());
+		update(sql,EnterWare.getEnterno(),EnterWare.getMedicineno(),EnterWare.getWarehouseno(),EnterWare.getSupplierno(),
+				EnterWare.getEntercount(),EnterWare.getEntertime(),EnterWare.getProductdate(),EnterWare.getCost(),EnterWare.getWaremanno());
 	}
 	public void deleteObjectByKey(Object key)
 	{

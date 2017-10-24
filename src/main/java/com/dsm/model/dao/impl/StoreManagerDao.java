@@ -28,9 +28,9 @@ public class StoreManagerDao extends BaseDao<StoreManager>
 	{
 		StoreManager StoreManager = (StoreManager) obj;
 		String sql = "insert into StoreManager(StoreManNo,StoreManName,Sex,Birthday,Telephone,HireDate,StoreNo,Salary,Passwd,ManagerNo,OnDuty) values(?,?,?,?,?,?,?,?,?,?,?,?)";
-		update(sql,StoreManager.getManagerNo(),StoreManager.getStoreManName(),StoreManager.getSex(),StoreManager.getBirthday(),
-				StoreManager.getTelephone(),StoreManager.getHireDate(),StoreManager.getStoreNo(),StoreManager.getSalary(),
-				StoreManager.getPasswd(),StoreManager.getManagerNo(),StoreManager.getOnDuty());
+		update(sql,StoreManager.getManagerno(),StoreManager.getStoremanname(),StoreManager.getSex(),StoreManager.getBirthday(),
+				StoreManager.getTelephone(),StoreManager.getHiredate(),StoreManager.getStoreno(),StoreManager.getSalary(),
+				StoreManager.getPasswd(),StoreManager.getManagerno(),StoreManager.getOnduty());
 	}
 	public void deleteObjectByKey(Object key)
 	{

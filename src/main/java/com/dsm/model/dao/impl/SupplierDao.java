@@ -9,9 +9,9 @@ public class SupplierDao extends BaseDao<Supplier>
 	{
 		Supplier Supplier = (Supplier) obj;
 		String sql = "insert into Supplier(SupplierNo,SupplierName,ContactName,Telephone,Province,City,District,Street,AddrDetail,Rate,AddDate,Remark,OnDuty) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		String key=update(sql,Supplier.getSupplierNo(),Supplier.getSupplierName(),Supplier.getContactName(),Supplier.getTelephone(),
-					Supplier.getProvince(),Supplier.getCity(),Supplier.getDistrict(),Supplier.getStreet(),Supplier.getAddrDetail(),
-					Supplier.getRate(),Supplier.getAddDate(),Supplier.getRemark(),Supplier.getOnDuty());
+		String key=update(sql,Supplier.getSupplierno(),Supplier.getSuppliername(),Supplier.getContactname(),Supplier.getTelephone(),
+					Supplier.getProvince(),Supplier.getCity(),Supplier.getDistrict(),Supplier.getStreet(),Supplier.getAddrdetail(),
+					Supplier.getRate(),Supplier.getAdddate(),Supplier.getRemark(),Supplier.getOnduty());
 		this.key=key;
 	}
 	public String getKey()

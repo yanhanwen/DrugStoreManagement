@@ -28,10 +28,10 @@ public class WarehouseManagerDao extends BaseDao<WarehouseManager>
 	{
 		WarehouseManager WarehouseManager = (WarehouseManager) obj;
 		String sql = "insert into WarehouseManager(WareManNo,WareManName,Sex,Birthday,Telephone,HireDate,WarehouseNo,Salary,Passwd,ManagerNo,OnDuty) values(?,?,?,?,?,?,?,?,?,?,?)";
-		update(sql, WarehouseManager.getWarehouseNo(),WarehouseManager.getWareManName(),WarehouseManager.getSex(),
-				WarehouseManager.getBirthday(),WarehouseManager.getTelephone(),WarehouseManager.getHireDate(),
-				WarehouseManager.getWarehouseNo(),WarehouseManager.getSalary(),WarehouseManager.getPasswd(),WarehouseManager.getManagerNo(),
-				WarehouseManager.getOnDuty());
+		update(sql, WarehouseManager.getWarehouseno(),WarehouseManager.getWaremanname(),WarehouseManager.getSex(),
+				WarehouseManager.getBirthday(),WarehouseManager.getTelephone(),WarehouseManager.getHiredate(),
+				WarehouseManager.getWarehouseno(),WarehouseManager.getSalary(),WarehouseManager.getPasswd(),WarehouseManager.getManagerno(),
+				WarehouseManager.getOnduty());
 	}
 
 	public void deleteObjectByKey(Object key)

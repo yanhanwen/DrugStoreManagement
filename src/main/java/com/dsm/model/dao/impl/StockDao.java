@@ -8,8 +8,8 @@ public class StockDao extends BaseDao<Stock>
 	{
 		Stock Stock = (Stock) obj;
 		String sql = "insert into Stock(StockNo,MedicineNo,WarehouseNo,ShelfNo,Count,Cost,ProductDate,ValidPeriod) values(?,?,?,?,?,?,?,?,?)";
-		update(sql,Stock.getStockNo(),Stock.getMedicineNo(),Stock.getWarehouseNo(),Stock.getShelfNo(),Stock.getCount(),
-				Stock.getCost(),Stock.getProductDate(),Stock.getValidPeriod());
+		update(sql,Stock.getStockno(),Stock.getMedicineno(),Stock.getWarehouseno(),Stock.getShelfno(),Stock.getCount(),
+				Stock.getCost(),Stock.getProductdate(),Stock.getValidperiod());
 	}
 	public void deleteObjectByKey(Object key)
 	{
