@@ -58,12 +58,12 @@ public class Warehouse
 
     public String getDistrict()
     {
-        return districi;
+        return district;
     }
 
     public void setDistrict(String districi)
     {
-        this.districi = districi;
+        this.district = districi;
     }
 
     public String getStreet()
