@@ -12,12 +12,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="UTF-8">
 <title>登陆</title>
 	<script type="text/javascript" charset="UTF-8" src="js/login.js"></script>
-	<body background="img/bg.png">
-		<%if(request.getParameter("message")!=null){ %>
-		<div class="alert">
-		${message}
-		</div>
+	<%String a = request.getParameter("message");
+		if(a!=null&&!"".equals(a)){ %>
+		<script>
+        	alert("<%=a%>");
+		</script>
 		<%} %>
+	<body background="img/bg.png">
 	   <div class="content">
            <form action="LoginServlet" method="post" class="login-form">
                <div class="username">

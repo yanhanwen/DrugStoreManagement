@@ -1,4 +1,5 @@
 package com.dsm.model.dao.impl;
+import java.lang.reflect.ParameterizedType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,12 +12,11 @@ import com.dsm.model.utils.ReflectionTools;
 
 public abstract class BaseDao<T> implements IDao<T> 
 {
-	protected Class<T> c;
+	protected Class<T> clazz;
 	public String update(String sql, Object... args)
 	{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
 		
 		String primaryKey = "noneof";
 		
@@ -31,18 +31,15 @@ public abstract class BaseDao<T> implements IDao<T>
 					preparedStatement.setObject(i + 1, args[i]);
 				}
 			}
-			preparedStatement.executeUpdate();
-			
-			resultSet = preparedStatement.getGeneratedKeys();
-			if (resultSet.next())
-				primaryKey = resultSet.getString(1);
+			Integer a = preparedStatement.executeUpdate();
+			primaryKey = a.toString();
 		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}
 		finally
 		{
-			JDBCTools.releaseConnection(connection,preparedStatement,resultSet);
+			JDBCTools.releaseConnection(connection,preparedStatement,null);
 		}
 		return primaryKey;
 	}
@@ -83,15 +80,16 @@ public abstract class BaseDao<T> implements IDao<T>
 			for (int j = 0; j < columnCount; j++)
 			{
 				String attr = rsmd.getColumnLabel(j + 1);
+				attr = attr.toLowerCase();
 				columnLabel.add(attr);
 			}
 
-			T entity = null;
+			clazz = ((Class<T>)(((ParameterizedType)(this.getClass().getGenericSuperclass())).getActualTypeArguments()[0]));
+			T entity = clazz.newInstance();
 			while (resultSet.next())
 			{
 				try
 				{
-					entity = c.newInstance();
 					for (int k = 0; k < columnCount; k++)
 					{
 						Object value = resultSet.getObject(k + 1);

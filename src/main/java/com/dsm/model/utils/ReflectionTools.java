@@ -9,7 +9,7 @@ public class ReflectionTools
 	public static void setter(Object obj, String attr, Object value)
 	{
 		try
-		{
+		{ 
 			if (value != null)
 			{
 				Method method = obj.getClass().getMethod("set" + capitalizeFirstLetter(attr), value.getClass());

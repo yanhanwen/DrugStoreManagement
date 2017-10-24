@@ -26,8 +26,8 @@ public class FinaServlet extends HttpServlet
 	}
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-//		doPost(request, response);
-		request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request, response);
+		doPost(request, response);
+//		request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request, response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -36,7 +36,7 @@ public class FinaServlet extends HttpServlet
 		HttpSession sess = request.getSession();
 		if(!sess.getAttribute("user_id").toString().startsWith("0"))
 		{
-			response.sendRedirect("ErrorJsp.jsp");
+			request.getRequestDispatcher("ErrorJsp.jsp").forward(request, response);
 			return;
 		}
 		WarehouseDao wh = new WarehouseDao();

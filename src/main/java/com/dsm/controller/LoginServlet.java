@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet
 {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		request.getRequestDispatcher("/user/LoginJsp.jsp").forward(request, response);
+		doPost(request,response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -32,7 +32,9 @@ public class LoginServlet extends HttpServlet
 		if(user_id==null||password==null||user_id.equals("")||password.equals(""))
 		{
 			message = "不能为空";
-			response.sendRedirect("/manager/LoginJsp.jsp");
+			request.setAttribute("message",message);
+			request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+			return;
 		}
 		char identity = user_id.charAt(0);
 		HttpSession session = request.getSession();
@@ -44,6 +46,7 @@ public class LoginServlet extends HttpServlet
 			if(m==null)
 			{
 				message = "无此用户名";
+				request.setAttribute("message",message);
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
 				return;
 			}
@@ -70,6 +73,7 @@ public class LoginServlet extends HttpServlet
 			if(wm==null)
 			{
 				message = "无此用户名";
+				request.setAttribute("message",message);
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
 				return;
 			}
@@ -96,6 +100,7 @@ public class LoginServlet extends HttpServlet
 			if(sm==null)
 			{
 				message = "无此用户名";
+				request.setAttribute("message",message);
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
 				return;
 			}
@@ -122,6 +127,7 @@ public class LoginServlet extends HttpServlet
 			if(m==null)
 			{
 				message = "无此用户名";
+				request.setAttribute("message",message);
 				request.getRequestDispatcher("Login.jsp").forward(request, response);
 				return;
 			}

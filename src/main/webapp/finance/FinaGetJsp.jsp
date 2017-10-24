@@ -10,10 +10,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <html>
 <head>
-<link rel="stylesheet" href="../css/table.css">
-<link rel="stylesheet" type="text/css" href="../css/button.css" />
-<meta charset="UTF-8">
-<title>财务</title>
+	<link rel="stylesheet" href="../css/table.css">
+	<link rel="stylesheet" type="text/css" href="../css/button.css" />
+	<meta charset="UTF-8">
+	<title>财务</title>
 </head>
 	<body class="bordered">
 		<table>
