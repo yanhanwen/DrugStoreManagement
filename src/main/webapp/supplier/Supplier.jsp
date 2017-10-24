@@ -6,6 +6,7 @@
 			+ path + "/";
 %>
 <%@ page import="java.util.List"%>
+<%@ page import="com.dsm.model.dao.impl.SupplierDao"%>
 <%@ page import="com.dsm.model.entity.Supplier"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,14 +16,14 @@
 <script language="javascript" type="text/javascript">
 	function autoQuery() {
 		var url = window.location.href;
-		window.open("url" + "SupplierServlet?method=autoQuery");
+		window.open("url" + "SupplierAutoServlet?method=autoQuery");
 	}
 	function alertMessgae(message){
 		alert(message);
 	}
 </script>
 </head>
-<body>
+<body onload="autoQuery">
 	<h1>供应商管理</h1>
 
 	<table id="mytable" cellspacing="0px" border="3" bordercolor="red">
@@ -41,17 +42,17 @@
 			<th>备注</th>
 			<th colspan="3">操作</th>
 		</tr>
-		<%
-		    List<Supplier> list = (List<Supplier>) request.getAttribute("supplier-list");
-			for (Supplier s : list) {
+		<%  SupplierDao supplierDao=new SupplierDao();
+		    List<Supplier> list =(List<Supplier>)supplierDao.getForList("select * from Supplier");%>
+		<%	for (Supplier s : list) {
 		%>
 		<tr>
 			<form action="SupplierServlet" method="post">
-				<td><input value=<%=s.getSupplierNo()%> name="SupplierNo"
+				<td><input value=<%=s.getSupplierno()%> name="SupplierNo"
 					readonly="true"></td>
-				<td><input value=<%=s.getSupplierName()%> name="SupplierName"
+				<td><input value=<%=s.getSuppliername()%> name="SupplierName"
 					readonly="false"></td>
-				<td><input value=<%=s.getContactName()%> name="ContactName"
+				<td><input value=<%=s.getContactname()%> name="ContactName"
 					readonly="false"></td>
 				<td><input value=<%=s.getTelephone()%> name="Telephone"
 					readonly="false"></td>
@@ -62,10 +63,10 @@
 					readonly="false"></td>
 				<td><input value=<%=s.getStreet()%> name="Street"
 					readonly="false"></td>
-				<td><input value=<%=s.getAddrDetail()%> name="AddrDetail"
+				<td><input value=<%=s.getAddrdetail()%> name="AddrDetail"
 					readonly="false"></td>
 				<td><input value=<%=s.getRate()%> name="Rate" readonly="false"></td>
-				<td><input value=<%=s.getAddDate()%> readonly="true"></td>
+				<td><input value=<%=s.getAdddate()%> readonly="true"></td>
 				<td><input value=<%=s.getRemark()%> name="Remark"
 					readonly="false"></td> 
 				<input type="hidden" name="method"
@@ -83,12 +84,12 @@
 		%>
 	</table>
 	<a href="SupplierAdd.jsp">添加供应商</a>
-	<%
+	<%--  <%
 	String message=(String)request.getAttribute("message");
 	if(!message.equals("autoQuery")){
 		out.print(message);
 	}
-	%>
+	%>--%>
 
 
 </body>
