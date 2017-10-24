@@ -9,16 +9,16 @@ public class WarehouseEnvir
     private String warehouseNo;     //浠撳簱缂栧彿锛屼富閿紝澶栭敭锛岄潪绌�
     private String condition;       //鍌ㄥ瓨鐜锛屼富閿紝闈炵┖
     private String area;            //鍌ㄥ瓨鍖哄煙
-	public String getEnvirNo() {
+	public String getEnvirno() {
 		return envirNo;
 	}
-	public void setEnvirNo(String envirNo) {
+	public void setEnvirno(String envirNo) {
 		this.envirNo = envirNo;
 	}
-	public String getWarehouseNo() {
+	public String getWarehouseno() {
 		return warehouseNo;
 	}
-	public void setWarehouseNo(String warehouseNo) {
+	public void setWarehouseno(String warehouseNo) {
 		this.warehouseNo = warehouseNo;
 	}
 	public String getCondition() {
