@@ -15,22 +15,22 @@ public class Medicine
     private String storageCond;         //鍌ㄥ瓨鏉′欢
     private java.sql.Date lifeTime;     //淇濊川鏈燂紝闈炵┖
 
-    public String getMedicineNo()
+    public String getMedicineno()
     {
         return medicineNo;
     }
 
-    public void setMedicineNo(String medicineNo)
+    public void setMedicineno(String medicineNo)
     {
         this.medicineNo = medicineNo;
     }
 
-    public String getMedicineName()
+    public String getMedicinename()
     {
         return medicineName;
     }
 
-    public void setMedicineName(String medicineName)
+    public void setMedicinename(String medicineName)
     {
         this.medicineName = medicineName;
     }
@@ -65,22 +65,22 @@ public class Medicine
         this.indication = indication;
     }
 
-    public String getStorageCond()
+    public String getStoragecond()
     {
         return storageCond;
     }
 
-    public void setStorageCond(String storageCond)
+    public void setStoragecond(String storageCond)
     {
         this.storageCond = storageCond;
     }
 
-    public Date getLifeTime()
+    public Date getLifetime()
     {
         return lifeTime;
     }
 
-    public void setLifeTime(Date lifeTime)
+    public void setLifetime(Date lifeTime)
     {
         this.lifeTime = lifeTime;
     }
