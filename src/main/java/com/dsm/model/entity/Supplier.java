@@ -17,37 +17,37 @@ public class Supplier
     private String district;            //鍖�
     private String street;              //琛楅亾
     private String addrDetail;          //鍦板潃璇︽儏
-    private float rate;                 //璇勭骇锛�0~5锛屼竴浣嶅皬鏁�
+    private BigDecimal rate;                 //璇勭骇锛�0~5锛屼竴浣嶅皬鏁�
     private java.sql.Date addDate;      //娣诲姞鏃ユ湡
     private String remark;              //澶囨敞
     private int onDuty;                 //鏄惁鍙�夛紝1锛氬彲閫夛紝0锛氫笉鍙��
 
-    public String getSupplierNo()
+    public String getSupplierno()
     {
         return supplierNo;
     }
 
-    public void setSupplierNo(String supplierNo)
+    public void setSupplierno(String supplierNo)
     {
         this.supplierNo = supplierNo;
     }
 
-    public String getSupplierName()
+    public String getSuppliername()
     {
         return supplierName;
     }
 
-    public void setSupplierName(String supplierName)
+    public void setSuppliername(String supplierName)
     {
         this.supplierName = supplierName;
     }
 
-    public String getContactName()
+    public String getContactname()
     {
         return contactName;
     }
 
-    public void setContactName(String contactName)
+    public void setContactname(String contactName)
     {
         this.contactName = contactName;
     }
@@ -102,32 +102,32 @@ public class Supplier
         this.street = street;
     }
 
-    public String getAddrDetail()
+    public String getAddrdetail()
     {
         return addrDetail;
     }
 
-    public void setAddrDetail(String addrDetail)
+    public void setAddrdetail(String addrDetail)
     {
         this.addrDetail = addrDetail;
     }
 
-    public float getRate()
+    public BigDecimal getRate()
     {
         return rate;
     }
 
-    public void setRate(float rate)
+    public void setRate(BigDecimal rate)
     {
         this.rate = rate;
     }
 
-    public Date getAddDate()
+    public Date getAdddate()
     {
         return addDate;
     }
 
-    public void setAddDate(Date addDate)
+    public void setAdddate(Date addDate)
     {
         this.addDate = addDate;
     }
@@ -142,17 +142,17 @@ public class Supplier
         this.remark = remark;
     }
 
-    public int getOnDuty()
+    public int getOnduty()
     {
         return onDuty;
     }
 
-    public void setOnDuty(int onDuty)
+    public void setOnduty(int onDuty)
     {
         this.onDuty = onDuty;
     }
 
-    public Supplier(String supplierNo, String supplierName, String contactName, String telephone, String province, String city, String district, String street, String addrDetail, float rate, Date addDate, String remark, int onDuty)
+    public Supplier(String supplierNo, String supplierName, String contactName, String telephone, String province, String city, String district, String street, String addrDetail, BigDecimal rate, Date addDate, String remark, int onDuty)
     {
 
         this.supplierNo = supplierNo;
