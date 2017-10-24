@@ -19,72 +19,72 @@ public class EnterWare
     private BigDecimal cost;                    //鍗曚釜杩涗环
     private String wareManNo;                   //鎵ц鎿嶄綔鐨勪粨搴撶鐞嗗憳缂栧彿锛屽閿�
 
-    public String getEnterNo()
+    public String getEnterno()
     {
         return enterNo;
     }
 
-    public void setEnterNo(String enterNo)
+    public void setEnterno(String enterNo)
     {
         this.enterNo = enterNo;
     }
 
-    public String getMedicineNo()
+    public String getMedicineno()
     {
         return medicineNo;
     }
 
-    public void setMedicineNo(String medicineNo)
+    public void setMedicineno(String medicineNo)
     {
         this.medicineNo = medicineNo;
     }
 
-    public String getWarehouseNo()
+    public String getWarehouseno()
     {
         return warehouseNo;
     }
 
-    public void setWarehouseNo(String warehouseNo)
+    public void setWarehouseno(String warehouseNo)
     {
         this.warehouseNo = warehouseNo;
     }
 
-    public String getSupplierNo()
+    public String getSupplierno()
     {
         return supplierNo;
     }
 
-    public void setSupplierNo(String supplierNo)
+    public void setSupplierno(String supplierNo)
     {
         this.supplierNo = supplierNo;
     }
 
-    public int getEnterCount()
+    public int getEntercount()
     {
         return enterCount;
     }
 
-    public void setEnterCount(int enterCount)
+    public void setEntercount(int enterCount)
     {
         this.enterCount = enterCount;
     }
 
-    public Timestamp getEnterTime()
+    public Timestamp getEntertime()
     {
         return enterTime;
     }
 
-    public void setEnterTime(Timestamp enterTime)
+    public void setEntertime(Timestamp enterTime)
     {
         this.enterTime = enterTime;
     }
 
-    public Date getProductDate()
+    public Date getProductdate()
     {
         return productDate;
     }
 
-    public void setProductDate(Date productDate)
+    public void setProductdate(Date productDate)
     {
         this.productDate = productDate;
     }
@@ -99,12 +99,12 @@ public class EnterWare
         this.cost = cost;
     }
 
-    public String getWareManNo()
+    public String getWaremanno()
     {
         return wareManNo;
     }
 
-    public void setWareManNo(String wareManNo)
+    public void setWaremanno(String wareManNo)
     {
         this.wareManNo = wareManNo;
     }
