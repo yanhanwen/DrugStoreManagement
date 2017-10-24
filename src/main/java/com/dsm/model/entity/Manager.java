@@ -20,19 +20,19 @@ public class Manager
     private String passwd;          //鐧诲綍瀵嗙爜
     private int onDuty;             //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
     private Blob icon;              //澶村儚
-	public String getManagerNo()
+	public String getManagerno()
 	{
 		return managerNo;
 	}
-	public void setManagerNo(String managerNo)
+	public void setManagerno(String managerNo)
 	{
 		this.managerNo = managerNo;
 	}
-	public String getManagerName()
+	public String getManagername()
 	{
 		return managerName;
 	}
-	public void setManagerName(String managerName)
+	public void setManagername(String managerName)
 	{
 		this.managerName = managerName;
 	}
@@ -60,11 +60,11 @@ public class Manager
 	{
 		this.telephone = telephone;
 	}
-	public Date getHireDate()
+	public Date getHiredate()
 	{
 		return hireDate;
 	}
-	public void setHireDate(Date hireDate)
+	public void setHiredate(Date hireDate)
 	{
 		this.hireDate = hireDate;
 	}
@@ -84,11 +84,11 @@ public class Manager
 	{
 		this.passwd = passwd;
 	}
-	public int getOnDuty()
+	public int getOnduty()
 	{
 		return onDuty;
 	}
-	public void setOnDuty(int onDuty)
+	public void setOnduty(int onDuty)
 	{
 		this.onDuty = onDuty;
 	}
