@@ -21,22 +21,22 @@ public class Store
     private BigDecimal monthlyCost;     //鏈堝浐瀹氬紑閿�锛堟埧绉燂紝姘寸數璐圭瓑锛夛紝闈炵┖
     private int isOpen;                 //鏄惁钀ヤ笟锛�1锛氳惀涓氾紝0锛氬凡鍏抽棴
 
-    public String getStoreNo()
+    public String getStoreno()
     {
         return storeNo;
     }
 
-    public void setStoreNo(String storeNo)
+    public void setStoreno(String storeNo)
     {
         this.storeNo = storeNo;
     }
 
-    public String getStoreName()
+    public String getStorename()
     {
         return storeName;
     }
 
-    public void setStoreName(String storeName)
+    public void setStorename(String storeName)
     {
         this.storeName = storeName;
     }
@@ -81,12 +81,12 @@ public class Store
         this.street = street;
     }
 
-    public String getAddrDetail()
+    public String getAddrdetail()
     {
         return addrDetail;
     }
 
-    public void setAddrDetail(String addrDetail)
+    public void setAddrdetail(String addrDetail)
     {
         this.addrDetail = addrDetail;
     }
@@ -101,32 +101,32 @@ public class Store
         this.telephone = telephone;
     }
 
-    public Date getOpenDate()
+    public Date getOpendate()
     {
         return openDate;
     }
 
-    public void setOpenDate(Date openDate)
+    public void setOpendate(Date openDate)
     {
         this.openDate = openDate;
     }
 
-    public BigDecimal getMonthlyCost()
+    public BigDecimal getMonthlycost()
     {
         return monthlyCost;
     }
 
-    public void setMonthlyCost(BigDecimal monthlyCost)
+    public void setMonthlycost(BigDecimal monthlyCost)
     {
         this.monthlyCost = monthlyCost;
     }
 
-    public int getIsOpen()
+    public int getIsopen()
     {
         return isOpen;
     }
 
-    public void setIsOpen(int isOpen)
+    public void setIsopen(int isOpen)
     {
         this.isOpen = isOpen;
     }
