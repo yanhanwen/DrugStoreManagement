@@ -18,7 +18,7 @@ public class Supplier
     private String street;              //琛楅亾
     private String addrDetail;          //鍦板潃璇︽儏
     private BigDecimal rate;                 //璇勭骇锛�0~5锛屼竴浣嶅皬鏁�
-    private java.sql.Date addDate;      //娣诲姞鏃ユ湡
+    private java.sql.Timestamp addDate;      //娣诲姞鏃ユ湡
     private String remark;              //澶囨敞
     private int onDuty;                 //鏄惁鍙�夛紝1锛氬彲閫夛紝0锛氫笉鍙��
 
@@ -122,12 +122,12 @@ public class Supplier
         this.rate = rate;
     }
 
-    public Date getAdddate()
+    public java.sql.Timestamp getAdddate()
     {
         return addDate;
     }
 
-    public void setAdddate(Date addDate)
+    public void setAdddate(java.sql.Timestamp addDate)
     {
         this.addDate = addDate;
     }
@@ -152,7 +152,7 @@ public class Supplier
         this.onDuty = onDuty;
     }
 
-    public Supplier(String supplierNo, String supplierName, String contactName, String telephone, String province, String city, String district, String street, String addrDetail, BigDecimal rate, Date addDate, String remark, int onDuty)
+    public Supplier(String supplierNo, String supplierName, String contactName, String telephone, String province, String city, String district, String street, String addrDetail, BigDecimal rate, java.sql.Timestamp addDate, String remark, int onDuty)
     {
 
         this.supplierNo = supplierNo;
