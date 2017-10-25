@@ -1,7 +1,6 @@
 package com.dsm.model.entity;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 /*
 搴撳瓨淇℃伅锛岀敤浜庝繚瀛樿嵂鍝佺殑搴撳瓨淇℃伅
@@ -15,8 +14,8 @@ public class Stock
     private String shelfNo;         //璐ф灦鍙�
     private int count;              //鏁伴噺
     private BigDecimal cost;        //鍗曚釜杩涗环
-    private Date productDate;       //鐢熶骇鏃ユ湡
-    private Date validPeriod;       //鏈夋晥鏈�
+    private java.sql.Timestamp productDate;       //鐢熶骇鏃ユ湡
+    private java.sql.Timestamp validPeriod;       //鏈夋晥鏈�
 
     public String getStockno()
     {
@@ -78,27 +77,27 @@ public class Stock
         this.cost = cost;
     }
 
-    public Date getProductdate()
+    public java.sql.Timestamp getProductdate()
     {
         return productDate;
     }
 
-    public void setProductdate(Date productDate)
+    public void setProductdate(java.sql.Timestamp productDate)
     {
         this.productDate = productDate;
     }
 
-    public Date getValidperiod()
+    public java.sql.Timestamp getValidperiod()
     {
         return validPeriod;
     }
 
-    public void setValidperiod(Date validPeriod)
+    public void setValidperiod(java.sql.Timestamp validPeriod)
     {
         this.validPeriod = validPeriod;
     }
 
-    public Stock(String stockNo, String medicineNo, String warehouseNo, String shelfNo, int count, BigDecimal cost, Date productDate, Date validPeriod)
+    public Stock(String stockNo, String medicineNo, String warehouseNo, String shelfNo, int count, BigDecimal cost, java.sql.Timestamp productDate, java.sql.Timestamp validPeriod)
     {
 
         this.stockNo = stockNo;
