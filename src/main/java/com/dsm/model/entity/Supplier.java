@@ -19,7 +19,7 @@ public class Supplier
     private BigDecimal rate;                 //璇勭骇锛�0~5锛屼竴浣嶅皬鏁�
     private java.sql.Timestamp addDate;      //娣诲姞鏃ユ湡
     private String remark;              //澶囨敞
-    private int onDuty;                 //鏄惁鍙�夛紝1锛氬彲閫夛紝0锛氫笉鍙��
+    private BigDecimal onDuty;                 //鏄惁鍙�夛紝1锛氬彲閫夛紝0锛氫笉鍙��
 
     public String getSupplierno()
     {
@@ -141,17 +141,17 @@ public class Supplier
         this.remark = remark;
     }
 
-    public int getOnduty()
+    public BigDecimal getOnduty()
     {
         return onDuty;
     }
 
-    public void setOnduty(int onDuty)
+    public void setOnduty(BigDecimal onDuty)
     {
         this.onDuty = onDuty;
     }
 
-    public Supplier(String supplierNo, String supplierName, String contactName, String telephone, String province, String city, String district, String street, String addrDetail, BigDecimal rate, java.sql.Timestamp addDate, String remark, int onDuty)
+    public Supplier(String supplierNo, String supplierName, String contactName, String telephone, String province, String city, String district, String street, String addrDetail, BigDecimal rate, java.sql.Timestamp addDate, String remark, BigDecimal onDuty)
     {
 
         this.supplierNo = supplierNo;
