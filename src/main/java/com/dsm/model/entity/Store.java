@@ -1,7 +1,6 @@
 package com.dsm.model.entity;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 /*
 搴楅潰淇℃伅锛岀敤浜庤褰曞悇涓簵闈㈡墍鏈夌殑鍩烘湰淇℃伅
@@ -17,7 +16,7 @@ public class Store
     private String street;              //琛楅亾
     private String addrDetail;          //璇︾粏鍦板潃
     private String telephone;           //鑱旂郴鐢佃瘽锛岄潪绌�
-    private java.sql.Date openDate;     //寮�涓氭棩鏈�
+    private java.sql.Timestamp openDate;     //寮�涓氭棩鏈�
     private BigDecimal monthlyCost;     //鏈堝浐瀹氬紑閿�锛堟埧绉燂紝姘寸數璐圭瓑锛夛紝闈炵┖
     private int isOpen;                 //鏄惁钀ヤ笟锛�1锛氳惀涓氾紝0锛氬凡鍏抽棴
 
@@ -101,12 +100,12 @@ public class Store
         this.telephone = telephone;
     }
 
-    public Date getOpendate()
+    public java.sql.Timestamp getOpendate()
     {
         return openDate;
     }
 
-    public void setOpendate(Date openDate)
+    public void setOpendate(java.sql.Timestamp openDate)
     {
         this.openDate = openDate;
     }
@@ -131,7 +130,7 @@ public class Store
         this.isOpen = isOpen;
     }
 
-    public Store(String storeNo, String storeName, String province, String city, String district, String street, String addrDetail, String telephone, Date openDate, BigDecimal monthlyCost, int isOpen)
+    public Store(String storeNo, String storeName, String province, String city, String district, String street, String addrDetail, String telephone, java.sql.Timestamp openDate, BigDecimal monthlyCost, int isOpen)
     {
 
         this.storeNo = storeNo;
