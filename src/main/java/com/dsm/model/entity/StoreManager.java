@@ -117,8 +117,8 @@ public class StoreManager
 	{
 		this.icon = icon;
 	}
-	public StoreManager(String storeManNo, String storeManName, String sex, Date birthday, String telephone,
-			Date hireDate, String storeNo, BigDecimal salary, String passwd, String managerNo, int onDuty)
+	public StoreManager(String storeManNo, String storeManName, String sex, java.sql.Timestamp birthday, String telephone,
+			java.sql.Timestamp hireDate, String storeNo, BigDecimal salary, String passwd, String managerNo, int onDuty)
 	{
 		super();
 		this.storeManNo = storeManNo;
