@@ -1,6 +1,5 @@
 package com.dsm.model.entity;
 
-import java.sql.Date;
 
 /*
 鑽搧淇℃伅锛岀敤浜庝繚瀛樻墍鏈夎嵂鍝佺殑鍩烘湰淇℃伅
@@ -13,7 +12,7 @@ public class Medicine
     private String factory;             //鐢熶骇鍘傚晢
     private String indication;          //閫傚簲鐥�
     private String storageCond;         //鍌ㄥ瓨鏉′欢
-    private java.sql.Date lifeTime;     //淇濊川鏈燂紝闈炵┖
+    private java.sql.Timestamp lifeTime;     //淇濊川鏈燂紝闈炵┖
 
     public String getMedicineno()
     {
@@ -75,17 +74,17 @@ public class Medicine
         this.storageCond = storageCond;
     }
 
-    public Date getLifetime()
+    public java.sql.Timestamp getLifetime()
     {
         return lifeTime;
     }
 
-    public void setLifetime(Date lifeTime)
+    public void setLifetime(java.sql.Timestamp lifeTime)
     {
         this.lifeTime = lifeTime;
     }
 
-    public Medicine(String medicineNo, String medicineName, String category, String factory, String indication, String storageCond, Date lifeTime)
+    public Medicine(String medicineNo, String medicineName, String category, String factory, String indication, String storageCond, java.sql.Timestamp lifeTime)
     {
 
         this.medicineNo = medicineNo;
