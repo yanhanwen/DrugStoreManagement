@@ -1,6 +1,5 @@
 package com.dsm.model.entity;
 
-import java.sql.Date;
 import java.math.BigDecimal;
 /*
 渚涘簲鍟嗕俊鎭紝鐢ㄤ簬璁板綍鍚勪釜渚涘簲鍟嗘墍鏈夌殑淇℃伅
