@@ -2,7 +2,6 @@ package com.dsm.model.entity;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
-import java.sql.Date;
 
 /*
 鍒嗗簵缁忕悊锛岀敤浜庤褰曞垎搴楃粡鐞嗙殑鍩烘湰淇℃伅
@@ -13,9 +12,9 @@ public class StoreManager
     private String storeManNo;      //鍒嗗簵缁忕悊缂栧彿锛屼富閿�
     private String storeManName;    //鍒嗗簵缁忕悊濮撳悕
     private String sex;             //鎬у埆
-    private Date birthday;          //鍑虹敓鏃ユ湡
+    private java.sql.Timestamp birthday;          //鍑虹敓鏃ユ湡
     private String telephone;       //鑱旂郴鐢佃瘽
-    private Date hireDate;          //灏辫亴鏃堕棿
+    private java.sql.Timestamp hireDate;          //灏辫亴鏃堕棿
     private String storeNo;         //灏辫亴搴楅潰缂栧彿
     private BigDecimal salary;      //鏈堣柂
     private String passwd;          //鐧诲綍瀵嗙爜
@@ -46,11 +45,11 @@ public class StoreManager
 	{
 		this.sex = sex;
 	}
-	public Date getBirthday()
+	public java.sql.Timestamp getBirthday()
 	{
 		return birthday;
 	}
-	public void setBirthday(Date birthday)
+	public void setBirthday(java.sql.Timestamp birthday)
 	{
 		this.birthday = birthday;
 	}
@@ -62,11 +61,11 @@ public class StoreManager
 	{
 		this.telephone = telephone;
 	}
-	public Date getHiredate()
+	public java.sql.Timestamp getHiredate()
 	{
 		return hireDate;
 	}
-	public void setHiredate(Date hireDate)
+	public void setHiredate(java.sql.Timestamp hireDate)
 	{
 		this.hireDate = hireDate;
 	}
