@@ -11,11 +11,11 @@ public class OnSale
 	private String OnSaleNo;		//鍦ㄥ敭缂栧彿
 	private String medicineNo;      //鑽搧缂栧彿锛屽閿�
     private String storeNo;         //搴楅潰缂栧彿锛屽閿�
-    private int count;              //鍦ㄥ敭鏁伴噺
+    private BigDecimal count;              //鍦ㄥ敭鏁伴噺
     private BigDecimal price;       //鍞环
     private BigDecimal cost;        //杩涗环
     private java.sql.Timestamp validPeriod;       //鏈夋晥鏈�
-    private int frameNo;            //鍞灦鍙�
+    private BigDecimal frameNo;            //鍞灦鍙�
     
     public String getOnsaleno() {
 		return OnSaleNo;
@@ -43,12 +43,12 @@ public class OnSale
         this.storeNo = storeNo;
     }
 
-    public int getCount()
+    public BigDecimal getCount()
     {
         return count;
     }
 
-    public void setCount(int count)
+    public void setCount(BigDecimal count)
     {
         this.count = count;
     }
@@ -83,17 +83,17 @@ public class OnSale
         this.validPeriod = validPeriod;
     }
 
-    public int getFrameno()
+    public BigDecimal getFrameno()
     {
         return frameNo;
     }
 
-    public void setFrameno(int frameNo)
+    public void setFrameno(BigDecimal frameNo)
     {
         this.frameNo = frameNo;
     }
 
-    public OnSale(String medicineNo, String storeNo, int count, BigDecimal price, BigDecimal cost, java.sql.Timestamp validPeriod, int frameNo)
+    public OnSale(String medicineNo, String storeNo, BigDecimal count, BigDecimal price, BigDecimal cost, java.sql.Timestamp validPeriod, BigDecimal frameNo)
     {
 
         this.medicineNo = medicineNo;
