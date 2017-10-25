@@ -13,7 +13,7 @@ public class LeaveWare
     private String warehouseNo;             //浠撳簱缂栧彿锛屽閿�
     private String storeNo;                 //搴楅潰缂栧彿锛屽閿�
     private BigDecimal cost;                //鍗曚釜杩涗环
-    private int leaveCount;                 //鍑哄簱鏁伴噺
+    private BigDecimal leaveCount;                 //鍑哄簱鏁伴噺
     private java.sql.Timestamp leaveTime;   //鍑哄簱鏃堕棿
     private String wareManNo;               //鎵ц鎿嶄綔鐨勪粨搴撶鐞嗗憳缂栧彿
 
@@ -67,12 +67,12 @@ public class LeaveWare
         this.cost = cost;
     }
 
-    public int getLeavecount()
+    public BigDecimal getLeavecount()
     {
         return leaveCount;
     }
 
-    public void setLeavecount(int leaveCount)
+    public void setLeavecount(BigDecimal leaveCount)
     {
         this.leaveCount = leaveCount;
     }
@@ -97,7 +97,7 @@ public class LeaveWare
         this.wareManNo = wareManNo;
     }
 
-    public LeaveWare(String leaveNo, String medicineNo, String warehouseNo, String storeNo, BigDecimal cost, int leaveCount, Timestamp leaveTime, String wareManNo)
+    public LeaveWare(String leaveNo, String medicineNo, String warehouseNo, String storeNo, BigDecimal cost, BigDecimal leaveCount, Timestamp leaveTime, String wareManNo)
     {
 
         this.leaveNo = leaveNo;
