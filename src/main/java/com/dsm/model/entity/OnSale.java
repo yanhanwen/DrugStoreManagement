@@ -1,7 +1,6 @@
 package com.dsm.model.entity;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 
 /*
 鍦ㄥ敭淇℃伅锛岀敤浜庝繚瀛樺湪鍞灦涓婄殑鑽搧鐨勪俊鎭�
@@ -15,7 +14,7 @@ public class OnSale
     private int count;              //鍦ㄥ敭鏁伴噺
     private BigDecimal price;       //鍞环
     private BigDecimal cost;        //杩涗环
-    private Date validPeriod;       //鏈夋晥鏈�
+    private java.sql.Timestamp validPeriod;       //鏈夋晥鏈�
     private int frameNo;            //鍞灦鍙�
     
     public String getOnsaleno() {
@@ -74,12 +73,12 @@ public class OnSale
         this.cost = cost;
     }
 
-    public Date getValidperiod()
+    public java.sql.Timestamp getValidperiod()
     {
         return validPeriod;
     }
 
-    public void setValidperiod(Date validPeriod)
+    public void setValidperiod(java.sql.Timestamp validPeriod)
     {
         this.validPeriod = validPeriod;
     }
@@ -94,7 +93,7 @@ public class OnSale
         this.frameNo = frameNo;
     }
 
-    public OnSale(String medicineNo, String storeNo, int count, BigDecimal price, BigDecimal cost, Date validPeriod, int frameNo)
+    public OnSale(String medicineNo, String storeNo, int count, BigDecimal price, BigDecimal cost, java.sql.Timestamp validPeriod, int frameNo)
     {
 
         this.medicineNo = medicineNo;
