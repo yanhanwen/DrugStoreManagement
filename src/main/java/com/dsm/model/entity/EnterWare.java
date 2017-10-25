@@ -12,7 +12,7 @@ public class EnterWare
     private String medicineNo;                  //鑽搧缂栧彿锛屽閿�
     private String warehouseNo;                 //浠撳簱缂栧彿锛屽閿�
     private String supplierNo;                  //渚涘簲鍟嗙紪鍙凤紝澶栭敭
-    private int enterCount;                     //鍏ュ簱鏁伴噺锛屽ぇ浜�0
+    private BigDecimal enterCount;                     //鍏ュ簱鏁伴噺锛屽ぇ浜�0
     private java.sql.Timestamp enterTime;       //鍏ュ簱鏃堕棿
     private java.sql.Timestamp productDate;          //鐢熶骇鏃ユ湡
     private BigDecimal cost;                    //鍗曚釜杩涗环
@@ -58,12 +58,12 @@ public class EnterWare
         this.supplierNo = supplierNo;
     }
 
-    public int getEntercount()
+    public BigDecimal getEntercount()
     {
         return enterCount;
     }
 
-    public void setEntercount(int enterCount)
+    public void setEntercount(BigDecimal enterCount)
     {
         this.enterCount = enterCount;
     }
@@ -108,7 +108,7 @@ public class EnterWare
         this.wareManNo = wareManNo;
     }
 
-    public EnterWare(String enterNo, String medicineNo, String warehouseNo, String supplierNo, int enterCount, Timestamp enterTime, java.sql.Timestamp productDate, BigDecimal cost, String wareManNo)
+    public EnterWare(String enterNo, String medicineNo, String warehouseNo, String supplierNo, BigDecimal enterCount, Timestamp enterTime, java.sql.Timestamp productDate, BigDecimal cost, String wareManNo)
     {
 
         this.enterNo = enterNo;
