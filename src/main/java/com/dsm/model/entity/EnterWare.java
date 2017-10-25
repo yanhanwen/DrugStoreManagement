@@ -2,7 +2,6 @@ package com.dsm.model.entity;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.sql.Date;
 
 /*
 鑽搧鍏ュ簱淇℃伅锛岀敤浜庤褰曟瘡鏉″叆搴撲俊鎭�
@@ -15,7 +14,7 @@ public class EnterWare
     private String supplierNo;                  //渚涘簲鍟嗙紪鍙凤紝澶栭敭
     private int enterCount;                     //鍏ュ簱鏁伴噺锛屽ぇ浜�0
     private java.sql.Timestamp enterTime;       //鍏ュ簱鏃堕棿
-    private java.sql.Date productDate;          //鐢熶骇鏃ユ湡
+    private java.sql.Timestamp productDate;          //鐢熶骇鏃ユ湡
     private BigDecimal cost;                    //鍗曚釜杩涗环
     private String wareManNo;                   //鎵ц鎿嶄綔鐨勪粨搴撶鐞嗗憳缂栧彿锛屽閿�
 
@@ -79,12 +78,12 @@ public class EnterWare
         this.enterTime = enterTime;
     }
 
-    public Date getProductdate()
+    public java.sql.Timestamp getProductdate()
     {
         return productDate;
     }
 
-    public void setProductdate(Date productDate)
+    public void setProductdate(java.sql.Timestamp productDate)
     {
         this.productDate = productDate;
     }
@@ -109,7 +108,7 @@ public class EnterWare
         this.wareManNo = wareManNo;
     }
 
-    public EnterWare(String enterNo, String medicineNo, String warehouseNo, String supplierNo, int enterCount, Timestamp enterTime, Date productDate, BigDecimal cost, String wareManNo)
+    public EnterWare(String enterNo, String medicineNo, String warehouseNo, String supplierNo, int enterCount, Timestamp enterTime, java.sql.Timestamp productDate, BigDecimal cost, String wareManNo)
     {
 
         this.enterNo = enterNo;
