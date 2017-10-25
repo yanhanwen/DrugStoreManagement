@@ -18,7 +18,7 @@ public class Store
     private String telephone;           //鑱旂郴鐢佃瘽锛岄潪绌�
     private java.sql.Timestamp openDate;     //寮�涓氭棩鏈�
     private BigDecimal monthlyCost;     //鏈堝浐瀹氬紑閿�锛堟埧绉燂紝姘寸數璐圭瓑锛夛紝闈炵┖
-    private int isOpen;                 //鏄惁钀ヤ笟锛�1锛氳惀涓氾紝0锛氬凡鍏抽棴
+    private BigDecimal isOpen;                 //鏄惁钀ヤ笟锛�1锛氳惀涓氾紝0锛氬凡鍏抽棴
 
     public String getStoreno()
     {
@@ -120,17 +120,17 @@ public class Store
         this.monthlyCost = monthlyCost;
     }
 
-    public int getIsopen()
+    public BigDecimal getIsopen()
     {
         return isOpen;
     }
 
-    public void setIsopen(int isOpen)
+    public void setIsopen(BigDecimal isOpen)
     {
         this.isOpen = isOpen;
     }
 
-    public Store(String storeNo, String storeName, String province, String city, String district, String street, String addrDetail, String telephone, java.sql.Timestamp openDate, BigDecimal monthlyCost, int isOpen)
+    public Store(String storeNo, String storeName, String province, String city, String district, String street, String addrDetail, String telephone, java.sql.Timestamp openDate, BigDecimal monthlyCost, BigDecimal isOpen)
     {
 
         this.storeNo = storeNo;
