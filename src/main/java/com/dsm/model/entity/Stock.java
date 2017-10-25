@@ -12,7 +12,7 @@ public class Stock
     private String medicineNo;      //鑽搧缂栧彿锛屽閿�
     private String warehouseNo;     //浠撳簱缂栧彿锛屽閿�
     private String shelfNo;         //璐ф灦鍙�
-    private int count;              //鏁伴噺
+    private BigDecimal count;              //鏁伴噺
     private BigDecimal cost;        //鍗曚釜杩涗环
     private java.sql.Timestamp productDate;       //鐢熶骇鏃ユ湡
     private java.sql.Timestamp validPeriod;       //鏈夋晥鏈�
@@ -57,12 +57,12 @@ public class Stock
         this.shelfNo = shelfNo;
     }
 
-    public int getCount()
+    public BigDecimal getCount()
     {
         return count;
     }
 
-    public void setCount(int count)
+    public void setCount(BigDecimal count)
     {
         this.count = count;
     }
@@ -97,7 +97,7 @@ public class Stock
         this.validPeriod = validPeriod;
     }
 
-    public Stock(String stockNo, String medicineNo, String warehouseNo, String shelfNo, int count, BigDecimal cost, java.sql.Timestamp productDate, java.sql.Timestamp validPeriod)
+    public Stock(String stockNo, String medicineNo, String warehouseNo, String shelfNo, BigDecimal count, BigDecimal cost, java.sql.Timestamp productDate, java.sql.Timestamp validPeriod)
     {
 
         this.stockNo = stockNo;
