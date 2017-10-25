@@ -18,7 +18,7 @@ public class Salesman
     private String storeNo;                 //灏辫亴搴楅潰缂栧彿锛屽閿�
     private BigDecimal salary;              //鏈堣柂
     private String passwd;                  //鐧诲綍瀵嗙爜
-    private int onDuty;                     //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
+    private BigDecimal onDuty;                     //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
     private Blob icon;                      //澶村儚
 	public String getSalesmanno()
 	{
@@ -92,11 +92,11 @@ public class Salesman
 	{
 		this.passwd = passwd;
 	}
-	public int getOnduty()
+	public BigDecimal getOnduty()
 	{
 		return onDuty;
 	}
-	public void setOnduty(int onDuty)
+	public void setOnduty(BigDecimal onDuty)
 	{
 		this.onDuty = onDuty;
 	}
@@ -109,7 +109,7 @@ public class Salesman
 		this.icon = icon;
 	}
 	public Salesman(String salesmanNo, String salesmanName, String sex, java.sql.Timestamp birthday, String telephone, java.sql.Timestamp hireDate,
-			String storeNo, BigDecimal salary, String passwd, int onDuty)
+			String storeNo, BigDecimal salary, String passwd, BigDecimal onDuty)
 	{
 		super();
 		this.salesmanNo = salesmanNo;
