@@ -2,7 +2,6 @@ package com.dsm.model.entity;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
-import java.sql.Date;
 
 /*
 浠撳簱绠＄悊鍛樹俊鎭紝鐢ㄤ簬璁板綍浠撳簱绠＄悊鍛樼殑鍩烘湰淇℃伅
@@ -13,9 +12,9 @@ public class WarehouseManager
     private String wareManNo;           //浠撳簱绠＄悊鍛樼紪鍙凤紝涓婚敭
     private String wareManName;         //浠撳簱绠＄悊鍛樺鍚�
     private String sex;                 //鎬у埆
-    private Date birthday;              //鍑虹敓鏃ユ湡
+    private java.sql.Timestamp birthday;              //鍑虹敓鏃ユ湡
     private String telephone;           //鑱旂郴鐢佃瘽
-    private Date hireDate;              //灏辫亴鏃ユ湡
+    private java.sql.Timestamp hireDate;              //灏辫亴鏃ユ湡
     private String warehouseNo;         //绠＄悊浠撳簱缂栧彿锛屽閿�
     private BigDecimal salary;          //鏈堣柂
     private String passwd;              //鐧诲綍瀵嗙爜
@@ -46,11 +45,11 @@ public class WarehouseManager
 	{
 		this.sex = sex;
 	}
-	public Date getBirthday()
+	public java.sql.Timestamp getBirthday()
 	{
 		return birthday;
 	}
-	public void setBirthday(Date birthday)
+	public void setBirthday(java.sql.Timestamp birthday)
 	{
 		this.birthday = birthday;
 	}
@@ -62,11 +61,11 @@ public class WarehouseManager
 	{
 		this.telephone = telephone;
 	}
-	public Date getHiredate()
+	public java.sql.Timestamp getHiredate()
 	{
 		return hireDate;
 	}
-	public void setHiredate(Date hireDate)
+	public void setHiredate(java.sql.Timestamp hireDate)
 	{
 		this.hireDate = hireDate;
 	}
@@ -118,8 +117,8 @@ public class WarehouseManager
 	{
 		this.icon = icon;
 	}
-	public WarehouseManager(String wareManNo, String wareManName, String sex, Date birthday, String telephone,
-			Date hireDate, String warehouseNo, BigDecimal salary, String passwd, String managerNo, int onDuty)
+	public WarehouseManager(String wareManNo, String wareManName, String sex, java.sql.Timestamp birthday, String telephone,
+			java.sql.Timestamp hireDate, String warehouseNo, BigDecimal salary, String passwd, String managerNo, int onDuty)
 	{
 		super();
 		this.wareManNo = wareManNo;
