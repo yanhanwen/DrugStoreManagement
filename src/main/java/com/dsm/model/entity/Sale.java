@@ -12,7 +12,7 @@ public class Sale
     private String serialNo;        //娴佹按鍙凤紝涓婚敭
     private String medicineNo;      //鑽搧缂栧彿锛屽閿�
     private String salesmanNo;      //鍞揣鍛樼紪鍙凤紝澶栭敭
-    private int count;              //鏁伴噺
+    private BigDecimal count;              //鏁伴噺
     private BigDecimal total;       //鎬讳环
     private Timestamp saleTime;     //閿�鍞椂闂�
 
@@ -46,12 +46,12 @@ public class Sale
         this.salesmanNo = salesmanNo;
     }
 
-    public int getCount()
+    public BigDecimal getCount()
     {
         return count;
     }
 
-    public void setCount(int count)
+    public void setCount(BigDecimal count)
     {
         this.count = count;
     }
@@ -76,7 +76,7 @@ public class Sale
         this.saleTime = saleTime;
     }
 
-    public Sale(String serialNo, String medicineNo, String salesmanNo, int count, BigDecimal total, Timestamp saleTime)
+    public Sale(String serialNo, String medicineNo, String salesmanNo, BigDecimal count, BigDecimal total, Timestamp saleTime)
     {
 
         this.serialNo = serialNo;
