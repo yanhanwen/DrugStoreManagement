@@ -19,7 +19,7 @@ public class StoreManager
     private BigDecimal salary;      //鏈堣柂
     private String passwd;          //鐧诲綍瀵嗙爜
     private String managerNo;       //鎬荤粡鐞嗙紪鍙�
-    private int onDuty;             //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
+    private BigDecimal onDuty;             //鏄惁鍦ㄨ亴锛�1锛氬湪鑱岋紝0锛氱鑱�
     private Blob icon;              //澶村儚
 	public String getStoremanno()
 	{
@@ -101,11 +101,11 @@ public class StoreManager
 	{
 		this.managerNo = managerNo;
 	}
-	public int getOnduty()
+	public BigDecimal getOnduty()
 	{
 		return onDuty;
 	}
-	public void setOnduty(int onDuty)
+	public void setOnduty(BigDecimal onDuty)
 	{
 		this.onDuty = onDuty;
 	}
@@ -118,7 +118,7 @@ public class StoreManager
 		this.icon = icon;
 	}
 	public StoreManager(String storeManNo, String storeManName, String sex, java.sql.Timestamp birthday, String telephone,
-			java.sql.Timestamp hireDate, String storeNo, BigDecimal salary, String passwd, String managerNo, int onDuty)
+			java.sql.Timestamp hireDate, String storeNo, BigDecimal salary, String passwd, String managerNo, BigDecimal onDuty)
 	{
 		super();
 		this.storeManNo = storeManNo;
