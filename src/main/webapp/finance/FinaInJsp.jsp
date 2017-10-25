@@ -14,9 +14,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <title>财务</title>
         <meta name="description" content="Custom Drop-Down List Styling with CSS3" />
         <meta name="author" content="Codrops" />
-        <link rel="stylesheet" type="text/css" href="../css/style.css" />
-		<link rel="stylesheet" type="text/css" href="../css/scroller.css" />
-		<link rel="stylesheet" type="text/css" href="../css/button.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/scroller.css" />
+		<link rel="stylesheet" type="text/css" href="css/button.css" />
     </head>
 
     <body>
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			</script>
 			<div style="float:left;margin-top:60px;margin-left:50px;">
-				<form  name="CCCC" method="post" action="../FinaServlet">
+				<form  name="CCCC" method="post" action="FinaServlet">
 					<input type="hidden" id="indate" value="" style="" name="year"/>
 					<input type="hidden" id="outdate" value="" name="month"/>
 					<input type="button" class="button blue round" value="提交" onclick="demo()"/>

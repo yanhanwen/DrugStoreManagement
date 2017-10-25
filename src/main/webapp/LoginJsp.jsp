@@ -7,17 +7,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/login.css" />
 <link rel="stylesheet" type="text/css" href="css/warn.css" />
-<meta charset="UTF-8">
+
 <title>登陆</title>
-	<script type="text/javascript" charset="UTF-8" src="js/login.js"></script>
-	<%String a = request.getParameter("message");
+	<%String a = (String)request.getAttribute("message");  
 		if(a!=null&&!"".equals(a)){ %>
-		<script>
-        	alert("<%=a%>");
-		</script>
+		<div class="alert">
+			${message}
+		</div>
 		<%} %>
+	<script type="text/javascript" charset="UTF-8" src="js/login.js"></script>
+</head>
 	<body background="img/bg.png">
 	   <div class="content">
            <form action="LoginServlet" method="post" class="login-form">

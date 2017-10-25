@@ -1,6 +1,8 @@
 package com.dsm.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,22 +40,25 @@ public class LoginServlet extends HttpServlet
 		}
 		char identity = user_id.charAt(0);
 		HttpSession session = request.getSession();
+		session.setAttribute("user_id", "-1");
 		if(identity=='0')
 		{
 			String sql = "select passwd from Manager where ManagerNo = ?";
 			ManagerDao mdao = new ManagerDao();
 			Manager m = mdao.getSingleObject(sql,user_id);
-			if(m==null)
+			if(m==null||m.getOnduty()==new BigDecimal(0))
 			{
 				message = "无此用户名";
+				if(m!=null&&m.getOnduty()==new BigDecimal(0))
+					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("/manager/FunctionJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -65,22 +70,24 @@ public class LoginServlet extends HttpServlet
 				return;
 			}
 		}
-		if(identity=='1')
+		else if(identity=='1')
 		{
-			String sql = "select passwd from WarehouseManager where WarehouseManagerNo = ?";
+			String sql = "select passwd from WarehouseManager where WareManNo = ?";
 			WarehouseManagerDao wmdao = new WarehouseManagerDao();
 			WarehouseManager wm = wmdao.getSingleObject(sql,user_id);
-			if(wm==null)
+			if(wm==null||wm.getOnduty()==new BigDecimal(0))
 			{
 				message = "无此用户名";
+				if(wm!=null&&wm.getOnduty()==new BigDecimal(0))
+					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 			if(wm.getPasswd()!=null&&wm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("/warehousemanager/FunctionJsp.jsp").forward(request, response);
+//				request.getRequestDispatcher("/warehousemanager/FunctionJsp.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -92,22 +99,24 @@ public class LoginServlet extends HttpServlet
 				return;
 			}
 		}
-		if(identity=='2')
+		else if(identity=='2')
 		{
-			String sql = "select passwd from StoreManager where StoreManagerNo = ?";
+			String sql = "select passwd from StoreManager where StoreManNo = ?";
 			StoreManagerDao smdao = new StoreManagerDao();
 			StoreManager sm = smdao.getSingleObject(sql,user_id);
-			if(sm==null)
+			if(sm==null||sm.getOnduty()==new BigDecimal(0))
 			{
 				message = "无此用户名";
+				if(sm!=null&&sm.getOnduty()==new BigDecimal(0))
+					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 			if(sm.getPasswd()!=null&&sm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("/storemanager/FunctionJsp.jsp").forward(request, response);
+//				request.getRequestDispatcher("/storemanager/FunctionJsp.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -119,23 +128,24 @@ public class LoginServlet extends HttpServlet
 				return;
 			}
 		}
-		if(identity=='3')
+		else if(identity=='3')
 		{
 			String sql = "select passwd from Salesman where SalesmanNo = ?";
 			SalesmanDao mdao = new SalesmanDao();
 			Salesman m = mdao.getSingleObject(sql,user_id);
-			if(m==null)
+			if(m==null||m.getOnduty()==new BigDecimal(0))
 			{
 				message = "无此用户名";
+				if(m!=null&&m.getOnduty()==new BigDecimal(0))
+					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("Login.jsp").forward(request, response);
+				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
 //				request.getRequestDispatcher("/salesman/FunctionJsp.jsp").forward(request, response);
-				System.out.append("333333");
 				return;
 			}
 			else
@@ -146,6 +156,13 @@ public class LoginServlet extends HttpServlet
 				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 				return;
 			}
+		}
+		else
+		{
+			message = "无此用户名";
+			request.setAttribute("message",message);
+			request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+			return;
 		}
 	}
 }

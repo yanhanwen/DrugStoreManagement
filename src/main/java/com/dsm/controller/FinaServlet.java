@@ -34,7 +34,7 @@ public class FinaServlet extends HttpServlet
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession sess = request.getSession();
-		if(!sess.getAttribute("user_id").toString().startsWith("0"))
+		if(sess==null||sess.getAttribute("user_id")==null||!sess.getAttribute("user_id").toString().startsWith("0"))
 		{
 			request.getRequestDispatcher("ErrorJsp.jsp").forward(request, response);
 			return;
@@ -60,7 +60,7 @@ public class FinaServlet extends HttpServlet
 		List<OnSale> los = os.getForList(sql,null);
 		BigDecimal in = new BigDecimal(0);
 		for(int i=0;i<los.size();i++)
-			in = in.add((los.get(i).getPrice().subtract(los.get(i).getCost())).multiply(new BigDecimal(los.get(i).getCount())));
+			in = in.add((los.get(i).getPrice().subtract(los.get(i).getCost())).multiply(los.get(i).getCount()));
 		BigDecimal out = whoutnum.add(soutnum).add(smoutnum).add(smgoutnum).add(whmoutnum).add(moutnum);
 		BigDecimal allin = in.subtract(out);
 		request.setAttribute("time",time);
