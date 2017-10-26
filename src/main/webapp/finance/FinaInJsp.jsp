@@ -14,9 +14,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <title>财务</title>
         <meta name="description" content="Custom Drop-Down List Styling with CSS3" />
         <meta name="author" content="Codrops" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/scroller.css" />
-		<link rel="stylesheet" type="text/css" href="css/button.css" />
+        <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/scroller.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/button.css" />
     </head>
 
     <body>

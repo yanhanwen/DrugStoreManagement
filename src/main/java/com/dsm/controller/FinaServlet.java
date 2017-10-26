@@ -63,7 +63,8 @@ public class FinaServlet extends HttpServlet
 			in = in.add((los.get(i).getPrice().subtract(los.get(i).getCost())).multiply(los.get(i).getCount()));
 		BigDecimal out = whoutnum.add(soutnum).add(smoutnum).add(smgoutnum).add(whmoutnum).add(moutnum);
 		BigDecimal allin = in.subtract(out);
-		request.setAttribute("time",time);
+		request.setAttribute("year",year);
+		request.setAttribute("month",month);
 		request.setAttribute("out",out);
 		request.setAttribute("in",in);
 		request.setAttribute("allin",allin);
