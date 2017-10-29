@@ -24,11 +24,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   <div class="content">
            <form action="LoginServlet" method="post" class="login-form">
                <div class="username">
-                   <input type="text" name="user_id" value="${user_id}" />
+                   <input type="text" name="user_id" maxlength=8 value="${user_id}" />
                    <span class="user-icon icon">ID</span>
                </div>
                <div class="password">
-                   <input type="password" name="password" placeholder="*******" />
+                   <input type="password" name="password" maxlength=16 placeholder="*******" />
                    <span class="password-icon icon">密码</span>
                </div>
                <div class="account-control">

@@ -17,9 +17,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/scroller.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/button.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/warn.css" />
     </head>
 
     <body>
+    	<%String a = (String)request.getAttribute("message");  
+		if(a!=null&&!"".equals(a)){ %>
+		<div class="alert">
+			${message}
+		</div>
+		<%} %>
 		<br><br>
 		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请选择年月</h2>
 	    <div class="container" style="margin-left:40px">

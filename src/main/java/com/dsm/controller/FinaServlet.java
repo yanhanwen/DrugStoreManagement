@@ -48,32 +48,38 @@ public class FinaServlet extends HttpServlet
 		ManagerDao m = new ManagerDao();
 		OnSaleDao os = new OnSaleDao();
 		String message = null;
-		BigDecimal whoutnum = wh.getOutNum();
-		BigDecimal soutnum = s.getOutNum();
-		BigDecimal smoutnum = sm.getOutNum();
-		BigDecimal smgoutnum = smg.getOutNum();
-		BigDecimal whmoutnum = whm.getOutNum();
-		BigDecimal moutnum = m.getOutNum();
-		String year = request.getParameter("year");
-		String month = request.getParameter("month");
-		year = year.substring(52,56);
-		month = month.substring(52,54);
-		if(month.substring(1,2).equals("<"))
-			month = month.substring(0,1);
-		if(month.length()==1)
-			month = "0"+month;
-		String time = year+"-"+month;
-		String sql = "select onsale.price,onsale.cost,sale.count from OnSale left join sale on onsale.medicineno = sale.medicineno where to_char(SaleTime,'YYYY-MM') = '"+time+"'";
-		List<OnSale> los = os.getForList(sql);
-		BigDecimal in = new BigDecimal(0);
-		for(int i=0;i<los.size();i++)
-			in = in.add((los.get(i).getPrice().subtract(los.get(i).getCost())).multiply(los.get(i).getCount()));
-		BigDecimal out = whoutnum.add(soutnum).add(smoutnum).add(smgoutnum).add(whmoutnum).add(moutnum);
-		BigDecimal allin = in.subtract(out);
-		request.setAttribute("time",time);
-		request.setAttribute("out",out);
-		request.setAttribute("in",in);
-		request.setAttribute("allin",allin);
-		request.getRequestDispatcher("/finance/FinaGetJsp.jsp").forward(request,response);
+		try{
+			BigDecimal whoutnum = wh.getOutNum();
+			BigDecimal soutnum = s.getOutNum();
+	 		BigDecimal smoutnum = sm.getOutNum();
+			BigDecimal smgoutnum = smg.getOutNum();
+			BigDecimal whmoutnum = whm.getOutNum();
+			BigDecimal moutnum = m.getOutNum();
+			String year = request.getParameter("year");
+			String month = request.getParameter("month");
+			year = year.substring(52,56);
+			month = month.substring(52,54);
+			if(month.substring(1,2).equals("<"))
+				month = month.substring(0,1);
+			if(month.length()==1)
+				month = "0"+month;
+			String time = year+"-"+month;
+			String sql = "select onsale.price,onsale.cost,sale.count from OnSale left join sale on onsale.medicineno = sale.medicineno where to_char(SaleTime,'YYYY-MM') = '"+time+"'";
+			List<OnSale> los = os.getForList(sql);
+			BigDecimal in = new BigDecimal(0);
+			for(int i=0;i<los.size();i++)
+				in = in.add((los.get(i).getPrice().subtract(los.get(i).getCost())).multiply(los.get(i).getCount()));
+			BigDecimal out = whoutnum.add(soutnum).add(smoutnum).add(smgoutnum).add(whmoutnum).add(moutnum);
+			BigDecimal allin = in.subtract(out);
+			request.setAttribute("time",time);
+			request.setAttribute("out",out);
+			request.setAttribute("in",in);
+			request.setAttribute("allin",allin);
+			request.getRequestDispatcher("/finance/FinaGetJsp.jsp").forward(request,response);
+		} catch(Exception e) {
+			message = "数据错误！";
+			request.setAttribute("message", message);
+			request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request,response);
+		}
 	}
 }
