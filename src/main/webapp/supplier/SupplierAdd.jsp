@@ -6,6 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 </head>
+<script>
+function checkAddInfo(){
+	supplierNo=document.getElementsByName("SupplierNo")[0].value;
+}
+</script>
 <body>
 		<div>
 		<form action="../SupplierServlet" method="post">
@@ -17,7 +22,7 @@
 			<br>
 			<span>联系人号码:</span><input name="Telephone" type="text"/>
 			<br>
-			<span>省:</span><input name="Provnice" type="text"/>
+			<span>省:</span><input name="Province" type="text"/>
 			<br>
 			<span>市:</span><input name="City" type="text"/>
 			<br>

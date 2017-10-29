@@ -2,6 +2,7 @@ package com.dsm.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -52,12 +53,12 @@ public class SupplierServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-
 		String ID = "0123456";//(String) session.getAttribute("user_id");
 		if ( !ID.startsWith("0")) {
 			return;
 		}
-		String method = request.getParameter("method");
+		String method =null;
+		method = request.getParameter("method");
 		if (method.equals("supplier") || method.equals("supplierLeaved")) {
 			if (method.equals("supplier"))
 				supplier(request, response, 1);// 查询在职供应商
@@ -70,28 +71,19 @@ public class SupplierServlet extends HttpServlet {
 		} else if (method.equals("modifySupplier")) {
 			modifySupplier(request, response);
 		}
-		request.getRequestDispatcher("/supplier/Supplier.jsp").forward(request,response);
+		request.getRequestDispatcher("/supplier/Supplier.jsp").forward(request, response);
 	}
 
 	private void deleteSupplier(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		SupplierDao supplierDao=new SupplierDao();
 		String supplierNo=request.getParameter("SupplierNo");
-		String sql="update Supplier set OnDuty=0 where SupplierNO=?";
-		String message=supplierDao.update(sql,supplierNo);
-		if(message.equals("noneof")) {
+		String sql="update Supplier set OnDuty=0 where SupplierNo="+"'"+supplierNo+"'";
+		String message=supplierDao.update(sql);
+		if(message.equals("noneof")||message.equals("0")) {
 			request.setAttribute("message","删除失败");
 		}else {
 			request.setAttribute("message","删除成功");
-		}
-		try {
-			request.getRequestDispatcher("Supplier.jsp").forward(request, response);
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
@@ -113,7 +105,7 @@ public class SupplierServlet extends HttpServlet {
 				+ "City=?,District=?,Street=?,"
 				+ "AddrDetail=?,Rate=?,Remark=? where SupplierNo=?";
 		String message=supplierDao.update(sql, SupplierName, ContactName,Telephone,Province,City,District,Street,AddrDetail,Rate,Remark,SupplierNo);
-		if(message.equals("noneof")) {
+		if(message.equals("noneof")||message.equals("0")) {
 			request.setAttribute("message","修改失败");
 		}else {
 			request.setAttribute("message","修改成功");
@@ -134,22 +126,16 @@ public class SupplierServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String s = sdf.format(new java.util.Date());
-		java.util.Date date=null;
-		try {
-			date = sdf.parse(s);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Timestamp timestamp=null;
+		timestamp=Timestamp.valueOf(s);
 		BigDecimal Rate=new BigDecimal(request.getParameter("Rate"));
-		java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 		Supplier supplier = new Supplier(request.getParameter("SupplierNo"), request.getParameter("SupplierName"),
 				request.getParameter("ContactName"), request.getParameter("Telephone"),
-				request.getParameter("Province"), request.getParameter("city"), request.getParameter("District"),
-				request.getParameter("Street"), request.getParameter("AddrDeatil"),
-				Rate, sqlDate, request.getParameter("Remark"), 1);
+				request.getParameter("Province"), request.getParameter("City"), request.getParameter("District"),
+				request.getParameter("Street"), request.getParameter("AddrDetail"),
+				Rate, timestamp, request.getParameter("Remark"), new BigDecimal(1));
 		supplierDao.addObject(supplier);
 		if(supplierDao.getKey().equals("noneof")) {
 			request.setAttribute("message","添加失败");
