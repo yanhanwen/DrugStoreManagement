@@ -26,7 +26,11 @@
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/table.css" />
     <style type="text/css">
     input{
-    border:none;}</style>
+    border:none;}
+    a{
+    text-decoration:none}
+    a:hover {
+    color:red}</style>
 </head>
 <body class="bordered">
 	<h1>供应商列表</h1>

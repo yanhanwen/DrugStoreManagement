@@ -4,41 +4,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>添加供应商</title>
 </head>
+
 <script>
 function checkAddInfo(){
 	supplierNo=document.getElementsByName("SupplierNo")[0].value;
 }
 </script>
 <body>
-		<div>
+		<div id="add">
+		
 		<form action="../SupplierServlet" method="post">
-		    <span>供应商编号:</span><input name="SupplierNo" type="text"/>
-		    <br>
-			<span>供应商姓名:</span><input name="SupplierName"type="text"/>
-			<br>
-			<span>联系人:</span><input name="ContactName" type="text"/>
-			<br>
-			<span>联系人号码:</span><input name="Telephone" type="text"/>
-			<br>
-			<span>省:</span><input name="Province" type="text"/>
-			<br>
-			<span>市:</span><input name="City" type="text"/>
-			<br>
-			<span>区:</span><input name="District" type="text"/>
-			<br>
-			<span>街道:</span><input name="Street" type="text"/>
-			<br>
-			<span>详细地址:</span><input name="AddrDetail" type="text"/>
-			<br>
-			<span>评级:</span><input name="Rate" type="text"/>
-			<br>
-			<span>备注:</span><input name="Remark" type="text"/>
-			<br>
+		<table class="bordered">
+		   <tr>
+		    <td>供应商编号:</td><td><input name="SupplierNo" type="text" maxlength=2 onkeypress="return event.keyCode>=48&&event.keyCode<=57" ng-pattern="/[^a-zA-Z]/"/></td>
+		    </tr>
+			<tr><td>供应商姓名:</td><td><input name="SupplierName"type="text"/></td>
+			</tr>
+			<tr><td>联系人:</td><td><input name="ContactName" type="text"/></td>
+			</tr>
+			<tr><td>联系人号码:</td><td><input name="Telephone" type="text"/></td>
+			</tr>
+			<tr><td>省:</td><td><input name="Province" type="text"/></td>
+			</tr>
+			<tr><td>市:</td><td><input name="City" type="text"/></td>
+			</tr>
+			<tr><td>区:</td><td><input name="District" type="text"/></td>
+			</tr>
+			<tr><td>街道:</td><td><input name="Street" type="text"/></td>
+			</tr>
+			<tr><td>详细地址:</td><td><input name="AddrDetail" type="text"/></td>
+			</tr>
+			<tr><td>评级:</td><td><input name="Rate" type="text"/></td>
+			</tr>
+			<tr><td>备注:</td><td><input name="Remark" type="text"/></td>
+			</tr>
+			</table>
 			<input type="hidden" name="method" value="addSupplier">
 			<input type="submit" name="method" value="添加">
 	</form>
+	
 	</div>
 </body>
 </html>

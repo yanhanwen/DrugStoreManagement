@@ -89,6 +89,7 @@ public class SupplierServlet extends HttpServlet {
 
 	private void modifySupplier(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+
 		SupplierDao supplierDao=new SupplierDao();
 		String SupplierNo=request.getParameter("SupplierNo");
 		String SupplierName=request.getParameter("SupplierName");
@@ -126,6 +127,7 @@ public class SupplierServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
+		try {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String s = sdf.format(new java.util.Date());
 		Timestamp timestamp=null;
@@ -141,6 +143,9 @@ public class SupplierServlet extends HttpServlet {
 			request.setAttribute("message","添加失败");
 		}else {
 			request.setAttribute("message","添加成功");
+		}
+		}catch(Exception e) {
+			request.setAttribute("message","添加失败");
 		}
 	}
 
