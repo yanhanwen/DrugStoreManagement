@@ -19,6 +19,7 @@ public class WarehouseDao extends BaseDao<Warehouse>
 			String sql = "select sum(MonthlyCost) from Warehouse";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
+			rs.next();
 			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
 			return new BigDecimal(-1);

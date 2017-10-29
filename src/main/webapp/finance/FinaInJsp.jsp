@@ -29,7 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div id="dd" class="wrapper-dropdown-3" tabindex="1">
 							<span>年</span>
 							<ul class="dropdown scroll" style="height:200px;overflow-y:scroll;" id="v1">
-								<%for(int year=2010;year<=2040;year++){%>
+								<%int year;
+								for(year=2010;year<=2040;year++){%>
 									<li><a href="#"><i class="icon-envelope icon-large"></i><%=year%></a></li>
 								<%}%>
 							</ul>
@@ -43,7 +44,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div id="dd1" class="wrapper-dropdown-3" tabindex="2">
 							<span>月</span>
 							<ul class="dropdown scroll" style="height:200px;overflow-y:scroll;" id="v2">
-								<%for(int month=1;month<=12;month++){%>
+								<%int month;
+								for(month=1;month<=12;month++){%>
 								<li><a href="#"><i class="icon-envelope icon-large"></i><%=month%></a></li>
 								<%}%>
 							</ul>
@@ -52,17 +54,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</section>
 			</div>
 			<script>
+				var one;
+				var two;
+				function ons1()
+				{
+					var ul = document.getElementById('v1');
+					var lis = ul.getElementsByTagName('li');
+					for(var i=0;i<lis.length;i++)
+					{
+						lis[i].onclick = function()
+						{
+							one = this.innerHTML;
+						}
+					}
+				}
+				function ons2()
+				{
+					var ul = document.getElementById('v2');
+					var lis = ul.getElementsByTagName('li');
+					for(var i=0;i<lis.length;i++)
+					{
+						lis[i].onclick = function()
+						{
+							two = this.innerHTML;
+						}
+					}
+				}
+				ons1();
+				ons2();
 				function demo()
 				{
-					document.getElementById("indate").value=document.getElementById("v1").value;
-					document.getElementById("outdate").value=document.getElementById("v2").value;
+					document.getElementById("indate").value=one;
+        			document.getElementById("outdate").value=two;
 					document.CCCC.submit();
 				}
 			</script>
 			<div style="float:left;margin-top:60px;margin-left:50px;">
-				<form  name="CCCC" method="post" action="FinaServlet">
-					<input type="hidden" id="indate" value="" style="" name="year"/>
+				<form  name="CCCC" method="post" action="<%=request.getContextPath()%>/FinaServlet">
+					<input type="hidden" id="indate" value="" name="year"/>
 					<input type="hidden" id="outdate" value="" name="month"/>
+					<%System.out.println(year+month); %>
 					<input type="button" class="button blue round" value="提交" onclick="demo()"/>
 				</form>
 			</div>

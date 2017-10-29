@@ -3,6 +3,7 @@ package com.dsm.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -55,16 +56,21 @@ public class FinaServlet extends HttpServlet
 		BigDecimal moutnum = m.getOutNum();
 		String year = request.getParameter("year");
 		String month = request.getParameter("month");
+		year = year.substring(52,56);
+		month = month.substring(52,54);
+		if(month.substring(1,2).equals("<"))
+			month = month.substring(0,1);
+		if(month.length()==1)
+			month = "0"+month;
 		String time = year+"-"+month;
-		String sql = "select * from OnSale natural join sale using(MedicineNo) where SaleTime like"+time+"%";
-		List<OnSale> los = os.getForList(sql,null);
+		String sql = "select onsale.price,onsale.cost,sale.count from OnSale left join sale on onsale.medicineno = sale.medicineno where to_char(SaleTime,'YYYY-MM') = '"+time+"'";
+		List<OnSale> los = os.getForList(sql);
 		BigDecimal in = new BigDecimal(0);
 		for(int i=0;i<los.size();i++)
 			in = in.add((los.get(i).getPrice().subtract(los.get(i).getCost())).multiply(los.get(i).getCount()));
 		BigDecimal out = whoutnum.add(soutnum).add(smoutnum).add(smgoutnum).add(whmoutnum).add(moutnum);
 		BigDecimal allin = in.subtract(out);
-		request.setAttribute("year",year);
-		request.setAttribute("month",month);
+		request.setAttribute("time",time);
 		request.setAttribute("out",out);
 		request.setAttribute("in",in);
 		request.setAttribute("allin",allin);

@@ -19,6 +19,7 @@ public class StoreDao extends BaseDao<Store>
 			String sql = "select sum(MonthlyCost) from Store";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
+			rs.next();
 			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
 			return new BigDecimal(-1);

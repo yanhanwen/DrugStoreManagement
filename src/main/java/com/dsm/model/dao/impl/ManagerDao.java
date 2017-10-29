@@ -19,6 +19,7 @@ public class ManagerDao extends BaseDao<Manager>
 			String sql = "select sum(Salary) from Manager where OnDuty = 1";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
+			rs.next();
 			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
 			return new BigDecimal(-1);

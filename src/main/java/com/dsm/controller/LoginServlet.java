@@ -161,6 +161,7 @@ public class LoginServlet extends HttpServlet
 		{
 			message = "无此用户名";
 			request.setAttribute("message",message);
+			request.setAttribute("user_id",user_id);
 			request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
 			return;
 		}

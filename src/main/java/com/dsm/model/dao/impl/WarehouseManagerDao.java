@@ -19,6 +19,7 @@ public class WarehouseManagerDao extends BaseDao<WarehouseManager>
 			String sql = "select sum(Salary) from WarehouseManager where OnDuty = 1";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
+			rs.next();
 			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
 			return new BigDecimal(-1);

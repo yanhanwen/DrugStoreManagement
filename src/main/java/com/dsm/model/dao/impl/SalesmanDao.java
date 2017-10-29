@@ -19,6 +19,7 @@ public class SalesmanDao extends BaseDao<Salesman>
 			String sql = "select sum(Salary) from Salesman where OnDuty = 1";
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
+			rs.next();
 			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
 			return new BigDecimal(-1);

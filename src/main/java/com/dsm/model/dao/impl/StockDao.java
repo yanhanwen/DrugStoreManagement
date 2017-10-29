@@ -7,7 +7,7 @@ public class StockDao extends BaseDao<Stock>
 	public void addObject(Object obj)
 	{
 		Stock Stock = (Stock) obj;
-		String sql = "insert into Stock(StockNo,MedicineNo,WarehouseNo,ShelfNo,Count,Cost,ProductDate,ValidPeriod) values(?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into Stock(StockNo,MedicineNo,WarehouseNo,ShelfNo,Count,Cost,ProductDate,ValidPeriod) values(?,?,?,?,?,?,?,?)";
 		update(sql,Stock.getStockno(),Stock.getMedicineno(),Stock.getWarehouseno(),Stock.getShelfno(),Stock.getCount(),
 				Stock.getCost(),Stock.getProductdate(),Stock.getValidperiod());
 	}
