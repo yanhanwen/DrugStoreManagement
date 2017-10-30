@@ -71,7 +71,7 @@ public class SupplierServlet extends HttpServlet {
 		} else if (method.equals("modifySupplier")) {
 			modifySupplier(request, response);
 		}
-		request.getRequestDispatcher("/supplier/Supplier.jsp").forward(request, response);
+		request.getRequestDispatcher("/supplier/supplier.jsp").forward(request, response);
 	}
 
 	private void deleteSupplier(HttpServletRequest request, HttpServletResponse response) {

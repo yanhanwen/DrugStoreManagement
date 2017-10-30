@@ -6,15 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>添加供应商</title>
 </head>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/supplierAdd.css">
 
 <script>
 function checkAddInfo(){
 	supplierNo=document.getElementsByName("SupplierNo")[0].value;
 }
 </script>
-<body>
+<body style="background:#F5FAFF">
 		<div id="add">
-		
+		<h1 style="text-align:center">添加供应商</h1>
 		<form action="../SupplierServlet" method="post">
 		<table class="bordered">
 		   <tr>
@@ -42,7 +43,8 @@ function checkAddInfo(){
 			</tr>
 			</table>
 			<input type="hidden" name="method" value="addSupplier">
-			<input type="submit" name="method" value="添加">
+			<div id="button">
+			<input type="submit" name="method" value="添加"></div>
 	</form>
 	
 	</div>
