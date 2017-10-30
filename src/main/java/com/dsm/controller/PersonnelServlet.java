@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -66,44 +67,21 @@ public class PersonnelServlet extends HttpServlet
 	 */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+    	System.out.println("aaaaaaaaaa");
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
-		String ID = (String)session.getAttribute("user_id");
-		request.setAttribute("ID", ID);
-		String message = "";
-		if(!ID.startsWith("0") || !ID.startsWith("2"))
+		//HttpSession session = request.getSession();
+		//String ID = (String)session.getAttribute("user_id");
+		String ID = "00000001";
+		if(!ID.startsWith("0") && !ID.startsWith("2"))
 		{
-			message = "您没有人事管理权限。";
+			request.getRequestDispatcher("ErrorJsp.jsp").forward(request, response);
 			return;
 		}
 		String method = request.getParameter("method");
-		if(method.equals("autoQuery"))
-		{
-			if(ID.startsWith("0"))
-			{
-				StoreManagerDao storeManager = new StoreManagerDao();
-		    	String sql = "select StoreManNo, StoreManName, Sex, Birthday, Age, Telephone, Hiredate, StoreManager.StoreNo, StoreName "
-		    			+ "from StoreManager left join Store where OnDuty = 1";
-		    	List<StoreManager> storeMans = storeManager.getForList(sql, null);
-		    	request.setAttribute("storeManager-list", storeMans);
-		    	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
-		    	sql = "select WareManNo, WareManName, Sex, Birthday, Age, Telephone, HireDate, WarehouseNo, WarehouseName "
-		    			+ "from WarehouseManager left join Warehouse where OnDuty = 1";
-		    	List<WarehouseManager> wareMans = warehouseManager.getForList(sql, null);
-		    	request.setAttribute("warehouseManager-list", wareMans);
-			}
-			else if(ID.startsWith("2"))
-			{
-				SalesmanDao salesman = new SalesmanDao();
-		    	String sql = "select SalesmanNo, SalesmanName, Sex, Birthday, Age, Telephone, HireDate, StoreNo, StoreName "
-		    			+ "from Salesman left join Store where OnDuty = 1";
-		    	List<Salesman> salesmen = salesman.getForList(sql, null);
-		    	request.setAttribute("salesman-list", salesmen);
-			}
-		}
+		System.out.println(method);
 		/*查询在职和离职店员，1在职，0离职*/
-		else if(method.equals("salesman")||method.equals("salesmanLeaved"))
+		if(method.equals("salesman")||method.equals("salesmanLeaved"))
 		{
 			if(method.equals("salesman"))
 				salesman(request, response, 1);
@@ -126,14 +104,6 @@ public class PersonnelServlet extends HttpServlet
 			else
 				storeManager(request, response, 0);
 		}
-		/*查询在职和离职经理*/
-		/*else if(method.equals("manager")||method.equals("managerLeaved"))
-		{
-			if(method.equals("manager"))
-				manager(request, response, 1);
-			else
-				manager(request, response, 0);
-		}*/
 		/*雇佣店员*/
 		else if(method.equals("addSalesman"))
 		{
@@ -147,18 +117,6 @@ public class PersonnelServlet extends HttpServlet
 		{
 			addStoreManager(request, response);
 		}
-		/*else if(method.equals("addManager"))
-		{
-			addManager(request, response);
-		}*/
-		/*else if(method.startsWith("add") && method.endsWith("Icon"))
-		{
-			String temp = method.substring(3);
-			StringBuilder sb = new StringBuilder(temp);
-			temp = sb.reverse().toString();
-			String role = new StringBuilder(temp.substring(4)).reverse().toString();
-			addIcon(request, response, role);
-		}*/
 		else if(method.equals("deleteSalesman"))
 		{
 			deleteSalesman(request, response);
@@ -188,7 +146,7 @@ public class PersonnelServlet extends HttpServlet
     private void salesman(HttpServletRequest request, HttpServletResponse response, int OnDuty)
     {
     	SalesmanDao salesman = new SalesmanDao();
-    	String sql = "select SalesmanNo, SalesmanName, Sex, Birthday, Age, Telephone, HireDate, StoreNo, StoreName "
+    	String sql = "select SalesmanNo, SalesmanName, Sex, Birthday, Telephone, HireDate, StoreNo, StoreName "
     			+ "from Salesman left join Store where OnDuty = " + OnDuty;
     	List<Salesman> salesmen = salesman.getForList(sql, null);
     	request.setAttribute("salesman-list", salesmen);
@@ -196,7 +154,7 @@ public class PersonnelServlet extends HttpServlet
     private void warehouseManager(HttpServletRequest request, HttpServletResponse response, int OnDuty)
     {
     	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
-    	String sql = "select WareManNo, WareManName, Sex, Birthday, Age, Telephone, HireDate, WarehouseNo, WarehouseName "
+    	String sql = "select WareManNo, WareManName, Sex, Birthday, Telephone, HireDate, WarehouseNo, WarehouseName "
     			+ "from WarehouseManager left join Warehouse where OnDuty = " + OnDuty;
     	List<WarehouseManager> wareMans = warehouseManager.getForList(sql, null);
     	request.setAttribute("warehouseManager-list", wareMans);
@@ -204,111 +162,73 @@ public class PersonnelServlet extends HttpServlet
     private void storeManager(HttpServletRequest request, HttpServletResponse response, int OnDuty)
     {
     	StoreManagerDao storeManager = new StoreManagerDao();
-    	String sql = "select StoreManNo, StoreManName, Sex, Birthday, Age, Telephone, Hiredate, StoreNo, StoreName "
+    	String sql = "select StoreManNo, StoreManName, Sex, Birthday, Telephone, Hiredate, StoreNo, StoreName "
     			+ "from StoreManager left join Store where OnDuty = " + OnDuty;
     	List<StoreManager> storeMans = storeManager.getForList(sql, null);
     	request.setAttribute("storeManager-list", storeMans);
     }
-    /*private void manager(HttpServletRequest request, HttpServletResponse response, int OnDuty)
-    {
-    	ManagerDao manager = new ManagerDao();
-    	String sql = "select ManagerNo, ManagerName, Sex, Birthday, Age, Telephone, Hiredate "
-    			+ "from Manager where OnDuty = " + OnDuty;
-    	List<Manager> managers = manager.getForList(sql, null);
-    	request.setAttribute("mamager-list", managers);
-    }*/
     private void addSalesman(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
-    	java.util.Date utilDate = new java.util.Date();					//获取当前时间
-    	java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());	//将当前时间转为java.sql.Date类型
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");		//设置日期格式
-    	java.util.Date utilBirthday = null;
+    	java.sql.Timestamp curTimestamp = new java.sql.Timestamp(System.currentTimeMillis()); 
+    	java.sql.Timestamp birthday = new java.sql.Timestamp(System.currentTimeMillis());
     	try
     	{
-    		utilBirthday = sdf.parse(request.getParameter("addSalesmanBirthday"));	//将string转为java.util.Date格式
+    		birthday = Timestamp.valueOf(request.getParameter("addSalesmanBirthday"));
     	}
     	catch(Exception e)
     	{
     		e.printStackTrace();
     	}
-    	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	SalesmanDao salesman = new SalesmanDao();
     	Salesman newSalesman = new Salesman(request.getParameter("addSalesmanNo"), request.getParameter("addSalesmanName"), 
-    			request.getParameter("addSalesmanSex"), sqlBirthday, request.getParameter("addSalesmanTelephone"), 
-    			sqlDate, request.getParameter("addSalesmanStoreNo"), new java.math.BigDecimal(request.getParameter("addSalesmanSalary")), 
-    			request.getParameter("addSalesmanPasswd"), 1);
+    			request.getParameter("addSalesmanSex"), birthday, request.getParameter("addSalesmanTelephone"), 
+    			curTimestamp, request.getParameter("addSalesmanStoreNo"), new java.math.BigDecimal(request.getParameter("addSalesmanSalary")), 
+    			request.getParameter("addSalesmanPasswd"), new java.math.BigDecimal(1));
     	addIcon(request, response, "salesman", "salesman");
     	salesman.addObject(newSalesman);
     }
     private void addWarehouseManager(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
-    	java.util.Date utilDate = new java.util.Date();					//获取当前时间
-    	java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());	//将当前时间转为java.sql.Date类型
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");		//设置日期格式
-    	java.util.Date utilBirthday = null;
+    	java.sql.Timestamp curTimestamp = new java.sql.Timestamp(System.currentTimeMillis()); 
+    	java.sql.Timestamp birthday = new java.sql.Timestamp(System.currentTimeMillis());
     	try
     	{
-    		utilBirthday = sdf.parse(request.getParameter("addWarehouseManBirthday"));	//将string转为java.util.Date格式
+    		birthday = Timestamp.valueOf(request.getParameter("addSalesmanBirthday"));
     	}
     	catch(Exception e)
     	{
     		e.printStackTrace();
     	}
-    	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
     	WarehouseManager newWarehouseManager = new WarehouseManager(request.getParameter("addWarehouseManNo"), request.getParameter("addWarehouseManName"), 
-    			request.getParameter("addWarehouseManSex"), sqlBirthday, request.getParameter("addWarehouseManTelephone"), 
-    			sqlDate, request.getParameter("addWarehouseManWarehouseNo"), new java.math.BigDecimal(request.getParameter("addWarehouseManSalary")), 
-    			request.getParameter("addWarehouseManPasswd"), request.getParameter("addWarehouseManManagerNo"), 1);
+    			request.getParameter("addWarehouseManSex"), birthday, request.getParameter("addWarehouseManTelephone"), 
+    			curTimestamp, request.getParameter("addWarehouseManWarehouseNo"), new java.math.BigDecimal(request.getParameter("addWarehouseManSalary")), 
+    			request.getParameter("addWarehouseManPasswd"), request.getParameter("addWarehouseManManagerNo"), new java.math.BigDecimal(1));
     	addIcon(request, response, "warehouseManager", "wareMan");
     	warehouseManager.addObject(newWarehouseManager);
     }
-    private void addStoreManager(HttpServletRequest request, HttpServletResponse response) throws IOException
+    private void addStoreManager(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
-    	java.util.Date utilDate = new java.util.Date();					//获取当前时间
-    	java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());	//将当前时间转为java.sql.Date类型
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");		//设置日期格式
-    	java.util.Date utilBirthday = null;
+    	System.out.println("aaaaaaaaa");
+    	java.sql.Timestamp curTimestamp = new java.sql.Timestamp(System.currentTimeMillis()); 
+    	java.sql.Timestamp birthday = new java.sql.Timestamp(System.currentTimeMillis());
     	try
     	{
-    		utilBirthday = sdf.parse(request.getParameter("addWarehouseManBirthday"));	//将string转为java.util.Date格式
+    		birthday = Timestamp.valueOf(request.getParameter("addStoreManBirthday"));
     	}
     	catch(Exception e)
     	{
     		e.printStackTrace();
     	}
-    	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
     	StoreManagerDao storeManager = new StoreManagerDao();
     	StoreManager newStoreManager = new StoreManager(request.getParameter("addStoreManNo"), request.getParameter("addStoreManName"), 
-    			request.getParameter("addStoreManSex"), sqlBirthday, request.getParameter("addStoreManTelephone"), 
-    			sqlDate, request.getParameter("addStoreManStoreNo"), new java.math.BigDecimal(request.getParameter("addStoreManSalary")), 
-    			request.getParameter("addStoreManPasswd"), request.getParameter("addStoreManManagerNo"), 1);
+    			request.getParameter("addStoreManSex"), birthday, request.getParameter("addStoreManTelephone"), 
+    			curTimestamp, request.getParameter("addStoreManStoreNo"), new java.math.BigDecimal(request.getParameter("addStoreManSalary")), 
+    			request.getParameter("addStoreManPasswd"), request.getParameter("addStoreManManagerNo"), new java.math.BigDecimal(1));
     	addIcon(request, response, "storeManager", "storeMan");
     	storeManager.addObject(newStoreManager);
+    	request.getRequestDispatcher("/personnel/personnel.jsp").forward(request,response);
     }
-    /*private void addManager(HttpServletRequest request, HttpServletResponse response) throws IOException
-    {
-    	java.util.Date utilDate = new java.util.Date();					//获取当前时间
-    	java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());	//将当前时间转为java.sql.Date类型
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");		//设置日期格式
-    	java.util.Date utilBirthday = null;
-    	try
-    	{
-    		utilBirthday = sdf.parse(request.getParameter("birthday"));	//将string转为java.util.Date格式
-    	}
-    	catch(Exception e)
-    	{
-    		e.printStackTrace();
-    	}
-    	java.sql.Date sqlBirthday = new java.sql.Date(utilBirthday.getTime());		//转为sql.Date格式
-    	ManagerDao manager = new ManagerDao();
-    	Manager newManager = new Manager(request.getParameter("No"), request.getParameter("Name"), 
-    			request.getParameter("sex"), sqlBirthday, request.getParameter("telephone"), 
-    			sqlDate, new java.math.BigDecimal(request.getParameter("salary")), 
-    			request.getParameter("passwd"), 1);
-    	addIcon(request, response, "manager", "manager");
-    	manager.addObject(newManager);
-    }*/
     private void addIcon(HttpServletRequest request, HttpServletResponse response, String role, String roleNo)
     {
     	//得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
@@ -416,10 +336,10 @@ public class PersonnelServlet extends HttpServlet
     	int count = 0;
     	for(Salesman iter : salesmen)
     	{
-    		if("on".equals(request.getParameter(iter.getSalesmanNo())))
+    		if("on".equals(request.getParameter(iter.getSalesmanno())))
     		{
     			sql = "update Salesman set OnDuty = 0 where SalesmanNo = ?";
-    			String pk = salesman.update(sql, iter.getSalesmanNo());
+    			String pk = salesman.update(sql, iter.getSalesmanno());
     			if(pk != null)
     				count++;
     		}
@@ -434,10 +354,10 @@ public class PersonnelServlet extends HttpServlet
     	int count = 0;
     	for(WarehouseManager iter : warehouseManagers)
     	{
-    		if("on".equals(request.getParameter(iter.getWareManNo())))
+    		if("on".equals(request.getParameter(iter.getWaremanno())))
     		{
     			sql = "update WarehouseManager set OnDuty = 0 where WareManNo = ?";
-    			String pk = warehouseManager.update(sql, iter.getWareManNo());
+    			String pk = warehouseManager.update(sql, iter.getWaremanno());
     			if(pk != null)
     				count++;
     		}
@@ -452,10 +372,10 @@ public class PersonnelServlet extends HttpServlet
     	int count = 0;
     	for(StoreManager iter : storeManagers)
     	{
-    		if("on".equals(request.getParameter(iter.getStoreManNo())))
+    		if("on".equals(request.getParameter(iter.getStoremanno())))
     		{
     			sql = "update StoreManager set OnDuty = 0 where StoreManNo = ?";
-    			String pk = storeManager.update(sql, iter.getStoreManNo());
+    			String pk = storeManager.update(sql, iter.getStoremanno());
     			if(pk != null)
     				count++;
     		}

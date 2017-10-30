@@ -133,6 +133,21 @@ public class WarehouseManager
 		this.managerNo = managerNo;
 		this.onDuty = onDuty;
 	}
+	public String[] getColumns()
+    {
+    	String cols[] = null;
+    	cols = new String[9];
+    	cols[0] = "编号";
+    	cols[1] = "姓名";
+    	cols[2] = "性别";
+    	cols[3] = "出生日期";
+    	cols[4] = "联系电话";
+    	cols[5] = "就职日期";
+    	cols[6] = "管理仓库编号";
+    	cols[7] = "月薪";
+    	cols[8] = "登录密码";
+    	return cols;
+    }
 	public WarehouseManager()
 	{
 		super();

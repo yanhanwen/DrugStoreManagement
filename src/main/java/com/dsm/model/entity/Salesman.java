@@ -2,6 +2,7 @@ package com.dsm.model.entity;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
+import java.sql.Timestamp;
 
 /*
 搴楀憳淇℃伅锛岀敤浜庤褰曞敭璐у憳鐨勫熀鏈俊鎭�
@@ -122,10 +123,6 @@ public class Salesman
 		this.salary = salary;
 		this.passwd = passwd;
 		this.onDuty = onDuty;
-	}
-	public Salesman()
-	{
-		super();
 	}
 	public String[] getColumns()
     {
