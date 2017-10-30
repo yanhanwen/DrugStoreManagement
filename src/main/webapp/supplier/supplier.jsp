@@ -87,7 +87,7 @@
 		%>
 	</table>
 	</div>
-	<a href="/website/supplier/SupplierAdd.jsp">添加供应商</a>
+	<a href="/website/supplier/supplieradd.jsp">添加供应商</a>
 	 <%
 	String message=(String)request.getAttribute("message");
 	if(!(message==null||message==""))

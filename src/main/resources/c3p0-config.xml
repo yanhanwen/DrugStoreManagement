@@ -5,9 +5,13 @@
 
         <!-- 指定连接数据源的基本属性 -->
         <property name="user">system</property>
+<<<<<<< HEAD
         <property name="password">password</property>
+=======
+        <property name="password">db2admin</property>
+>>>>>>> c7f55a486667de0e8c27c0479de496451d76c2a3
         <property name="driverClass">oracle.jdbc.driver.OracleDriver</property>
-        <property name="jdbcUrl">jdbc:oracle:thin:@localhost:1521:DSM</property>
+        <property name="jdbcUrl">jdbc:oracle:thin:@localhost:1521:DMS</property>
 
         <!-- 数据库连接池连接数少于最小数时，每次申请的连接数 -->
         <property name="acquireIncrement">5</property>

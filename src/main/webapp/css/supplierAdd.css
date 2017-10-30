@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#add{
+	
+	height:390px;
+	width:1190px;
+	margin-left:auto;
+	margin-right:auto;
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-top:-220px;
+	margin-left: -595px;
+}
+.bordered {
+	margin-left:auto;
+	margin-right:auto;
+}
+#button {
+	width:50px;
+    text-algin:center;
+	margin-left:auto;
+	margin-right:auto;
+}
