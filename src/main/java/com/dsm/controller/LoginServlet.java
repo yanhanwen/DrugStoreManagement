@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet
 		{
 			message = "不能为空";
 			request.setAttribute("message",message);
-			request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
 		char identity = user_id.charAt(0);
@@ -52,13 +52,14 @@ public class LoginServlet extends HttpServlet
 				if(m!=null&&m.getOnduty()==new BigDecimal(0))
 					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request, response);
+//				request.getRequestDispatcher("/finance/finain.jsp").forward(request, response);
+				request.getRequestDispatcher("wel.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -66,7 +67,7 @@ public class LoginServlet extends HttpServlet
 				message = "密码错误！";
 				request.setAttribute("message",message);
 				request.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 		}
@@ -81,13 +82,13 @@ public class LoginServlet extends HttpServlet
 				if(wm!=null&&wm.getOnduty()==new BigDecimal(0))
 					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 			if(wm.getPasswd()!=null&&wm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-//				request.getRequestDispatcher("/warehousemanager/FunctionJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("wel.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -95,7 +96,7 @@ public class LoginServlet extends HttpServlet
 				message = "密码错误！";
 				request.setAttribute("message",message);
 				request.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 		}
@@ -110,13 +111,13 @@ public class LoginServlet extends HttpServlet
 				if(sm!=null&&sm.getOnduty()==new BigDecimal(0))
 					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 			if(sm.getPasswd()!=null&&sm.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-//				request.getRequestDispatcher("/storemanager/FunctionJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("wel.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -124,7 +125,7 @@ public class LoginServlet extends HttpServlet
 				message = "密码错误！";
 				request.setAttribute("message",message);
 				request.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 		}
@@ -139,13 +140,13 @@ public class LoginServlet extends HttpServlet
 				if(m!=null&&m.getOnduty()==new BigDecimal(0))
 					message = "您不在职";
 				request.setAttribute("message",message);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-//				request.getRequestDispatcher("/salesman/FunctionJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("wel.jsp").forward(request, response);
 				return;
 			}
 			else
@@ -153,7 +154,7 @@ public class LoginServlet extends HttpServlet
 				message = "密码错误！";
 				request.setAttribute("message",message);
 				request.setAttribute("user_id", user_id);
-				request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
 		}
@@ -162,7 +163,7 @@ public class LoginServlet extends HttpServlet
 			message = "无此用户名";
 			request.setAttribute("message",message);
 			request.setAttribute("user_id",user_id);
-			request.getRequestDispatcher("LoginJsp.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
 	}

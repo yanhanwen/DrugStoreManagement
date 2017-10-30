@@ -53,7 +53,7 @@
 		</p >
 		</marquee >
 				<div style="z-index:1000">
-				<a style="text-decoration:none" href="LoginJsp.jsp"><font size="6" >请登陆</font ></a>
+				<a style="text-decoration:none" href="login.jsp"><font size="6" >请登陆</font ></a>
 				</div>
 	</div>
 

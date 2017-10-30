@@ -8,8 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="css/login.css" />
-<link rel="stylesheet" type="text/css" href="css/warn.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/warn.css" />
 
 <title>登陆</title>
 	<%String a = (String)request.getAttribute("message");  

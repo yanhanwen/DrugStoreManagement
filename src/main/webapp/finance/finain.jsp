@@ -7,6 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%@ page import="java.util.Calendar"
 %>
 <html>
+<jsp:include page="../header.jsp"></jsp:include>
 <script type="text/javascript">
 </script>
 	<head>
@@ -100,12 +101,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<form  name="CCCC" method="post" action="<%=request.getContextPath()%>/FinaServlet">
 					<input type="hidden" id="indate" value="" name="year"/>
 					<input type="hidden" id="outdate" value="" name="month"/>
-					<%System.out.println(year+month); %>
 					<input type="button" class="button blue round" value="提交" onclick="demo()"/>
 				</form>
 			</div>
 		</div>
-		<!-- jQuery if needed --><script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
+		<!-- jQuery if needed --><script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 		<script type="text/javascript">	
 			function DropDown(el)
 			{

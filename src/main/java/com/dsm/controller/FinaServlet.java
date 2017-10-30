@@ -28,7 +28,6 @@ public class FinaServlet extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		doPost(request, response);
-//		request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request, response);
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -37,7 +36,7 @@ public class FinaServlet extends HttpServlet
 		HttpSession sess = request.getSession();
 		if(sess==null||sess.getAttribute("user_id")==null||!sess.getAttribute("user_id").toString().startsWith("0"))
 		{
-			request.getRequestDispatcher("ErrorJsp.jsp").forward(request, response);
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 			return;
 		}
 		WarehouseDao wh = new WarehouseDao();
@@ -75,11 +74,11 @@ public class FinaServlet extends HttpServlet
 			request.setAttribute("out",out);
 			request.setAttribute("in",in);
 			request.setAttribute("allin",allin);
-			request.getRequestDispatcher("/finance/FinaGetJsp.jsp").forward(request,response);
+			request.getRequestDispatcher("/finance/finaget.jsp").forward(request,response);
 		} catch(Exception e) {
 			message = "数据错误！";
 			request.setAttribute("message", message);
-			request.getRequestDispatcher("/finance/FinaInJsp.jsp").forward(request,response);
+			request.getRequestDispatcher("/finance/finain.jsp").forward(request,response);
 		}
 	}
 }

@@ -9,7 +9,7 @@
   	<filter-class>com.dsm.filter.UserFilter</filter-class>
   	<init-param>  
       <param-name>noLoginPaths</param-name>  
-      <param-value>LoginJsp.jsp;index.jsp;404.jsp;ErrorJsp.jsp;</param-value>  
+      <param-value>login.jsp;index.jsp;404.jsp;error.jsp;</param-value>  
     </init-param>  
   </filter>
   <filter-mapping>
