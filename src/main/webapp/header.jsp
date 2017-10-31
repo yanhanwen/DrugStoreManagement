@@ -26,16 +26,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</li>
 		
 		<li>
-		  <a href="#">Archive</a>
-		  <ul class="animenu__nav__child">
-			<li><a href="">Sub Item 1</a></li>
-			<li><a href="">Sub Item 2</a></li>
-			<li><a href="">Sub Item 3</a></li>
-		  </ul>
+		  <a href="<%=request.getContextPath()%>/personnel/personnel.jsp">人事管理</a>
 		</li>    
-		 
+		
 		<li>
-		  <a href="#">Categories</a>
+		  <a href="<%=request.getContextPath()%>/supplier/supplier.jsp">供应商管理</a>
+		  <ul class="animenu__nav__child">
+			<li><a href="<%=request.getContextPath()%>/supplier/supplieradd.jsp">添加供应商</a></li>
+		  </ul>
+		</li> 
+		
+		<li>
+		  <a href="#">财务管理</a>
+		  <ul class="animenu__nav__child">
+			<li><a href="<%=request.getContextPath()%>/finance/finain.jsp">指定月收支</a></li>
+		  </ul>
+		</li>
+		
+		<li>
+		  <a href="#">库存管理</a>
 		  <ul class="animenu__nav__child">
 			<li><a href="">Sub Item 1</a></li>
 			<li><a href="">Sub Item 2</a></li>
@@ -44,10 +53,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</li>
 		
 		<li>
-		  <a href="#">About</a>
+		  <a href="#">关于</a>
 		</li>
 		<li>
-		  <a href=<%=request.getContextPath()%>/login.jsp>注销</a>
+		  <a href=<%=request.getContextPath()%>/ClearServlet>注销</a>
 		</li> 
 		                
 	  </ul>

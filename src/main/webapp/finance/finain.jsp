@@ -8,8 +8,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <html>
 <jsp:include page="../header.jsp"></jsp:include>
-<script type="text/javascript">
-</script>
 	<head>
 		<meta charset="UTF-8" />
         <title>财务</title>
@@ -61,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					​</div>
 				</section>
 			</div>
-			<script>
+			<script type="text/javascript">
 				var one;
 				var two;
 				function ons1()
@@ -75,6 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							one = this.innerHTML;
 						}
 					}
+					return;
 				}
 				function ons2()
 				{
@@ -87,6 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							two = this.innerHTML;
 						}
 					}
+					return;
 				}
 				ons1();
 				ons2();
@@ -95,6 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					document.getElementById("indate").value=one;
         			document.getElementById("outdate").value=two;
 					document.CCCC.submit();
+					return;
 				}
 			</script>
 			<div style="float:left;margin-top:60px;margin-left:50px;">
@@ -115,6 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				this.val = '';
 				this.index = -1;
 				this.initEvents();
+				return;
 			}
 			DropDown.prototype = 
 			{
