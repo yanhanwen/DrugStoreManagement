@@ -140,11 +140,14 @@ public class SupplierServlet extends HttpServlet {
 				Rate, timestamp, request.getParameter("Remark"), new BigDecimal(1));
 		supplierDao.addObject(supplier);
 		if(supplierDao.getKey().equals("noneof")) {
+			System.out.println("fuck1");
 			request.setAttribute("message","添加失败");
+			
 		}else {
 			request.setAttribute("message","添加成功");
 		}
 		}catch(Exception e) {
+			System.out.println("fuck2");
 			request.setAttribute("message","添加失败");
 		}
 	}
