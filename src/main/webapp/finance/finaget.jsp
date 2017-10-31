@@ -9,6 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <html>
+	
 <head>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/table.css">
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/button.css" />
@@ -16,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<title>财务</title>
 </head>
 	<body class="bordered">
+	<jsp:include page="../header.jsp"></jsp:include>
 		<table>
 			<tr>
 				<td>${time}总收入：${in}</td>

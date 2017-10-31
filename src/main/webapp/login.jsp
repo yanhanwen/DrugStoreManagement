@@ -11,14 +11,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/warn.css" />
 
-<title>登陆</title>
+<title>登陆</title><%System.out.println(request.getContextPath());%>
 	<%String a = (String)request.getAttribute("message");  
 		if(a!=null&&!"".equals(a)){ %>
 		<div class="alert">
 			${message}
 		</div>
 		<%} %>
-	<script type="text/javascript" charset="UTF-8" src="js/login.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="<%=request.getContextPath()%>/js/login.js"></script>
 </head>
 	<body background="img/bg.png">
 	   <div class="content">

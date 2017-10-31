@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="seven columns">
         <h1 class = "animated fadeIn">Error !!!.
         <p class="intro animatesecond animated fadeIn"><h3>您无权访问</h3></p>
-        <p class="intro animatethird animated fadeIn"> 重新登录       <a href="login.jsp">注销</a> <br> or<br><a href="#" onclick="javascript:history.back(-1);">返回</a>
+        <p class="intro animatethird animated fadeIn"> 重新登录       <a href="ClearServlet">注销</a> <br> or<br><a href="#" onclick="javascript:history.back(-1);">返回</a>
       </div>
     </div>
   </div>  

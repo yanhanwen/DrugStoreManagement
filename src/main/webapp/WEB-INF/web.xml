@@ -46,6 +46,11 @@
   	<description></description>
   	<servlet-class>com.dsm.controller.SupplierServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ClearServlet</servlet-name>
+    <servlet-class>com.dsm.controller.ClearServlet</servlet-class>
+  </servlet>
+
 
 
   <servlet-mapping>
@@ -72,6 +77,10 @@
   <servlet-mapping>
   	<servlet-name>SupplierServlet</servlet-name>
   	<url-pattern>/SupplierServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ClearServlet</servlet-name>
+    <url-pattern>/ClearServlet</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
