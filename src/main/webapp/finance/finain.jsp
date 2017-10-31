@@ -6,6 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="java.util.Calendar"
 %>
+
 <html>
 <jsp:include page="../header.jsp"></jsp:include>
 	<head>

@@ -56,6 +56,7 @@ public class FinaServlet extends HttpServlet
 			BigDecimal moutnum = m.getOutNum();
 			String year = request.getParameter("year");
 			String month = request.getParameter("month");
+			System.out.println("22222");
 			year = year.substring(52,56);
 			month = month.substring(52,54);
 			if(month.substring(1,2).equals("<"))
@@ -75,6 +76,7 @@ public class FinaServlet extends HttpServlet
 			request.setAttribute("in",in);
 			request.setAttribute("allin",allin);
 			request.getRequestDispatcher("/finance/finaget.jsp").forward(request,response);
+			return;
 		} catch(Exception e) {
 			message = "数据错误！";
 			request.setAttribute("message", message);

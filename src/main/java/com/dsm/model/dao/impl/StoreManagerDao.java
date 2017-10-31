@@ -20,6 +20,7 @@ public class StoreManagerDao extends BaseDao<StoreManager>
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			rs.next();
+			JDBCTools.releaseConnection(connection, pstmt, rs);
 			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
 			return new BigDecimal(-1);
