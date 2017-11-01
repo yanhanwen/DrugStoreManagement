@@ -17,38 +17,185 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/table.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/button.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/gh-buttons.css" />
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script language='javascript'>
-	function getChecked(tableName)
+	function getStoreManagerChecked()
 	{
-		var tbodyObj = document.getElementById(tableName);
+		var tbodyObj = document.getElementById('StoreManagerTable');
         var arr=new Array();
         $("table :checkbox").each(function(key,value)
         {
-            if($(value).prop('checked'))
+        	if($(value).prop('checked'))
             {
-            	for(var i=1; i<9; i++)
-            		arr.push(tbodyObj.rows[key+1].cells[i].innerHTML);
-            	break;
+                var a = new Array();
+                for(var x = 0; x < tbodyObj.rows[key+1].cells.length; x++)
+                    a.push(tbodyObj.rows[key+1].cells[x].innerHTML);
+                arr.push(a);
+            }
+        })
+        return arr;
+	}
+	function getWarehouseManagerChecked()
+	{
+		var tbodyObj = document.getElementById('WarehouseManagerTable');
+        var arr=new Array();
+        $("table :checkbox").each(function(key,value)
+        {
+        	if($(value).prop('checked'))
+            {
+                var a = new Array();
+                for(var x = 0; x < tbodyObj.rows[key+1].cells.length; x++)
+                    a.push(tbodyObj.rows[key+1].cells[x].innerHTML);
+                arr.push(a);
+            }
+        })
+        return arr;
+	}
+	function getSalesmanChecked()
+	{
+		var tbodyObj = document.getElementById('SalesmanTable');
+        var arr=new Array();
+        $("table :checkbox").each(function(key,value)
+        {
+        	if($(value).prop('checked'))
+            {
+                var a = new Array();
+                for(var x = 0; x < tbodyObj.rows[key+1].cells.length; x++)
+                    a.push(tbodyObj.rows[key+1].cells[x].innerHTML);
+                arr.push(a);
             }
         })
         return arr;
 	}
 </script>
 <script>
-	function storeManagerDefult(arr)
+	function storeManagerSetDefault(arr)
 	{
-		document.getElementById("storeManagerDefualtNo").value=arr[0];
-		document.getElementById("storeManagerDefualtName").value=arr[1];
-		if(arr[2]=="男")
-			document.getElementById("storeManagerDefualtMale").checked="checked";
-		else if(arr[2]=="女")
-			document.getElementById("storeManagerDefualtFemale").checked="checked";
-		document.getElementById("storeManagerDefualtBirthday").value=arr[3];
-		document.getElementById("storeManagerDefualtTelephone").value=arr[4];
-		document.getElementById("storeManagerDefualtStoreNo").value=arr[7];
-		document.getElementById("storeManagerDefualtSalary").value=arr[8];
+		var a = arr[0];
+		document.getElementById("storeManagerDefualtNo").value=a[1];
+		document.getElementById("storeManagerDefualtName").value=a[2];
+		var male = document.getElementById('storeManagerDefualtMale');
+		var female = document.getElementById('storeManagerDefualtFemale')
+		if(a[3]=="男")
+		{
+			if(female.tag == 1)
+			{
+				female.checked = false;
+				female.tag = 0;
+			}
+			male.checked = true;
+			male.tag = 1;
+		}
+		else if(a[3]=="女")
+		{
+			if(male.tag == 1)
+			{
+				male.checked = false;
+				male.tag = 0;
+			}
+			female.checked = true;
+			female.tag = 1;
+		}
+		document.getElementById("storeManagerDefualtBirthday").value=a[4];
+		document.getElementById("storeManagerDefualtTelephone").value=a[5];
+		document.getElementById("storeManagerDefualtStoreNo").value=a[7];
+		document.getElementById("storeManagerDefualtSalary").value=a[8];
+	}
+</script>
+<script>
+function salesmanSetDefault(arr)
+{
+	var a = arr[0];
+	document.getElementById("salesmanDefualtNo").value=a[1];
+	document.getElementById("salesmanDefualtName").value=a[2];
+	var male = document.getElementById('salesmanDefualtMale');
+	var female = document.getElementById('salesmanDefualtFemale')
+	if(a[3]=="男")
+	{
+		if(female.tag == 1)
+		{
+			female.checked = false;
+			female.tag = 0;
+		}
+		male.checked = true;
+		male.tag = 1;
+	}
+	else if(a[3]=="女")
+	{
+		if(male.tag == 1)
+		{
+			male.checked = false;
+			male.tag = 0;
+		}
+		female.checked = true;
+		female.tag = 1;
+	}
+	document.getElementById("salesmanDefualtBirthday").value=a[4];
+	document.getElementById("salesmanDefualtTelephone").value=a[5];
+	document.getElementById("salesmanDefualtStoreNo").value=a[7];
+	document.getElementById("salesmanDefualtSalary").value=a[8];
+}
+</script>
+<script>
+function warehouseManagerSetDefault(arr)
+{
+	var a = arr[0];
+	document.getElementById("warehouseManagerDefualtNo").value=a[1];
+	document.getElementById("warehouseManagerDefualtName").value=a[2];
+	var male = document.getElementById('warehouseManagerDefualtMale');
+	var female = document.getElementById('warehouseManagerDefualtFemale')
+	if(a[3]=="男")
+	{
+		if(female.tag == 1)
+		{
+			female.checked = false;
+			female.tag = 0;
+		}
+		male.checked = true;
+		male.tag = 1;
+	}
+	else if(a[3]=="女")
+	{
+		if(male.tag == 1)
+		{
+			male.checked = false;
+			male.tag = 0;
+		}
+		female.checked = true;
+		female.tag = 1;
+	}
+	document.getElementById("warehouseManagerDefualtBirthday").value=a[4];
+	document.getElementById("warehouseManagerDefualtTelephone").value=a[5];
+	document.getElementById("warehouseManagerDefualtStoreNo").value=a[7];
+	document.getElementById("warehouseManagerDefualtSalary").value=a[8];
+}
+</script>
+<script>
+	function deleteStoreManager(arr)
+	{
+		for(var i = 0; i < arr.length; i++)
+		{
+			document.getElementById('deleteStoreManagerNos[]').value = arr[i][1];
+		}
+	}
+</script>
+<script>
+	function deleteWarehouseManager(arr)
+	{
+		for(var i = 0; i < arr.length; i++)
+		{
+			document.getElementById('deleteWarehouseManagerNos[]').value = arr[i][1];
+		}
+	}
+</script>
+<script>
+	function deleteSalesmanManager(arr)
+	{
+		for(var i = 0; i < arr.length; i++)
+		{
+			document.getElementById('deleteSalesmanNos[]').value = arr[i][1];
+		}
 	}
 </script>
 
@@ -87,6 +234,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>人事管理</title>
 </head>
 <body>
+	<jsp:include page="../header.jsp"></jsp:include>
 	<%
 		//String ID = (String)request.getAttribute("ID");
 		String ID = "00000001";
@@ -96,10 +244,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	String sql = "select StoreManNo, StoreManName, Sex, Birthday, Telephone, Hiredate, StoreNo, salary "
 	    			+ "from StoreManager where OnDuty = 1";
 	    	List<StoreManager> list1 = storeManager.getForList(sql, null);
-			if(list1 == null)
-			{
-				System.out.println("null");
-			}
 	%>
 		<table id="StoreManagerTable" class="bordered">
 			<tr>
@@ -135,9 +279,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<td><%=iter.getStoremanno() %></td>
 				<td><%=iter.getStoremanname() %></td>
 				<td><%=iter.getSex() %></td>
-				<td><%=iter.getBirthday().toString() %></td>
+				<td><%=iter.getBirthday().toString().substring(0, 10) %></td>
 				<td><%=iter.getTelephone() %></td>
-				<td><%=iter.getHiredate().toString() %></td>
+				<td><%=iter.getHiredate().toString().substring(0, 10) %></td>
 				<td><%=iter.getStoreno() %></td>
 				<td><%=iter.getSalary() %></td>
 			</tr>
@@ -146,8 +290,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			%>
 		</table>
 
-		<button onClick="document.getElementById('light').style.display='block'; document.getElementById('fade').style.display='block';">添加</button>
-		<form method="post" action="<%=request.getContextPath()%>/PersonnelServlet" id="AddStoreManForm">
+		<button onClick="document.getElementById('light').style.display='block'; document.getElementById('fade').style.display='block';" class="button big">添加</button>
+		<form method="post" action="/website/PersonnelFileUpload" id="AddStoreManForm" enctype="multipart/form-data">
 			<div id="light" class="white_content">
 				<h2>添加分店经理</h2>
 				<input type="hidden" name="method" value="addStoreManager">
@@ -162,7 +306,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<tr>
 						<td>性别：</td>
-						<td><input type="radio" name="addStoreManSex">男<input type="radio" name="addStoreManSex">女</td>
+						<td><input type="radio" name="addStoreManSex" value="男">男<input type="radio" name="addStoreManSex" value="女">女</td>
 					</tr>
 					<tr>
 						<td>出生日期：</td>
@@ -186,47 +330,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</table>
 				<input type="hidden" name="addStoreManPasswd" value="password">
-				<input type="hidden" name="addStoreManManagerNo" value="<%=ID %>>">
-				<br><button onClick="document.getElementById('method').value='addStoreManager';this.form.submit();document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">确定</button>
-				<br><button type="button" onClick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">取消</button>
+				<input type="hidden" name="addStoreManManagerNo" value="<%=ID %>">
+				<br><button onClick="this.form.submit();document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="button big">确定</button>
+				<br><button type="button" onClick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" class="button big">取消</button>
 			</div>
-		</form>
 			<div id="fade" class="black_overlay"></div>
-			<button onClick="document.getElementById('light-1').style.display='block';document.getElementById('fade-1').style.display='block';var arr=getChecked('StoreManagerTable');storeManagerDefault(arr)">修改</button>
+		</form>
+		<button onClick="document.getElementById('light-1').style.display='block';document.getElementById('fade-1').style.display='block';var arr=getStoreManagerChecked();storeManagerSetDefault(arr)" class="button big">修改</button>
+		<form method="post" action="/website/PersonnelFileUpload" id="ModifyStoreManForm" enctype="multipart/form-data">
 			<div id="light-1" class="white_content">
-				编号：<input type="text" name="no" id="storeManagerDefualtNo" value="" readonly="readonly">
-				姓名：<input type="text" name="name" id="storeManagerDefualtName" value="">
-				性别：<input type="radio" name="sex" id="storeManagerDefualtMale" checked="">男	
-				<input type="radio" name="sex" id="storeManagerDefualtFemale" checked="">女
-				出生日期：<input type="date" name="birthday" id="storeManagerDefualtBirthday" value="">
-				联系电话：<input type="text" name="telephone" id="storeManagerDefualtTelephone" value="">
-				分店编号：<input type="text" name="storeNo" id="storeManagerDefualtStoreNo" value="">
-				月薪：<input type="text" name="salary" id="storeManagerDefualtSalary" value="">
-				<input type="hidden" name="passwd" value="password">
-				头像：<input type="file" name="icon">
-				<input type="button" value="确定" onClick="document.getElementById("method").value='addStoreManager'; 
-								this.form.submit();
-								document.getElementById("light").style.display='none'; 
-								document.getElementById("fade").style.display='none'">
-				<button onClick="document.getElementById("light").style.display='none'; 
-								document.getElementById("fade").style.display='none'">取消
-				</button>
+				<h2>修改分店经理信息</h2>
+				<input type="hidden" name="method" value="modifyStoreManager">
+				<table>
+					<tr>
+						<td>编号：</td>
+						<td><input type="text" name="modifyStoreManNo" id="storeManagerDefualtNo" value="" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td><input type="text" name="modifyStoreManName" id="storeManagerDefualtName" value=""></td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td><input type="radio" name="modifyStoreManSex" id="storeManagerDefualtMale" value="男" disabled>男<input type="radio" name="sex" id="storeManagerDefualtFemale" value="女" disabled>女</td>
+					</tr>
+					<tr>
+						<td>出生日期：</td>
+						<td><input type="date" name="modifyStoreManBirthday" id="storeManagerDefualtBirthday" value=""></td>
+					</tr>
+					<tr>
+						<td>联系电话：</td>
+						<td><input type="text" name="modifyStoreManTelephone" id="storeManagerDefualtTelephone" value=""></td>
+					</tr>
+					<tr>
+						<td>分店编号：</td>
+						<td><input type="text" name="modifyStoreManStoreNo" id="storeManagerDefualtStoreNo" value=""></td>
+					</tr>
+					<tr>
+						<td>月薪：</td>
+						<td><input type="text" name="modifyStoreManSalary" id="storeManagerDefualtSalary" value=""></td>
+					</tr>
+					<tr>
+						<td>头像：</td>
+						<td><input type="file" name="modifyStoreManIcon"></td>
+					</tr>
+				</table>
+				<br><button onClick="this.form.submit();document.getElementById('light-1').style.display='none';document.getElementById('fade-1').style.display='none'" class="button big">确定</button>
+				<br><button type="button" onClick="document.getElementById('light-1').style.display='none';document.getElementById('fade-1').style.display='none'" class="button big">取消</button>
 			</div>
 			<div id="fade-1" class="black_overlay"></div>
+		</form>
 		
-		
-		<input type="button" value="删除" onClick="document.getElementById("method").value='deleteStoreManager'; 
-							this.form.submit(); ">
-		<input type="button" value="查看已离职分店经理" onClick="document.getElementById("method").value='storeManagerLeaved'; 
-							this.form.submit(); ">
-	</form>
+		<form method="post" action="/website/PersonnelServlet" id="deleteStoreManForm">
+			<input type="hidden" name="method" value="deleteStoreManager">
+			<input type="hidden" id="deleteStoreManagerNos[]" name="nos" value="">
+			<input type="button" value="删除" onClick="var arr = getStoreManagerChecked(); deleteStoreManager(arr); this.form.submit();" class="button big danger">
+		</form>
 	<%
 		WarehouseManagerDao warehouseManager = new WarehouseManagerDao();
 		sql = "select WareManNo, WareManName, Sex, Birthday, Telephone, HireDate, WarehouseNo, salary "
 				+ "from WarehouseManager where OnDuty = 1";
 		List<WarehouseManager> list2 = warehouseManager.getForList(sql, null);
 	%>
-	<table class="bordered">
+	<table class="bordered" id="WarehouseManagerTable">
 		<tr>
 			<th></th>
 		<%
@@ -260,9 +426,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td><%=iter.getWaremanno() %></td>
 			<td><%=iter.getWaremanname() %></td>
 			<td><%=iter.getSex() %></td>
-			<td><%=iter.getBirthday().toString() %></td>
+			<td><%=iter.getBirthday().toString().substring(0, 10) %></td>
 			<td><%=iter.getTelephone() %></td>
-			<td><%=iter.getHiredate().toString() %></td>
+			<td><%=iter.getHiredate().toString().substring(0, 10) %></td>
 			<td><%=iter.getWarehouseno() %></td>
 			<td><%=iter.getSalary() %></td>
 		</tr>
@@ -270,6 +436,101 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		%>
 	</table>
+	<button onClick="document.getElementById('light-2').style.display='block'; document.getElementById('fade-2').style.display='block';" class="button big">添加</button>
+		<form method="post" action="/website/PersonnelFileUpload" id="AddWareManForm" enctype="multipart/form-data">
+			<div id="light-2" class="white_content">
+				<h2>添加仓库管理员</h2>
+				<input type="hidden" name="method" value="addWarehouseManager">
+				<table>
+					<tr>
+						<td>编号：</td>
+						<td><input type="text" name="addWareManNo"></td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td><input type="text" name="addWareManName"></td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td><input type="radio" name="addWareManSex" value="男">男<input type="radio" name="addWareManSex" value="女">女</td>
+					</tr>
+					<tr>
+						<td>出生日期：</td>
+						<td><input type="date" name="addWareManBirthday"></td>
+					</tr>
+					<tr>
+						<td>联系电话：</td>
+						<td><input type="text" name="addWareManTelephone"></td>
+					</tr>
+					<tr>
+						<td>仓库编号：</td>
+						<td><input type="text" name="addWareManStoreNo"></td>
+					</tr>
+					<tr>
+						<td>月薪：</td>
+						<td><input type="text" name="addWareManSalary"></td>
+					</tr>
+					<tr>
+						<td>头像：</td>
+						<td><input type="file" name="addIcon"></td>
+					</tr>
+				</table>
+				<input type="hidden" name="addWareManPasswd" value="password">
+				<input type="hidden" name="addWareManManagerNo" value="<%=ID %>">
+				<br><button onClick="this.form.submit();document.getElementById('light-2').style.display='none';document.getElementById('fade-2').style.display='none'" class="button big">确定</button>
+				<br><button type="button" onClick="document.getElementById('light-2').style.display='none';document.getElementById('fade-2').style.display='none'" class="button big">取消</button>
+			</div>
+			<div id="fade-2" class="black_overlay"></div>
+		</form>
+		<button onClick="document.getElementById('light-3').style.display='block';document.getElementById('fade-3').style.display='block';var arr=getWarehouseManagerChecked();warehouseManagerSetDefault(arr)" class="button big">修改</button>
+		<form method="post" action="/website/PersonnelFileUpload" id="ModifyWareManForm" enctype="multipart/form-data">
+			<div id="light-3" class="white_content">
+				<h2>修改仓库管理员信息</h2>
+				<input type="hidden" name="method" value="modifyWareManager">
+				<table>
+					<tr>
+						<td>编号：</td>
+						<td><input type="text" name="modifyWareManNo" id="warehouseManagerDefaultNo" value="" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td><input type="text" name="modifyWareManName" id="warehouseManagerDefaultName" value=""></td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td><input type="radio" name="modifyWareManSex" id="warehouseManagerDefaultMale" value="男" disabled>男<input type="radio" name="sex" id="storeManagerDefualtFemale" value="女" disabled>女</td>
+					</tr>
+					<tr>
+						<td>出生日期：</td>
+						<td><input type="date" name="modifyWareManBirthday" id="warehouseManagerDefaultBirthday" value=""></td>
+					</tr>
+					<tr>
+						<td>联系电话：</td>
+						<td><input type="text" name="modifyWareManTelephone" id="warehouseManagerDefaultTelephone" value=""></td>
+					</tr>
+					<tr>
+						<td>仓库编号：</td>
+						<td><input type="text" name="modifyWareManStoreNo" id="warehouseManagerDefaultStoreNo" value=""></td>
+					</tr>
+					<tr>
+						<td>月薪：</td>
+						<td><input type="text" name="modifyWareManSalary" id="warehouseManagerDefaultSalary" value=""></td>
+					</tr>
+					<tr>
+						<td>头像：</td>
+						<td><input type="file" name="modifyWareManIcon"></td>
+					</tr>
+				</table>
+				<br><button onClick="this.form.submit();document.getElementById('light-3').style.display='none';document.getElementById('fade-3').style.display='none'" class="button big">确定</button>
+				<br><button type="button" onClick="document.getElementById('light-3').style.display='none';document.getElementById('fade-3').style.display='none'" class="button big">取消</button>
+			</div>
+			<div id="fade-3" class="black_overlay"></div>
+		</form>
+		<form method="post" action="/website/PersonnelServlet" id="deleteWareManForm">
+			<input type="hidden" name="method" value="deleteWarehouseManager">
+			<input type="hidden" id="deleteWarehouseManagerNos[]" name="nos" value="">
+			<input type="button" value="删除" onClick="var arr = getWarehouseManagerChecked(); deleteWarehouseManager(arr); this.form.submit();" class="button big danger">
+		</form>
 	<%
 		}
 		else
@@ -279,7 +540,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    			+ "from Salesman where OnDuty = 1";
 	    	List<Salesman> list3 = salesman.getForList(sql, null);
 	%>
-	<table class="bordered">
+	<table class="bordered" id="SalesmanTable">
 		<tr>
 			<th></th>
 		<%
@@ -313,16 +574,112 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<td><%=iter.getSalesmanno() %></td>
 			<td><%=iter.getSalesmanname() %></td>
 			<td><%=iter.getSex() %></td>
-			<td><%=iter.getBirthday().toString() %></td>
+			<td><%=iter.getBirthday().toString().substring(0, 10) %></td>
 			<td><%=iter.getTelephone() %></td>
-			<td><%=iter.getHiredate().toString() %></td>
+			<td><%=iter.getHiredate().toString().substring(0, 10) %></td>
 			<td><%=iter.getStoreno() %></td>
 			<td><%=iter.getSalary() %></td>
 		</tr>
 		<%
 			}
-		}
 		%>
 	</table>
+	<button onClick="document.getElementById('light-4').style.display='block'; document.getElementById('fade-4').style.display='block';" class="button big">添加</button>
+		<form method="post" action="/website/PersonnelFileUpload" id="AddSalesmanForm" enctype="multipart/form-data">
+			<div id="light-4" class="white_content">
+				<h2>添加店员</h2>
+				<input type="hidden" name="method" value="addSalesman">
+				<table>
+					<tr>
+						<td>编号：</td>
+						<td><input type="text" name="addSalesmanNo"></td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td><input type="text" name="addSalesmanName"></td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td><input type="radio" name="addSalesmanSex" value="男">男<input type="radio" name="addSalesmanSex" value="女">女</td>
+					</tr>
+					<tr>
+						<td>出生日期：</td>
+						<td><input type="date" name="addSalesmanBirthday"></td>
+					</tr>
+					<tr>
+						<td>联系电话：</td>
+						<td><input type="text" name="addSalesmanTelephone"></td>
+					</tr>
+					<tr>
+						<td>分店编号：</td>
+						<td><input type="text" name="addSalesmanStoreNo"></td>
+					</tr>
+					<tr>
+						<td>月薪：</td>
+						<td><input type="text" name="addSalesmanSalary"></td>
+					</tr>
+					<tr>
+						<td>头像：</td>
+						<td><input type="file" name="addIcon"></td>
+					</tr>
+				</table>
+				<input type="hidden" name="addSalesmanPasswd" value="password">
+				<br><button onClick="this.form.submit();document.getElementById('light-4').style.display='none';document.getElementById('fade-4').style.display='none'" class="button big">确定</button>
+				<br><button type="button" onClick="document.getElementById('light-4').style.display='none';document.getElementById('fade-4').style.display='none'" class="button big">取消</button>
+			</div>
+			<div id="fade-4" class="black_overlay"></div>
+		</form>
+		<button onClick="document.getElementById('light-5').style.display='block';document.getElementById('fade-5').style.display='block';var arr=getSalesmanChecked();salesmanSetDefault(arr)" class="button big">修改</button>
+		<form method="post" action="/website/PersonnelFileUpload" id="ModifySalesmanForm" enctype="multipart/form-data">
+			<div id="light-5" class="white_content">
+				<h2>修改店员信息</h2>
+				<input type="hidden" name="method" value="modifySalesman">
+				<table>
+					<tr>
+						<td>编号：</td>
+						<td><input type="text" name="modifySalesmanNo" id="salesmanDefualtNo" value="" readonly="readonly"></td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td><input type="text" name="modifySalesmanName" id="salesmanDefualtName" value=""></td>
+					</tr>
+					<tr>
+						<td>性别：</td>
+						<td><input type="radio" name="modifySalesmanSex" id="salesmanDefualtMale" value="男" disabled>男<input type="radio" name="sex" id="salesmanDefualtFemale" value="女" disabled>女</td>
+					</tr>
+					<tr>
+						<td>出生日期：</td>
+						<td><input type="date" name="modifySalesmanBirthday" id="salesmanDefualtBirthday" value=""></td>
+					</tr>
+					<tr>
+						<td>联系电话：</td>
+						<td><input type="text" name="modifySalesmanTelephone" id="salesmanDefualtTelephone" value=""></td>
+					</tr>
+					<tr>
+						<td>分店编号：</td>
+						<td><input type="text" name="modifySalesmanStoreNo" id="salesmanDefualtStoreNo" value=""></td>
+					</tr>
+					<tr>
+						<td>月薪：</td>
+						<td><input type="text" name="modifySalesmanSalary" id="salesmanDefualtSalary" value=""></td>
+					</tr>
+					<tr>
+						<td>头像：</td>
+						<td><input type="file" name="modifySalesmanIcon"></td>
+					</tr>
+				</table>
+				<br><button onClick="this.form.submit();document.getElementById('light-5').style.display='none';document.getElementById('fade-5').style.display='none'" class="button big">确定</button>
+				<br><button type="button" onClick="document.getElementById('light-5').style.display='none';document.getElementById('fade-5').style.display='none'" class="button big">取消</button>
+			</div>
+			<div id="fade-5" class="black_overlay"></div>
+		</form>
+		
+		<form method="post" action="/website/PersonnelServlet" id="deleteSalesmanForm">
+			<input type="hidden" name="method" value="deleteSalesman">
+			<input type="hidden" id="deleteSalesmanNos[]" name="nos" value="">
+			<input type="button" value="删除" onClick="var arr = getSalesmanChecked(); deleteSalesman(arr); this.form.submit();" class="button big danger">
+		</form>
+	<%} %>
+	
 </body>
 </html>

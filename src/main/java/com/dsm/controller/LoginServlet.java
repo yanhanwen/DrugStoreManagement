@@ -58,7 +58,6 @@ public class LoginServlet extends HttpServlet
 			if(m.getPasswd()!=null&&m.getPasswd().equals(password))
 			{
 				session.setAttribute("user_id", user_id);
-//				request.getRequestDispatcher("/finance/finain.jsp").forward(request, response);
 				request.getRequestDispatcher("wel.jsp").forward(request, response);
 				return;
 			}

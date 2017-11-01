@@ -2,7 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
+<web-app id="WebApp_1509548508133">
 
   <filter>
   	<filter-name>UserFilter</filter-name>
@@ -30,26 +30,34 @@
   </servlet>
   <servlet>
   	<servlet-name>PersonnelAutoServlet</servlet-name>
-  	<display-name>PersonnelAutoServlet</display-name>
-  	<description></description>
   	<servlet-class>com.dsm.controller.PersonnelAutoServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>SupplierAutoServlet</servlet-name>
-  	<display-name>SupplierAutoServlet</display-name>
-  	<description></description>
   	<servlet-class>com.dsm.controller.SupplierAutoServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>SupplierServlet</servlet-name>
-  	<display-name>SupplierServlet</display-name>
-  	<description></description>
   	<servlet-class>com.dsm.controller.SupplierServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ClearServlet</servlet-name>
     <servlet-class>com.dsm.controller.ClearServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>StoreServlet</servlet-name>
+  	<servlet-class>com.dsm.controller.StoreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>WarehouseServlet</servlet-name>
+    <servlet-class>com.dsm.controller.WarehouseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PersonnelFileUpload</servlet-name>
+    <servlet-class>com.dsm.controller.PersonnelFileUpload</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -81,6 +89,18 @@
   <servlet-mapping>
     <servlet-name>ClearServlet</servlet-name>
     <url-pattern>/ClearServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StoreServlet</servlet-name>
+  	<url-pattern>/StoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WarehouseServlet</servlet-name>
+    <url-pattern>/WarehouseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PersonnelFileUpload</servlet-name>
+    <url-pattern>/PersonnelFileUpload</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
