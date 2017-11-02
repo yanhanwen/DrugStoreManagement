@@ -49,9 +49,9 @@ public class StoreServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String ID = "23456";
-		//String ID = (String) session.getAttribute("user_id");
+		String ID = (String) session.getAttribute("user_id");
 		if ( !ID.startsWith("2")) {
+			request.getRequestDispatcher("error.jsp").forward(request, response);
 			return;
 		}
 		
