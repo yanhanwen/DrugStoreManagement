@@ -13,13 +13,6 @@
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
-<div class="div1">
-<img alt="" src="../img/title.png" style="width:100%;height:180px">
-</div>
-<div class="divleft">
-<a href="OnSale.jsp" style="margin-left:60px;">在售信息</a><br><br><br><br>
- <a href="sale.jsp" style="margin-left:60px;">销售记录</a>
-</div>
 <div>
 <h1><font class="basic-grey" style="font-size:30px;color:blue;padding-left:100px;">以下是历史销售记录:</font></h1>
 </div>
