@@ -20,8 +20,9 @@ public class ManagerDao extends BaseDao<Manager>
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			rs.next();
+			BigDecimal a = rs.getBigDecimal(1);
 			JDBCTools.releaseConnection(connection, pstmt, rs);
-			return rs.getBigDecimal(1);
+			return a;
 		} catch (SQLException e) {
 			return new BigDecimal(-1);
 		}

@@ -20,10 +20,11 @@ public class StoreDao extends BaseDao<Store>
 			PreparedStatement pstmt = connection.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			rs.next();
+			BigDecimal a = rs.getBigDecimal(1);
 			JDBCTools.releaseConnection(connection, pstmt, rs);
-			return rs.getBigDecimal(1);
+			return a;
 		} catch (SQLException e) {
-			return new BigDecimal(-1);
+			return new BigDecimal(0);
 		}
 	}
 	public void addObject(Object obj)

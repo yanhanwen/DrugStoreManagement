@@ -23,7 +23,7 @@ public class StoreManagerDao extends BaseDao<StoreManager>
 			JDBCTools.releaseConnection(connection, pstmt, rs);
 			return rs.getBigDecimal(1);
 		} catch (SQLException e) {
-			return new BigDecimal(-1);
+			return new BigDecimal(0);
 		}
 	}
 	public void addObject(Object obj)
