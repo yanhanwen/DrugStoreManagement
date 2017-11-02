@@ -53,9 +53,11 @@ public class SupplierServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String ID = "0123456";//(String) session.getAttribute("user_id");
+		String ID = (String) session.getAttribute("user_id");
+		
+		//String ID = "0123456";//(String) session.getAttribute("user_id");
 		if ( !ID.startsWith("0")) {
-			return;
+			response.sendRedirect("/website/error.jsp");
 		}
 		String method =null;
 		method = request.getParameter("method");
