@@ -57,7 +57,7 @@ public class SupplierServlet extends HttpServlet {
 		
 		//String ID = "0123456";//(String) session.getAttribute("user_id");
 		if ( !ID.startsWith("0")) {
-			request.getRequestDispatcher("/error.jsp");
+			request.getRequestDispatcher("error.jsp");
 		}
 		String method =null;
 		method = request.getParameter("method");
