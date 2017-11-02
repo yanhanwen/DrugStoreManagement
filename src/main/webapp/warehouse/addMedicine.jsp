@@ -25,18 +25,19 @@ margin-right:300px;
 }
 <title>药品入库</title>
 </style>
-	<link rel="stylesheet" href="../css/table.css">
-	<link rel="stylesheet" type="text/css" href="../css/button.css" />
+	<link rel="stylesheet" href="/website/css/table.css">
+	<link rel="stylesheet" type="text/css" href="/website/css/button.css" />
 	
 </head>
 <body  >
-<jsp:include page="../header.jsp"></jsp:include>
 		${message}
 		<!--  
 		<form action="../WarehouseServlet" method="post">
 			<input type="hidden" name="method" value="addMedicine"> 
 		</form>
 		-->
+		<% 	String message=(String)request.getAttribute("message");
+		%>	
 		<div class="bordered">
 		<div id="tab" >
 			<h2 align="center">药品入库</h2>
@@ -94,7 +95,7 @@ margin-right:300px;
 	       			<span >仓存编号</span> &nbsp;&nbsp;<input type="text" name="WarehouseNo" size="10">&nbsp;&nbsp;&nbsp;&nbsp;
 	       			<span >入库数量</span> <input type="text" name="EnterCount" size="10"><br>
 	       			<span >供应商编号</span><input type="text" name="SupplierNo" size="10">&nbsp;&nbsp;&nbsp;&nbsp;
-	       			<span >生产日期</span> &#9;<input type="text" name="ProdctDate" size="10"><br>
+	       			<span >生产日期</span> &#9;<input type="text" name="ProductDate" size="10"><br>
 	       			<span >生产厂商</span> &nbsp;&nbsp;<input type="text" name="Factory" size="10">&nbsp;&nbsp;&nbsp;&nbsp;
 	       			<span >有效期</span>  &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="LifeTime" size="10"><br>
 	       			<span>仓库环境</span> &nbsp; <input type="text" name="Condition" size=10><br>
@@ -105,6 +106,13 @@ margin-right:300px;
 			</div>
 		</div>	
 		<script>
+			function showAlert(){
+				var message=<%=message%>;
+				if(message!=null){
+					alert("message="+message);
+				}
+			}
+			
 			function showAddInfo(w,h){ 
 				//alert("123");
 				var baseText = null;
@@ -130,9 +138,8 @@ margin-right:300px;
 			}
 			
 		</script>	
-		<button class="buttontton whitete" type="button" onclick="refreshPage()">刷新</button>
+		<button class="buttontton whitete" type="button" onclick="showAlert()">结果</button>
 		<button class="buttontton  whitete" type="button" onclick="showAddInfo()" >添加行</button>
-		<% String message=(String)request.getAttribute("message");	%>	
-		<p><%=message %> </p>
+		
 </body>
 </html>

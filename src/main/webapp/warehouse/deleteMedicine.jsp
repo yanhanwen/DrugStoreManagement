@@ -10,11 +10,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>药品出库</title>
-	<link rel="stylesheet" href="../css/table.css">
-	<link rel="stylesheet" type="text/css" href="../css/button.css" />
+<style type="text/css">
+#addTable{
+position: absolute; 
+visibility: hidden; 
+overflow: hidden; 
+border:1px solid #CCC; 
+background-color:#F9F9F9; 
+border:1px solid #ccc; 
+padding:5px; 
+margin-left:150px;
+margin-right:300px;
+
+}
+
+</style>
+	
+	<link rel="stylesheet" href="/website/css/table.css">
+	<link rel="stylesheet" type="text/css" href="/website/css/button.css" />
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
 	${message}
 	<div class="bordered">
 		<div id="tab">
@@ -60,15 +75,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	</div>
 
-	<button class="buttontton whitete" type="button" onclick=" ">出库</button>
+	  <button class="buttontton whitete" type="button" onclick=" showTable()">出库</button>
 	
-		<form action="WarehouseServlet"method="post">
+		<form action="/website/WarehouseServlet" method="post">
 			<input type="hidden" name="method" value="deleteMedicine">
-			药品编号：<input type="text" name="MedicineNo" value="">		
-			仓库编号：<input type="text" name="WarehouseNo" value="">
-			出库数量：<input type="text" name="Count" value="">
-			店面编号：<input type="text" name="StoreNo" value="">
-			<input type="submit" value="确定"><input type="reset" value="重置">
+			<div id="addTable" class="bordered">
+			<table>
+				<thead>
+					<tr>
+						<th>药品编号</th>
+						<th>仓库编号</th>
+						<th>出库数量</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="text" name="MedicineNo" ></td>
+						<td><input type="text" name="WareHouseNo" ></td>
+						<td><input type="text" name="Count" ></td>
+					</tr>
+				
+				</tbody>
+			</table>
+			<input type="submit" value="提交" class="buttontton whitete" style="margin-left:250px;">
+			<input type="button" value="关闭" class="buttontton whitete" onclick="hideTable()">
+			</div>
+			
 		</form>
+		<script type="text/javascript">
+		function showTable(){ 
+			var popUp = document.getElementById("addTable");
+			popUp.style.top = "200px"; 
+			popUp.style.left = "200px"; 
+			popUp.style.visibility = "visible"; 
+			}
+		function hideTable(){
+			var popUp = document.getElementById("addTable");
+			popUp.style.visibility="hidden";
+		}
+		</script>
+	
 </body>
 </html>

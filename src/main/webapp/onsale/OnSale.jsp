@@ -15,10 +15,6 @@
 <div class="div1">
 <img alt="" src="../img/title.png" style="width:100%;height:180px">
 </div>
-<div class="divleft">
-<a href="OnSale.jsp" style="margin-left:60px;">在售信息</a><br><br><br><br>
- <a href="sale.jsp" style="margin-left:60px;">销售记录</a>
-</div>
 <div class="formDiv1">
 	    <form action="OnSale.jsp" method="post">
 	       <span class="basic-grey">药品编号</span> <input type="text" name="medicineNo" class="inputmargin basic-grey1">
