@@ -41,7 +41,7 @@ public class UserFilter implements Filter
         }  
 		if(sess.getAttribute("user_id")==null)
 		{
-			req.getRequestDispatcher("ErrorJsp.jsp").forward(req, res);
+			req.getRequestDispatcher("error.jsp").forward(req, res);
 			return;
 		}
 		else
