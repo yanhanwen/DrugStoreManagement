@@ -22,7 +22,18 @@ margin-left:150px;
 margin-right:300px;
 
 }
+#addMedicineNoTable{
+position: absolute; 
+visibility: hidden; 
+overflow: hidden; 
+border:1px solid #CCC; 
+background-color:#F9F9F9; 
+border:1px solid #ccc; 
+padding:5px; 
+margin-left:150px;
+margin-right:300px;
 
+}
 </style>
 
 <head>
@@ -32,36 +43,12 @@ margin-right:300px;
 	<link rel="stylesheet" type="text/css" href="../css/button.css" />
 </head>
 <body >
-<jsp:include page="../header.jsp"></jsp:include>
 	<h2 align="center">库存查询</h2>	
-	<%!boolean submit=true; 
-		String message=null;
-		
-	%>
-	<script type="text/javascript">
-		function QATDrugNo(){
-				
-		}
-		function isSubmit(){
-			//alert("submit="+submit);
-			message=document.getElementById("mno").value;
-			//alert("submit="+submit);
-		}
-		function hello(){
-			document.thisform.submit();
-		}
-		
+	<script type="text/javascript">	
 		function showAddInfo(str){ 
 			var popUp = document.getElementById(str);	
 			popUp.style.top = "200px"; 
 			popUp.style.left = "200px"; 
-			popUp.style.visibility = "visible"; 
-			} 
-		function showtable(str){ 
-			var popUp = document.getElementById(str);	
-			popUp.style.top = "200px"; 
-			popUp.style.left = "200px"; 
-			alert("hello");
 			popUp.style.visibility = "visible"; 
 			} 
 		function hideAddInfo(str){ 
@@ -72,7 +59,7 @@ margin-right:300px;
 	<button class="buttontton whitete" type="button" onclick="showAddInfo('inputMedicineNo')">按照药品编号查询</button>
 	<button class="buttontton whitete" type="button" onclick="showAddInfo('inputEnterNo')">按照入库编号查询</button>
 	<button class="buttontton whitete" type="button" onclick="showAddInfo('inputStockNo')">按照库存编号查询</button><br><br><br><br><br>
-	<!--  <form name="thisform" method="post" >-->
+	
 	<div id="inputMedicineNo" class="show">
 	<form>
 		请输入药品编号：<input   type="text" name="medicineno" >	<br>
@@ -83,7 +70,7 @@ margin-right:300px;
 	
 	<div id="inputEnterNo" class="show">
 	<form>	
-		请输入入库编号：<input   type="text" name="aaaa" >	<br>
+		请输入入库编号：<input   type="text" name="enterno" >	<br>
 		<button class="buttontton whitete" type="button" onclick="this.form.submit()">提交</button>		
 	</form>
 	</div>
@@ -96,10 +83,11 @@ margin-right:300px;
 	</div> 
 
 	<button class="buttontton whitete" type="button" onclick="showAddInfo('addMedicineNoTable')">显示药品查询记录</button>
-	<button class="buttontton whitete" type="button" onclick="showtable('addEnterNoTable')">显示入库查询记录</button>
+	<button class="buttontton whitete" type="button" onclick="showAddInfo('addEnterNoTable')">显示入库查询记录</button>
 	<button class="buttontton whitete" type="button" onclick="showAddInfo('addStockNoTable')">显示库存查询记录</button>
-	
-	<div id="addMedicineNoTable" class="show" >	
+	<div>
+	<div id="addMedicineNoTable"  >	
+	<form>
 		<div class="bordered">	
 			<%
 				String medicineno =request.getParameter("medicineno");
@@ -143,14 +131,16 @@ margin-right:300px;
 			%>	
 			
 			<input type="button" class="buttontton whitete" value="关闭" onclick="hideAddInfo('addMedicineNoTable')"  style="margin-left:150px;">		
+	</form>
 	</div>
-	
-	
-	<div id="addEnterNoTable" class="show" >	
+	</div>
+	<div>
+	<div id="addEnterNoTable" class="show"  >	
+	<form>
 		<div class="bordered">	
 		
 			<%
-				String enterno =request.getParameter("aaaa");
+				String enterno =request.getParameter("enterno");
 				String sql2="select * from enterware where enterno ='"+enterno +"'";
 				EnterWareDao enterware=new EnterWareDao();
 				EnterWare enterware2=enterware.getSingleObject(sql2);
@@ -195,10 +185,12 @@ margin-right:300px;
 			%>	
 			
 			<input type="button" class="buttontton whitete" value="关闭" onclick="hideAddInfo('addEnterNoTable')"  style="margin-left:150px;">		
+	</form>
 	</div>
-	
-	
+	</div>
+	<div>
 	<div id="addStockNoTable" class="show" >	
+	<form>		
 		<div class="bordered">	
 		
 			<%
@@ -245,7 +237,8 @@ margin-right:300px;
 			%>	
 			
 			<input type="button" class="buttontton whitete" value="关闭" onclick="hideAddInfo('addStockNoTable')"  style="margin-left:150px;">		
+	</form>
 	</div>
-	
+	</div>
 </body>
 </html>
