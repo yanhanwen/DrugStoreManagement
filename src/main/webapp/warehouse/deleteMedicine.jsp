@@ -90,9 +90,9 @@ margin-right:300px;
 				</thead>
 				<tbody>
 					<tr>
-						<td><input type="text" name="MedicineNo" value="010101"></td>
-						<td><input type="text" name="WareHouseNo" value="0000"></td>
-						<td><input type="text" name="Count" value="5"></td>
+						<td><input type="text" name="MedicineNo" ></td>
+						<td><input type="text" name="WareHouseNo" ></td>
+						<td><input type="text" name="Count" ></td>
 					</tr>
 				
 				</tbody>
