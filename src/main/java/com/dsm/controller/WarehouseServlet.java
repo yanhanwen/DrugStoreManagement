@@ -28,10 +28,8 @@ import com.dsm.model.dao.impl.*;
 
 public class WarehouseServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-//	private String WareManNo=null;
-	private String WareManNo="11";
-	//WareManNo="11";
-	private String EnterNo="0000000001";
+	private String WareManNo=null; 
+	private String EnterNo="0000000000";
 	private String LeaveNo="1000000000";
 	//private String EnvirNo="00000";
 	private String No="000";
@@ -46,18 +44,15 @@ public class WarehouseServlet extends HttpServlet{
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		WareManNo = (String)session.getAttribute("ID");
 		if(user == null || !WareManNo.startsWith("1"))
 		{
 			response.sendRedirect("/WEB-INF/ErrorJsp.jsp");
 		//	return;
-		}*/
-		String method = request.getParameter("method");
-		if(method==null) {
-			System.out.println("method="+method);
 		}
+		String method = request.getParameter("method");
 		if(method.equals("addMedicine")) {
 			addMedicine(request,response);
 			//request.getRequestDispatcher("/warehouse/addMedicine.jsp").forward(request,response);
@@ -66,7 +61,7 @@ public class WarehouseServlet extends HttpServlet{
 		}else if(method.equals("queryMedicine")) {
 			queryMedicine(request,response);
 		}
-	//	request.getRequestDispatcher("/warehouse").forward(request,response);
+		request.getRequestDispatcher("/warehouse").forward(request,response);
 		
 	}
 	//将从jsp页面得到的string型转为data型
@@ -89,17 +84,6 @@ public class WarehouseServlet extends HttpServlet{
 	//将从jsp页面得到的string型转为时间戳型
 	public Timestamp currentTime() {
 		Timestamp Time=new Timestamp(System.currentTimeMillis());
-		return Time;
-	}
-	public Timestamp stringToTimestamp(String str) {
-		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		String s=format.format(new java.util.Date());
-		Timestamp Time=null;
-		try {   		
-			Time=Timestamp.valueOf(s); 
-        } catch (Exception e) {   
-            e.printStackTrace();   
-        }  
 		return Time;
 	}
 	//将从jsp页面得到的string型转为BigDecimal型
@@ -148,53 +132,35 @@ public class WarehouseServlet extends HttpServlet{
 		}
 		return LeaveNo;
 	}*/
-	public String getNo(String Number,String table) {
-		String sql="select "+Number+" from "+ table;
-		
-	//	List<String> noList=null;
-		int max=0;
-		if(table.equals("EnterWare")) {
-			EnterWareDao base=new EnterWareDao();
-			List<EnterWare> noList=(List<EnterWare>)base.getForList(sql);	
-			for(int i=0;i<noList.size();i++) {
-				int value=Integer.valueOf( noList.get(i).getEnterno()).intValue();
-				if(value>max) {
-					max=value;
-				}
-			}
-		}else if(table.equals("LeaveWare")) {
-			LeaveWareDao leaveware=new LeaveWareDao();
-			List<LeaveWare> noList=(List<LeaveWare>)leaveware.getForList(sql);	
-			for(int i=0;i<noList.size();i++) {
-				int value=Integer.valueOf( noList.get(i).getLeaveno()).intValue();
-				if(value>max) {
-					max=value;
-				}
-			}
-		}
-		
-		max+=1;
-		String str=String.format("%010d", max);
-		return str;
+	public String getNo(String No,String table) {
+		String sql="select MAX("+No+") from"+ table;
+		EnterWareDao base=new EnterWareDao();
+		No=(String)base.getSingleValue(sql, null);
+		//如果入库的表中有数据，则取出最大值并进行加一操作
+		//如果表中无数据，则把默认值作为第一个入库编号
+		if(No!="") {
+			int no=stringToInt(No);
+			no++;
+			No=String.valueOf(no);
+		}			
+		return No;
 	}
 	public String getSheleNo(String No,String table) {
-		String sql="select "+No+" from "+ table;
-		StockDao base=new StockDao();
-		List<Stock> noList=(List<Stock>)base.getForList(sql, null);
-		int max=0;
-		for(int i=0;i<noList.size();i++) {
+		String sql="select MAX("+No+") from"+ table;
+		EnterWareDao base=new EnterWareDao();
+		No=(String)base.getSingleValue(sql, null);
+		//如果入库的表中有数据，则取出最大值并进行加一操作
+		//如果表中无数据，则把默认值作为第一个入库编号
+		if(No!="") {
+			//提取出No中的数字来
 			String regEx="[^0-9]";  
 			Pattern p = Pattern.compile(regEx);  
-			Matcher m = p.matcher(noList.get(i).getShelfno());  
+			Matcher m = p.matcher(No);  
 			int no=stringToInt(m.replaceAll("").trim());
-			if(no>max) {
-				max=no;
-			}
-		}
-		max+=1;
-		String str=String.format("%03d", max);
-		return str;
-		
+			no++;
+			No=String.valueOf(no);
+		}			
+		return No;
 	}
 	
 	//药品入库
@@ -205,10 +171,11 @@ public class WarehouseServlet extends HttpServlet{
 		//request.getRequestDispatcher("/warehouse/addMedicine.jsp").forward(request,response);
 		String MedicineNo=request.getParameter("MedicineNo");
 		MedicineDao medicine=new MedicineDao();
-		String sql="select * from Medicine where MedicineNo ="+MedicineNo;
+		String sql="select MedicineNo,MedicineName,Category,factory,Indication,StorageCond,LifeTime"
+				+"from Medicine where MedicineNo ="+MedicineNo;
 		List<Medicine> medicines=medicine.getForList(sql, null);
 		//如果存放药信息的表中无该数据，则向该表中加入该药的一行信息
-		Timestamp LifeTime=stringToTimestamp(request.getParameter("LifeTime"));
+		java.sql.Date LifeTime=stringToDate(request.getParameter("LifeTime"));
 		if(medicines.isEmpty()) {
 			MedicineDao Medicine=new MedicineDao();
 			//将从jsp页面中得到的string型转为date型
@@ -224,13 +191,13 @@ public class WarehouseServlet extends HttpServlet{
 		
 		//药品入库，
 		EnterWareDao enterWare=new EnterWareDao();
-		BigDecimal EnterCount=stringToBigDecimal(request.getParameter("EnterCount"));
+		int EnterCount=stringToInt(request.getParameter("EnterCount"));
 		Timestamp EnterTime=currentTime();
-		//将从jsp页面得到的string型转为Timestamp型
-		Timestamp ProductDate=stringToTimestamp(request.getParameter("ProductDate"));
+		//将从jsp页面得到的string型转为data型
+		java.sql.Date ProductDate=stringToDate(request.getParameter("ProductDate"));
 		//将从jsp页面得到的string型转为BigDecimal型
 		BigDecimal Cost=stringToBigDecimal(request.getParameter("Cost"));
-		EnterNo=getNo("EnterNo","EnterWare");
+		EnterNo=getNo(EnterNo,"EnterWare");
 		EnterWare newEnterWare=new EnterWare(EnterNo,MedicineNo,request.getParameter("WarehouseNo"),
 				request.getParameter("SupplierNo"),EnterCount,EnterTime,ProductDate,Cost,WareManNo);		
 		enterWare.addObject(newEnterWare);
@@ -239,26 +206,22 @@ public class WarehouseServlet extends HttpServlet{
 		//仓库条件咋编号，在这里只是查看没有修改或添加啊
 		WarehouseEnvirDao warehouseEnvir=new WarehouseEnvirDao();
 		String sql2="Select Area from WarehouseEnvir where WareHouseNo="
-				+request.getParameter("WarehouseNo")+" and condition"
-				+" like %"+request.getParameter("Condition")+"%"+" or %"+request.getParameter("Condition")
-				+" or "+request.getParameter("Condition")+"%";
-		String area=(String)warehouseEnvir.getSingleValue(sql2);
+				+request.getParameter("WarehouseNo")+"and "+request.getParameter("StorageCond")
+				+"like %Condition%";
+		String area=(String)warehouseEnvir.getSingleValue(sql2, null);
 		//药品进入库存的表
 		//因为库存里的表以入库编号为主键，所以即便是相同的药如果不是一批进库的，那么编号就不一样
 		//这也就意味着一种药在库存里有多行信息，每一行的入库编号不同、生产日期可能相同，也可能不同
 		StockDao stock=new StockDao();
 		String StockNo=EnterNo;
-		No=getSheleNo("ShelfNo","Stock");
-		String SheleNo="hb"+No;
+		No=getSheleNo(No,"Stock");
+		String SheleNo=area+No;
 		//这里的有效期应该是生产日期加上保质期吧，未完成！！！！！！
-		java.sql.Timestamp ValidPeriod=LifeTime;
-		
+		java.sql.Date ValidPeriod=LifeTime;
 		Stock newStock=new Stock(StockNo,MedicineNo,request.getParameter("WarehouseNo"),
 				SheleNo,EnterCount,Cost,ProductDate,ValidPeriod);
 		stock.addObject(newStock);
-		String message=null;
-		request.setAttribute("message", "添加成功");
-		request.getRequestDispatcher("/warehouse/addMedicine.jsp").forward(request,response);
+		//request.getRequestDispatcher("/warehouse/addMedicine.jsp").forward(request,response);
 		
 				
 	}
@@ -269,26 +232,26 @@ public class WarehouseServlet extends HttpServlet{
 		String WareHouseNo=request.getParameter("WareHouseNo");
 		//药品出库时的的进价，默认为最新日期的进价
 		BigDecimal Cost=null;
-		BigDecimal Count=stringToBigDecimal(request.getParameter("Count"));
+		int Count=stringToInt(request.getParameter("Count"));
 		String sql="select SUM(Count) from Stock where Medicine="+MedicineNo+"and WareHouseNo="+"WareHouseNo";
 		StockDao stock=new StockDao();
 		//库存中该仓库该药的数量
-		BigDecimal count=(BigDecimal)stock.getSingleValue(sql, null);
+		int count=(Integer)stock.getSingleValue(sql, null);
 		//若不能满足需求
-		if(count.compareTo(Count)==-1) {
+		if(count<Count) {
 			//一些提醒或者跳转啥的
 		}else {		//若能够满足需求
 			String Sql="select StockNo,MedicineNo,WareHouseNo,ShelfNo,Count,Cost,ProductDate,ValidPeriod "+
 					"from Stock where Medicine="+MedicineNo+"and WareHouseNo="+"WareHouseNo order by ProductDate";
 			List<Stock> stockList=stock.getForList(Sql, null);
 			for(int i=0;i<stockList.size();i++) {
-				if(Count.compareTo(stockList.get(i).getCount())==1||Count.compareTo(stockList.get(i).getCount())==0) {
-					Count=Count.subtract(stockList.get(i).getCount());
+				if(Count>=stockList.get(i).getCount()) {
+					Count=Count-stockList.get(i).getCount();
 					String StockNo=stockList.get(i).getStockno();
 					//String sql2="delete from Stock where StockNo="+StockNo;
 					stock.deleteObjectByKey(StockNo);
 				}else {
-					BigDecimal Count2=stockList.get(i).getCount().subtract(Count);
+					int Count2=stockList.get(i).getCount()-Count;
 					Cost=stockList.get(i).getCost();
 					String sql2="update Stock set Count="+Count2+"where StockNo="+stockList.get(i).getStockno();
 					stock.update(sql2, null);
@@ -300,9 +263,9 @@ public class WarehouseServlet extends HttpServlet{
 		//药品出库，类似于药品进库
 		LeaveWareDao leaveWare=new LeaveWareDao();
 	//	BigDecimal Cost=stringToBigDecimal(request.getParameter("Cost"));
-		BigDecimal LeaveCount=Count;
+		int LeaveCount=Count;
 		Timestamp LeaveTime=currentTime();
-		LeaveNo=getNo("LeaveNo","LeaveWare");
+		LeaveNo=getNo(LeaveNo,"LeaveWare");
 		LeaveWare newLeaveWare=new LeaveWare(LeaveNo,request.getParameter("MedicineNo"),request.getParameter("WarehouseNo"),
 					request.getParameter("StoreNo"),Cost,LeaveCount,LeaveTime,WareManNo);
 		leaveWare.addObject(newLeaveWare);
