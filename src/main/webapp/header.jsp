@@ -37,6 +37,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</li> 
 		
 		<li>
+		  <a href="<%=request.getContextPath()%>/onsale/OnSale.jsp">销售管理</a>
+		  <ul class="animenu__nav__child">
+			<li><a href="<%=request.getContextPath()%>/onsale/OnSale.jsp">在售信息</a></li>
+			<li><a href="<%=request.getContextPath()%>/onsale/sale.jsp">销售记录</a></li>
+		  </ul>
+		</li>
+		
+		<li>
 		  <a href="<%=request.getContextPath()%>/store/store.jsp">分店管理</a>
 		  <ul class="animenu__nav__child">
 			<li><a href="<%=request.getContextPath()%>/store/storeadd.jsp">添加分店</a></li>

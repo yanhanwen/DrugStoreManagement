@@ -2,7 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app id="WebApp_1509548508133">
+<web-app>
 
   <filter>
   	<filter-name>UserFilter</filter-name>
@@ -56,6 +56,11 @@
     <servlet-name>PersonnelFileUpload</servlet-name>
     <servlet-class>com.dsm.controller.PersonnelFileUpload</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>OnSaleServlet</servlet-name>
+    <servlet-class>com.dsm.controller.OnSaleServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -101,6 +106,10 @@
   <servlet-mapping>
     <servlet-name>PersonnelFileUpload</servlet-name>
     <url-pattern>/PersonnelFileUpload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OnSaleServlet</servlet-name>
+    <url-pattern>/OnSaleServlet</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
