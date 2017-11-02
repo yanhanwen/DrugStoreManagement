@@ -7,9 +7,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <style>
-#background-size2{  
-background-size:30% 60%;  
-} 
+body{
+background-repeat: no-repeat ;
+background-position: center;
+background-size: 100% ;
+}
 </style>
   <head>
     <base href="<%=basePath%>">
@@ -25,7 +27,9 @@ background-size:30% 60%;
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
   </head>
-  <body background="img/wel.jpg" height="100%" width="100%">
+
+  <body background="img/wel.jpg">
+
   <jsp:include page="header.jsp"></jsp:include>
   </body>
 </html>
